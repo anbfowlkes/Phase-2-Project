@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+nav {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 36px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+
+.routes {
+  /* border: solid black; */
+}
