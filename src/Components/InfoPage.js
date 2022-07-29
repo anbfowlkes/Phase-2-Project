@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import TaxInfo from './TaxInfo'
-import IncomeInfo from './IncomeInfo'
-import DailyExpInfo from './DailyExpInfo'
-import DebtInfo from './DebtInfo'
-import InvestmentsInfo from './InvestmentsInfo'
+import TaxInfo from './Info/TaxInfo'
+import IncomeInfo from './Info/IncomeInfo'
+import DailyExpInfo from './Info/DailyExpInfo'
+import DebtInfo from './Info/DebtInfo'
+import InvestmentsInfo from './Info/InvestmentsInfo'
 
 
 const InfoPage = () => {
