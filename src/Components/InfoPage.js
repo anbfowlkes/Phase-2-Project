@@ -9,7 +9,7 @@ import InvestmentsInfo from './Info/InvestmentsInfo'
 const InfoPage = ({ 
     setTotalDailyExp, 
     setDailyExpObj, 
-    setIncome, 
+    setIncomeInfoState, 
     setTaxInfoState, 
     taxInfoState, 
     debtInfoState,
@@ -28,7 +28,7 @@ const InfoPage = ({
             setDailyExpObj={setDailyExpObj} 
             />
         } else if (num === 1) {
-            return <IncomeInfo setIncome={setIncome} />
+            return <IncomeInfo setIncomeInfoState={setIncomeInfoState} />
         } else if (num === 2) {
             return <InvestmentsInfo investInfoState={investInfoState} setInvestInfoState={setInvestInfoState} />
         } else if (num === 3) {

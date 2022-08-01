@@ -1,7 +1,7 @@
-const IncomeInfo = ({ setIncome }) => {
+const IncomeInfo = ({ setIncomeInfoState }) => {
    const handleSubmit = (e) => {
     e.preventDefault()
-    setIncome(e.target[0].value)
+       setIncomeInfoState(e.target[0].value)
    }
   
     return (

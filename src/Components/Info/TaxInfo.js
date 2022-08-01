@@ -2,7 +2,7 @@ const TaxInfo = ({ setTaxInfoState, taxInfoState }) => {
 
   const handleTaxSubmit = (e) => {
     e.preventDefault()
-    setTaxInfoState([...taxInfoState, { relStatus: e.target[0].value, dependants: e.target[1].value }])
+    setTaxInfoState({ relStatus: e.target[0].value, dependents: e.target[1].value })
   }
 
   return (
