@@ -16,3 +16,24 @@ nav {
 .routes {
   /* border: solid black; */
 }
+
+.info-div {
+  border: solid black;
+  width: 500px;
+  height: 400px;
+  float: right;
+}
+
+.info-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tax-form {
+  display: inline-block;
+  vertical-align: middle;
+}
