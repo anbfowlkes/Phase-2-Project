@@ -4,7 +4,7 @@ import IncomeInfo from './Info/IncomeInfo'
 import DailyExpInfo from './Info/DailyExpInfo'
 import DebtInfo from './Info/DebtInfo'
 import InvestmentsInfo from './Info/InvestmentsInfo'
-import IncomeShow from './InfoDisplays/IncomeShow'
+import CurrentShow from './InfoDisplays/CurrentShow'
 
 
 const InfoPage = ({ 
@@ -21,67 +21,34 @@ const InfoPage = ({
     const [setter, setSetter] = useState(true)
     const [displayItem, setDisplayItem] = useState(0)
     const [category, setCategory] = useState('')
+    let cat = ''
 
     const showItem = (num) => {
         if (num === 0) {
             return
         } else if (num === 1) {
+            cat = 'Daily'
             return <DailyExpInfo 
-            setSetter={setSetter} 
             setTotalDailyExp={setTotalDailyExp} 
             setDailyExpObj={setDailyExpObj} 
             />
         } else if (num === 2) {
-            setCategory('income')
+            cat = 'income'
             return <IncomeInfo setIncomeInfoState={setIncomeInfoState} />
         } else if (num === 3) {
+            cat = 'investments'
             return <InvestmentsInfo investInfoState={investInfoState} setInvestInfoState={setInvestInfoState} />
         } else if (num === 4) {
+            cat = 'debt'
             return <DebtInfo debtInfoState={debtInfoState} setDebtInfoState={setDebtInfoState} />
         } else if (num === 5) {
+            cat = 'taxes'
             return <TaxInfo setTaxInfoState={setTaxInfoState} taxInfoState={taxInfoState} />
         }
     }
 
-    const [info, setInfo] = useState([])
 
-    // const fetchData = async () => {
-    //     let req = await fetch('http://localhost:8000/income')
-    //     let res = await req.json()
-    //     return res
-    // }
-    // const grabber = async () => {
-    //     let data = await fetchData()
-    //     console.log(data)
-    //     // setInfo(data)
-    // }
-
-    // const grabber = (category) => {
-    //     fetch(`http://localhost:8000/${category}`)
-    //     .then((res) => res.json())
-    //     .then((data) => setInfo(data))
-    // }
-
-    // const changeCurrent = (num) => {
-    //     if (num === 0) {
-    //         return
-    //     } else if (num === 2) {
-    //         fetch('http://localhost:8000/income')
-    //         .then((res) => res.json())
-    //         .then((data) => setInfo(data))
-    //     }
-    // }
-
-    // const test = () => (
-    //     console.log(category)
-    //     // fetch(`http://localhost:8000/${category}`)
-    //     //  .then((res) => res.json())
-    //     //  .then((data) => console.log(data))
-    // )
-
-    // const showCurrent = (info) => {
-    //     return <IncomeShow info={info} />
-    // }
+   
 
     return (
         <div>
@@ -92,10 +59,7 @@ const InfoPage = ({
             </div>
             <div className='current-status'>
                 <h3>Current Information</h3>
-                {/* {test()} */}
-                {/* {changeCurrent(displayItem)} */}
-                {/* {showCurrent(info)} */}
-                {}
+                {cat ? <CurrentShow cat={cat}/> : null}
             </div>
 
             <div className='info-buttons'>
