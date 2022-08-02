@@ -138,12 +138,17 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
     //     let req = await res.json()
     //     return req
     // }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 144d997b711184c9aa2d436b257c265382011dd0
     // const sumDaily = async () => {
     //     let data = await fetchDaily()
     //     setSum(data)
     // }
 
+<<<<<<< HEAD
     useEffect(() => {
         fetch('http://localhost:8000/daily')
             .then((res) => res.json())
@@ -157,6 +162,21 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         let bar = dailyArr.reduce((prev, curr) => prev + curr)
         setSumDaily(bar)
         console.log('sumDaily is', sumDaily)
+=======
+     useEffect(() => {
+        fetch('http://localhost:8000/daily')
+        .then((res) => res.json())
+        .then((req) => setSum(req))
+    }, [totalDailyExp])
+
+     useEffect(() => {
+        let foo = sum.map((item) => parseInt(item.dailyAmount))
+        setDailyArr(foo)
+         console.log('dailyArray is', dailyArr)
+        let bar = dailyArr.reduce((prev, curr) => prev + curr)
+        setSumDaily(bar)
+         console.log('sumDaily is', sumDaily)
+>>>>>>> 144d997b711184c9aa2d436b257c265382011dd0
     }, [sum])
 
     // calculation of yearly expenses including income, investments, debts, and taxes
