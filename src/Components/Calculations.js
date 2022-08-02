@@ -2,14 +2,17 @@
 
 const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfoState, debtInfoState }) => {
 
+    // storing variables
     let income = incomeInfoState
     let relStatus = taxInfoState.relStatus
     let dependents = taxInfoState.dependents
 
+    // function to change number to decimal percentage
     const toDecimal = (num) => {
         return num / 100
     }
 
+    // function to calculate taxes
     const taxCalculator = (status, amount) => {
         if (status === 'Single') {
             if (amount < 9950) {
@@ -78,6 +81,7 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         }
     }
 
+    // function to calculate actual taxes with dependents
     const actualTaxAmount = (income, relStatus, dependents) => {
         let taxAmount = taxCalculator(relStatus, income) - (dependents * 2000)
         if (taxAmount < 0) {
@@ -87,6 +91,7 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
     console.log(taxCalculator(relStatus, income))
     console.log(actualTaxAmount(income, relStatus, dependents))
 
+    // function to calculate investment growth
     const investmentCalculator = (amount, rate, compound) => {
         rate = toDecimal(rate)
         if (compound === 'Continuous (recommended)') return amount * (Math.E) ** (rate)
@@ -95,12 +100,14 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         if (compound === 'Annual') return (amount) * (1 + rate)
     }
 
+    // function to calculate debt growth
     // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
     const debtCalculator = (amount, rate, term) => {
         rate = toDecimal(rate) / 12
         return parseFloat((rate * amount) / (1 - (1 / (1 + rate) ** (term * 12))))
     }
 
+    // map to calculate total investment amount
     const investArray = investInfoState.map((item) => { return investmentCalculator(item.amount, item.rate, item.compound) })
     const totalInvestments = (arr) => {
         let total = 0
@@ -109,8 +116,8 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         }
         return total
     }
-    //console.log(totalInvestmentGain(investArray))
 
+    // map to calculate total debt amount
     const debtArray = debtInfoState.map((item) => { return debtCalculator(item.amount, item.rate, item.loanTerm) })
     const totalDebt = (arr) => {
         let total = 0
@@ -119,21 +126,49 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         }
         return total * 12
     }
-    console.log(totalDebt(debtArray))
 
-    console.log('Income: ', income)
-    console.log('Total Investments: ', totalInvestments(investArray))
-    console.log('Total Debt: ', totalDebt(debtArray))
-    console.log('Actual Tax Amount: ', actualTaxAmount(income, relStatus, dependents))
+    //const dailyArr = []
+    // fetch('http://localhost:8000/daily')
+    //     .then((res) => res.json())
+    //     .then((req) => req.map((item) => {
+    //         console.log(item)
+    //         //dailyArr.push(item.dailyAmount)
+    //     }
+    // ))
+    //console.log(dailyArr)
+   // console.log('this is the sum amount', dailyExpCount)
 
+    // console.log('Income: ', income)
+    // console.log('Total Investments: ', totalInvestments(investArray))
+    // console.log('Total Debt: ', totalDebt(debtArray))
+    // console.log('Actual Tax Amount: ', actualTaxAmount(income, relStatus, dependents))
+
+    // calculation of yearly expenses including income, investments, debts, and taxes
     let wholeTotal = parseInt(income) + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
-    console.log(wholeTotal)
 
-    console.log(wholeTotal/365)
+    //let dailyNet = 
+    let incomeNet = parseInt(income)
+    let investmentNet = totalInvestments(investArray)
+    let debtNet = totalDebt(debtArray)
+    let taxNet = actualTaxAmount(income, relStatus, dependents)
+    let yearlyNet = wholeTotal
 
-    // totalYearlyNet = () => {
-    //     income + investmentCalculator(amount, rate, compound)
-    // }
+    fetch('http://localhost:8000/calculated/', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            totalDaily: 0,
+            totalIncome: incomeNet,
+            totalInvestments: investmentNet,
+            totalDebt: debtNet,
+            totalTaxes: taxNet,
+            totalAll: yearlyNet
+        })
+    })
+        .then((res) => res.json())
+
 }
 
 export default Calculations

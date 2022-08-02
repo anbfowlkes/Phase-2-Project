@@ -1,7 +1,19 @@
 const IncomeInfo = ({ setIncomeInfoState }) => {
    const handleSubmit = (e) => {
     e.preventDefault()
-       setIncomeInfoState(e.target[0].value)
+    let val = e.target[0].value
+    fetch('http://localhost:8000/income', {
+    method: 'PATCH',
+    body: JSON.stringify({
+        incomeAmount: val
+    }),
+    headers: {
+        'Content-type': 'application/json'
+    },
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    setIncomeInfoState(val)
    }
   
     return (

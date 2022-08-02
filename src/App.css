@@ -37,3 +37,11 @@ nav {
   display: inline-block;
   vertical-align: middle;
 }
+
+.current-status {
+  border: solid black;
+  width: 200px;
+  height: 400px;
+  float: right;
+  text-align: center;
+}

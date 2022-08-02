@@ -2,7 +2,21 @@ const TaxInfo = ({ setTaxInfoState, taxInfoState }) => {
 
   const handleTaxSubmit = (e) => {
     e.preventDefault()
-    setTaxInfoState({ relStatus: e.target[0].value, dependents: e.target[1].value })
+    let val1 = e.target[0].value
+    let val2 = e.target[1].value
+    fetch('http://localhost:8000/taxes', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        relStatus: val1,
+        dependents: val2
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    setTaxInfoState({ relStatus: val1, dependents: val2 })
   }
 
   return (

@@ -4,6 +4,20 @@ const DebtInfo = ({ debtInfoState, setDebtInfoState } ) => {
         let amount = e.target[0].value
         let rate = e.target[1].value
         let loanTerm = e.target[2].value
+
+        fetch('http://localhost:8000/debt', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                debtAmount: amount,
+                debtRate: rate,
+                debtTerm: loanTerm,
+            })
+        })
+            .then((res) => res.json())
+
         setDebtInfoState([...debtInfoState, {amount: amount, rate: rate, loanTerm: loanTerm}])
     }
 

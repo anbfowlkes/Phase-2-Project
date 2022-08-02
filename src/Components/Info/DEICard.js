@@ -6,7 +6,22 @@ const DEICard = ({ DEIArray, setDEIArray, setTotalDailyExp, setDailyExpObj } ) =
 
     const handleEntry = (e) => {
         e.preventDefault()
+        let item = e.target[0].value
         let val = parseInt(e.target[1].value)
+
+        fetch('http://localhost:8000/daily', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                dailyItem: item,
+                dailyAmount: val,
+            })
+        })
+            .then((res) => res.json())
+
+
         setTotalDailyExp((prevVal) => prevVal + val)
     }
                 
