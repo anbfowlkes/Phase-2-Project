@@ -95,8 +95,6 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         if (compound === 'Annual') return (amount) * (1 + rate)
     }
 
-    
-
     // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
     const debtCalculator = (amount, rate, term) => {
         rate = toDecimal(rate) / 12
@@ -123,7 +121,13 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
     }
     console.log(totalDebt(debtArray))
 
-    let wholeTotal = income + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
+    console.log('Income: ', income)
+    console.log('Total Investments: ', totalInvestments(investArray))
+    console.log('Total Debt: ', totalDebt(debtArray))
+    console.log('Actual Tax Amount: ', actualTaxAmount(income, relStatus, dependents))
+
+    let wholeTotal = parseInt(income) + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
+    console.log(wholeTotal)
 
     console.log(wholeTotal/365)
 
