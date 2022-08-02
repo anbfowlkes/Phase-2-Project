@@ -1,4 +1,8 @@
+import { useEffect } from "react"
+
 const IncomeInfo = ({ setIncomeInfoState }) => {
+
+
    const handleSubmit = (e) => {
     e.preventDefault()
     let val = e.target[0].value

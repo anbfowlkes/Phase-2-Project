@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfoState, debtInfoState }) => {
+const Calculations = ({ dailySpending, totalDailyExp, incomeInfoState, taxInfoState, investInfoState, debtInfoState }) => {
 
     // storing variables
     let income = incomeInfoState
@@ -12,6 +12,7 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
     const toDecimal = (num) => {
         return num / 100
     }
+    console.log(dailySpending)
 
     // function to calculate taxes
     const taxCalculator = (status, amount) => {
@@ -128,82 +129,31 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         return total * 12
     }
 
-    // leave values for .reduce later
-    const [sum, setSum] = useState([0, 0])
-    const [dailyArr, setDailyArr] = useState([0, 0])
-    const [sumDaily, setSumDaily] = useState()
-
-    // const fetchDaily = async () => {
-    //     let res = await fetch('http://localhost:8000/daily')
-    //     let req = await res.json()
-    //     return req
-    // }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 144d997b711184c9aa2d436b257c265382011dd0
-    // const sumDaily = async () => {
-    //     let data = await fetchDaily()
-    //     setSum(data)
-    // }
-
-<<<<<<< HEAD
-    useEffect(() => {
-        fetch('http://localhost:8000/daily')
-            .then((res) => res.json())
-            .then((req) => setSum(req))
-    }, [totalDailyExp])
-
-    useEffect(() => {
-        let foo = sum.map((item) => parseInt(item.dailyAmount))
-        setDailyArr(foo)
-        console.log('dailyArray is', dailyArr)
-        let bar = dailyArr.reduce((prev, curr) => prev + curr)
-        setSumDaily(bar)
-        console.log('sumDaily is', sumDaily)
-=======
-     useEffect(() => {
-        fetch('http://localhost:8000/daily')
-        .then((res) => res.json())
-        .then((req) => setSum(req))
-    }, [totalDailyExp])
-
-     useEffect(() => {
-        let foo = sum.map((item) => parseInt(item.dailyAmount))
-        setDailyArr(foo)
-         console.log('dailyArray is', dailyArr)
-        let bar = dailyArr.reduce((prev, curr) => prev + curr)
-        setSumDaily(bar)
-         console.log('sumDaily is', sumDaily)
->>>>>>> 144d997b711184c9aa2d436b257c265382011dd0
-    }, [sum])
-
     // calculation of yearly expenses including income, investments, debts, and taxes
     let wholeTotal = parseInt(income) + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
 
-    //let dailyNet = 
+    // //let dailyNet = 
     let incomeNet = parseInt(income)
     let investmentNet = totalInvestments(investArray)
     let debtNet = totalDebt(debtArray)
     let taxNet = actualTaxAmount(income, relStatus, dependents)
     let yearlyNet = wholeTotal
 
-    fetch('http://localhost:8000/calculated/', {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            totalDaily: 0,
-            totalIncome: incomeNet,
-            totalInvestments: investmentNet,
-            totalDebt: debtNet,
-            totalTaxes: taxNet,
-            totalAll: yearlyNet
-        })
-    })
-        .then((res) => res.json())
+    // fetch('http://localhost:8000/calculated/', {
+    //     method: 'PATCH',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //         totalDaily: totalDailyExp,
+    //         totalIncome: incomeNet,
+    //         totalInvestments: investmentNet,
+    //         totalDebt: debtNet,
+    //         totalTaxes: taxNet,
+    //         totalAll: yearlyNet
+    //     })
+    // })
+    //     .then((res) => res.json())
 }
 
 export default Calculations

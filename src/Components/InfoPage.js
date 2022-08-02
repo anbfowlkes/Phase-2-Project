@@ -18,9 +18,7 @@ const InfoPage = ({
     investInfoState,
     setInvestInfoState } ) => {
 
-    const [setter, setSetter] = useState(true)
     const [displayItem, setDisplayItem] = useState(0)
-    const [category, setCategory] = useState('')
     let cat = ''
 
     const showItem = (num) => {

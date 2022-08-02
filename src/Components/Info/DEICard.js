@@ -1,4 +1,9 @@
+import { useEffect } from 'react'
+
 const DEICard = ({ DEIArray, setDEIArray, setTotalDailyExp, setDailyExpObj } ) => {
+
+
+
 
     const addAnother = () => {
         setDEIArray([...DEIArray, 1])
@@ -22,7 +27,6 @@ const DEICard = ({ DEIArray, setDEIArray, setTotalDailyExp, setDailyExpObj } ) =
             .then((res) => res.json())
 
 
-        setTotalDailyExp((prevVal) => prevVal + val)
     }
                 
     return (

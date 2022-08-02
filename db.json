@@ -1,29 +1,9 @@
 {
   "daily": [
     {
-      "id": 1,
-      "dailyItem": "",
-      "dailyAmount": 0
-    },
-    {
-      "dailyItem": "",
-      "dailyAmount": 1,
-      "id": 2
-    },
-    {
-      "dailyItem": "",
-      "dailyAmount": 1,
-      "id": 3
-    },
-    {
-      "dailyItem": "",
-      "dailyAmount": 1,
-      "id": 4
-    },
-    {
-      "dailyItem": "",
-      "dailyAmount": 2,
-      "id": 5
+      "dailyItem": "food",
+      "dailyAmount": 5,
+      "id": 1
     }
   ],
   "income": {
@@ -48,30 +28,6 @@
       "investmentRate": "upiu",
       "investmentCompound": "Quarterly",
       "id": 3
-    },
-    {
-      "investmentAmount": "78089",
-      "investmentRate": "upiu",
-      "investmentCompound": "Quarterly",
-      "id": 4
-    },
-    {
-      "investmentAmount": "342",
-      "investmentRate": "2343",
-      "investmentCompound": "Quarterly",
-      "id": 5
-    },
-    {
-      "investmentAmount": "234",
-      "investmentRate": "12343",
-      "investmentCompound": "Quarterly",
-      "id": 6
-    },
-    {
-      "investmentAmount": "1000",
-      "investmentRate": ".9",
-      "investmentCompound": "Continuous (recommended)",
-      "id": 7
     }
   ],
   "debt": [
@@ -86,30 +42,6 @@
       "debtRate": "123",
       "debtTerm": "123",
       "id": 2
-    },
-    {
-      "debtAmount": "2323",
-      "debtRate": "324",
-      "debtTerm": "3234",
-      "id": 3
-    },
-    {
-      "debtAmount": "3413",
-      "debtRate": "413",
-      "debtTerm": "42134",
-      "id": 4
-    },
-    {
-      "debtAmount": "",
-      "debtRate": "",
-      "debtTerm": "",
-      "id": 5
-    },
-    {
-      "debtAmount": "",
-      "debtRate": "",
-      "debtTerm": "",
-      "id": 6
     }
   ],
   "taxes": {
@@ -120,9 +52,9 @@
   "calculated": {
     "id": 1,
     "totalDaily": 0,
-    "totalIncome": 80000,
-    "totalInvestments": 1009.0406217738679,
-    "totalDebt": 0,
+    "totalIncome": null,
+    "totalInvestments": null,
+    "totalDebt": null,
     "totalTaxes": null,
     "totalAll": null
   }
