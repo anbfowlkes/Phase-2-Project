@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 
 
 const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfoState, debtInfoState }) => {
@@ -88,8 +89,8 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
             return 0
         } else return taxAmount
     }
-    console.log(taxCalculator(relStatus, income))
-    console.log(actualTaxAmount(income, relStatus, dependents))
+    // console.log(taxCalculator(relStatus, income))
+    // console.log(actualTaxAmount(income, relStatus, dependents))
 
     // function to calculate investment growth
     const investmentCalculator = (amount, rate, compound) => {
@@ -127,21 +128,36 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         return total * 12
     }
 
-    //const dailyArr = []
-    // fetch('http://localhost:8000/daily')
-    //     .then((res) => res.json())
-    //     .then((req) => req.map((item) => {
-    //         console.log(item)
-    //         //dailyArr.push(item.dailyAmount)
-    //     }
-    // ))
-    //console.log(dailyArr)
-   // console.log('this is the sum amount', dailyExpCount)
+    // leave values for .reduce later
+    const [sum, setSum] = useState([0, 0])
+    const [dailyArr, setDailyArr] = useState([0, 0])
+    const [sumDaily, setSumDaily] = useState()
 
-    // console.log('Income: ', income)
-    // console.log('Total Investments: ', totalInvestments(investArray))
-    // console.log('Total Debt: ', totalDebt(debtArray))
-    // console.log('Actual Tax Amount: ', actualTaxAmount(income, relStatus, dependents))
+    // const fetchDaily = async () => {
+    //     let res = await fetch('http://localhost:8000/daily')
+    //     let req = await res.json()
+    //     return req
+    // }
+    
+    // const sumDaily = async () => {
+    //     let data = await fetchDaily()
+    //     setSum(data)
+    // }
+
+     useEffect(() => {
+        fetch('http://localhost:8000/daily')
+        .then((res) => res.json())
+        .then((req) => setSum(req))
+    }, [totalDailyExp])
+
+     useEffect(() => {
+        let foo = sum.map((item) => parseInt(item.dailyAmount))
+        setDailyArr(foo)
+         console.log('dailyArray is', dailyArr)
+        let bar = dailyArr.reduce((prev, curr) => prev + curr)
+        setSumDaily(bar)
+         console.log('sumDaily is', sumDaily)
+    }, [sum])
 
     // calculation of yearly expenses including income, investments, debts, and taxes
     let wholeTotal = parseInt(income) + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
@@ -168,7 +184,6 @@ const Calculations = ({ totalDailyExp, incomeInfoState, taxInfoState, investInfo
         })
     })
         .then((res) => res.json())
-
 }
 
 export default Calculations
