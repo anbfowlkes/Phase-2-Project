@@ -9,8 +9,29 @@ import Login from './Components/Login'
 import InfoPage from './Components/InfoPage'
 import Calculations from './Components/Calculations'
 
+/*
+for the display we want:
+daily expenses, investment growth, debt growth, taxes, 
+*/
+
 
 const App = () => {
+  
+  const [dailyTotalObj, setDailyTotalObj] = useState({
+      dailyMoneyFromIncome: 0,
+      dailyMoneyFromInvestments: 0,
+      dailyLossFromExpenses: 0,
+      dailyLossFromDebt: 0,
+      dailyLossFromTaxes: 0,
+  })
+
+  const [moneyFromIncomeTotal, setMoneyFromIncomeTotal] = useState(0)
+
+  const moneySetter = (x) => {
+    setMoneyFromIncomeTotal(x)
+  }
+
+  //const [dailyTotalObj, setDailyTotalObj] = useState({})
 
   const [prevSpending, setPrevSpending] = useState([])
   const [prevIncome, setPrevIncome] = useState({})
@@ -64,7 +85,9 @@ const App = () => {
           <NavBar></NavBar>
           <Switch>
             <Route path="/results">
-              <Results />
+              <Results 
+              
+              />
             </Route>
             <Route path="/about">
               <About />
@@ -131,7 +154,10 @@ const App = () => {
             newTotals={newTotals}
             setNewTotals={setNewTotals}
             prevTotals={prevTotals}
-            setPrevTotals={setPrevTotals}
+            setPrevTotals={setPrevTotals}////
+            dailyTotalObj={dailyTotalObj}
+            setDailyTotalObj={setDailyTotalObj}
+            moneySetter={moneySetter}
          />
     </>
   );

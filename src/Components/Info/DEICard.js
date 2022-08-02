@@ -32,7 +32,7 @@ const DEICard = ({
             })
         })
             .then((res) => res.json())
-            .then((newItem) => setNewSpending(...newSpending, newItem))
+            .then((newItem) => setNewSpending([...newSpending, newItem]))
 
 
     }

@@ -25,27 +25,53 @@ const Calculations = ({
     newTotals,
     setNewTotals,
     prevTotals,
-    setPrevTotals
+    setPrevTotals,////////
+    dailyTotalObj,
+    setDailyTotalObj,
+    moneyFromIncomeTotal,
+    setMoneyFromIncomeTotal,
+    moneySetter
  }) => {
 
     let spendingArray = [...prevSpending, ...newSpending]
 
-    let totalSpending
+    console.log(spendingArray)
+
+    let totalSpending = 0
     for (let i = 0 ; i < spendingArray.length ; i++) {
-        totalSpending += spendingArray[i].incomeAmount
+        totalSpending += spendingArray[i].dailyAmount
     }
     
+    //revenue represents the salary of the user
     let revenue = prevIncome.dailyAmount
+    let dailyRawIncome = revenue/365
+
+    // moneySetter(dailyRawIncome)
+
+    // const foo = () => {
+    //     setDailyTotalObj( { dailyMoneyFromIncome: dailyRawIncome })
+    // }
+    // foo()
+
+    // let obj = {...dailyTotalObj}
+    // obj.dailyMoneyFromIncome = dailyRawIncome
+    // console.log(obj.dailyMoneyFromIncome)
+       
+    //setDailyTotalObj({...dailyTotalObj},{ dailyMoneyFromIncome: dailyRawIncome })
 
     let passiveIncomeArray = [...prevInvestments, ...newInvestments]
+    //this is the array of investments (its an array of objects)
     //need to do math with these
 
+
     let taxSpecifics = prevTaxes
+    //this is a single object consisting of marital status and dependents
     //need to use this too
 
     let moneyOwedArray = [...prevDebts, ...newDebts]
+    //this is debts, its an array of objects
 
-    console.log(taxSpecifics)
+    console.log(totalSpending)
 
     // // storing variables
     // let income = incomeInfoState
@@ -134,8 +160,6 @@ const Calculations = ({
             return 0
         } else return taxAmount
     }
-    // console.log(taxCalculator(relStatus, income))
-    // console.log(actualTaxAmount(income, relStatus, dependents))
 
     // function to calculate investment growth
     const investmentCalculator = (amount, rate, compound) => {
@@ -152,6 +176,8 @@ const Calculations = ({
         rate = toDecimal(rate) / 12
         return parseFloat((rate * amount) / (1 - (1 / (1 + rate) ** (term * 12))))
     }
+
+
 
     /*
     // map to calculate total investment amount
