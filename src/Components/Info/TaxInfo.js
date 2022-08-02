@@ -1,6 +1,11 @@
 import { useEffect } from "react"
 
-const TaxInfo = ({ setTaxInfoState, taxInfoState }) => {
+const TaxInfo = ({
+  newTaxes,
+  setNewTaxes,
+  prevTaxes,
+  setPrevTaxes
+}) => {
 
 
   const handleTaxSubmit = (e) => {
@@ -19,7 +24,7 @@ const TaxInfo = ({ setTaxInfoState, taxInfoState }) => {
     })
     .then((res) => res.json())
     .then((data) => console.log(data))
-    setTaxInfoState({ relStatus: val1, dependents: val2 })
+    setPrevTaxes({ relStatus: val1, dependents: val2 })
   }
 
   return (

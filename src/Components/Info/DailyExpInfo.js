@@ -3,21 +3,35 @@ import DEICard from './DEICard'
 
 let c = 0
 
-const DailyExpInfo = ({ setSetter, setTotalDailyExp } ) => {
+const DailyExpInfo = ({ 
+    newSpending,
+    setNewSpending,
+    prevSpending,
+    setPrevSpending
+ } ) => {
 
     const [DEIArray, setDEIArray] = useState([1])
 
     const handleDEIClick = () => {
         console.log('clicked')
         // setSetter((prev) => !prev)
-        return <DEICard setSetter={setSetter} />
+        return <DEICard />
     }
 
     return (
         <div>
             <h3>Enter your daily expenditures here</h3>
             {DEIArray.map((item) => {
-                return <DEICard DEIArray={DEIArray} setDEIArray={setDEIArray} key={c++} setTotalDailyExp = {setTotalDailyExp} />
+                return ( 
+                <DEICard 
+                DEIArray={DEIArray} 
+                setDEIArray={setDEIArray} 
+                key={c++} 
+                newSpending={newSpending}
+                setNewSpending={setNewSpending}
+                prevSpending={prevSpending}
+                setPrevSpending={setPrevSpending}
+                /> )
             })}
 
             {/* <DEICard setSetter={setSetter} />

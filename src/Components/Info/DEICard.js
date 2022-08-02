@@ -1,6 +1,13 @@
 import { useEffect } from 'react'
 
-const DEICard = ({ DEIArray, setDEIArray, setTotalDailyExp, setDailyExpObj } ) => {
+const DEICard = ({ 
+    DEIArray, 
+    setDEIArray, 
+    newSpending,
+    setNewSpending,
+    prevSpending,
+    setPrevSpending
+    } ) => {
 
 
 
@@ -25,6 +32,7 @@ const DEICard = ({ DEIArray, setDEIArray, setTotalDailyExp, setDailyExpObj } ) =
             })
         })
             .then((res) => res.json())
+            .then((newItem) => setNewSpending(...newSpending, newItem))
 
 
     }

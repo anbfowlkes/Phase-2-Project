@@ -1,4 +1,9 @@
-const InvestmentsInfo = ({ investInfoState, setInvestInfoState }) => {
+const InvestmentsInfo = ({ 
+    newInvestments,
+    setNewInvestments,
+    prevInvestments,
+    setPrevInvestments,
+ }) => {
 
     const handleInvestSubmit = (e) => {
         e.preventDefault()
@@ -19,7 +24,7 @@ const InvestmentsInfo = ({ investInfoState, setInvestInfoState }) => {
         })
             .then((res) => res.json())
 
-        setInvestInfoState([...investInfoState, { amount: amount, rate: rate, compound: compound }])
+        setNewInvestments([...newInvestments, { amount: amount, rate: rate, compound: compound }])
     }
 
     return (

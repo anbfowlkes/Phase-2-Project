@@ -1,6 +1,11 @@
 import { useEffect } from "react"
 
-const IncomeInfo = ({ setIncomeInfoState }) => {
+const IncomeInfo = ({ 
+    newIncome,
+    prevIncome,
+    setPrevIncome,
+    setNewIncome
+ }) => {
 
 
    const handleSubmit = (e) => {
@@ -16,8 +21,7 @@ const IncomeInfo = ({ setIncomeInfoState }) => {
     },
     })
     .then((res) => res.json())
-    .then((data) => console.log(data))
-    setIncomeInfoState(val)
+    .then((newItem) => setPrevIncome(newItem))
    }
   
     return (

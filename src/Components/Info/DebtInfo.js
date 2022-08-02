@@ -1,4 +1,9 @@
-const DebtInfo = ({ debtInfoState, setDebtInfoState } ) => {
+const DebtInfo = ({ 
+    newDebts,
+    setNewDebts,
+    prevDebts,
+    setPrevDebts
+ } ) => {
     const handleDebtSubmit = (e) => {
         e.preventDefault()
         let amount = e.target[0].value
@@ -17,12 +22,12 @@ const DebtInfo = ({ debtInfoState, setDebtInfoState } ) => {
             })
         })
             .then((res) => res.json())
+            .then((newItem) => setNewDebts([...newDebts, newItem]))
 
-        setDebtInfoState([...debtInfoState, {amount: amount, rate: rate, loanTerm: loanTerm}])
     }
 
     return (
-                <div>
+        <div>
             <h3>Enter your investments information here</h3>
             <form onSubmit={handleDebtSubmit}>
                 <input type='text' placeholder='Amount'/>

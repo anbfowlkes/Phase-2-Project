@@ -8,15 +8,31 @@ import CurrentShow from './InfoDisplays/CurrentShow'
 
 
 const InfoPage = ({ 
-    setTotalDailyExp, 
-    setDailyExpObj, 
-    setIncomeInfoState, 
-    setTaxInfoState, 
-    taxInfoState, 
-    debtInfoState,
-    setDebtInfoState,
-    investInfoState,
-    setInvestInfoState } ) => {
+    newSpending,
+    setNewSpending,
+    prevSpending,
+    setPrevSpending,
+    newIncome,
+    prevIncome,
+    setPrevIncome,
+    setNewIncome,
+    newTaxes,
+    setNewTaxes,
+    prevTaxes,
+    setPrevTaxes,
+    newDebts,
+    setNewDebts,
+    prevDebts,
+    setPrevDebts,
+    newInvestments,
+    setNewInvestments,
+    prevInvestments,
+    setPrevInvestments,
+    newTotals,
+    setNewTotals,
+    prevTotals,
+    setPrevTotals
+     } ) => {
 
     const [displayItem, setDisplayItem] = useState(0)
     let cat = ''
@@ -27,21 +43,43 @@ const InfoPage = ({
         } else if (num === 1) {
             cat = 'Daily'
             return <DailyExpInfo 
-            setTotalDailyExp={setTotalDailyExp} 
-            setDailyExpObj={setDailyExpObj} 
+                newSpending={newSpending}
+                setNewSpending={setNewSpending}
+                prevSpending={prevSpending}
+                setPrevSpending={setPrevSpending}
             />
         } else if (num === 2) {
             cat = 'income'
-            return <IncomeInfo setIncomeInfoState={setIncomeInfoState} />
+            return <IncomeInfo 
+                newIncome={newIncome}
+                setNewIncome={setNewIncome}
+                prevIncome={prevIncome}
+                setPrevIncome={setPrevIncome}
+            />
         } else if (num === 3) {
             cat = 'investments'
-            return <InvestmentsInfo investInfoState={investInfoState} setInvestInfoState={setInvestInfoState} />
+            return <InvestmentsInfo 
+                newInvestments={newInvestments}
+                setNewInvestments={setNewInvestments}
+                prevInvestments={prevInvestments}
+                setPrevInvestments={setPrevInvestments}
+            />
         } else if (num === 4) {
             cat = 'debt'
-            return <DebtInfo debtInfoState={debtInfoState} setDebtInfoState={setDebtInfoState} />
+            return <DebtInfo 
+                newDebts={newDebts}
+                setNewDebts={setNewDebts}
+                prevDebts={prevDebts}
+                setPrevDebts={setPrevDebts}
+            />
         } else if (num === 5) {
             cat = 'taxes'
-            return <TaxInfo setTaxInfoState={setTaxInfoState} taxInfoState={taxInfoState} />
+            return <TaxInfo 
+                newTaxes={newTaxes}
+                setNewTaxes={setNewTaxes}
+                prevTaxes={prevTaxes}
+                setPrevTaxes={setPrevTaxes}
+            />
         }
     }
 

@@ -1,18 +1,62 @@
 import { useState, useEffect } from "react"
 
 
-const Calculations = ({ dailySpending, totalDailyExp, incomeInfoState, taxInfoState, investInfoState, debtInfoState }) => {
+const Calculations = ({
+    newSpending,
+    setNewSpending,
+    prevSpending,
+    setPrevSpending,
+    newIncome,
+    prevIncome,
+    setPrevIncome,
+    setNewIncome,
+    newTaxes,
+    setNewTaxes,
+    prevTaxes,
+    setPrevTaxes,
+    newDebts,
+    setNewDebts,
+    prevDebts,
+    setPrevDebts,
+    newInvestments,
+    setNewInvestments,
+    prevInvestments,
+    setPrevInvestments,
+    newTotals,
+    setNewTotals,
+    prevTotals,
+    setPrevTotals
+ }) => {
 
-    // storing variables
-    let income = incomeInfoState
-    let relStatus = taxInfoState.relStatus
-    let dependents = taxInfoState.dependents
+    let spendingArray = [...prevSpending, ...newSpending]
+
+    let totalSpending
+    for (let i = 0 ; i < spendingArray.length ; i++) {
+        totalSpending += spendingArray[i].incomeAmount
+    }
+    
+    let revenue = prevIncome.dailyAmount
+
+    let passiveIncomeArray = [...prevInvestments, ...newInvestments]
+    //need to do math with these
+
+    let taxSpecifics = prevTaxes
+    //need to use this too
+
+    let moneyOwedArray = [...prevDebts, ...newDebts]
+
+    console.log(taxSpecifics)
+
+    // // storing variables
+    // let income = incomeInfoState
+    // let relStatus = taxInfoState.relStatus
+    // let dependents = taxInfoState.dependents
 
     // function to change number to decimal percentage
     const toDecimal = (num) => {
         return num / 100
     }
-    console.log(dailySpending)
+    // console.log(dailySpending)
 
     // function to calculate taxes
     const taxCalculator = (status, amount) => {
@@ -109,6 +153,7 @@ const Calculations = ({ dailySpending, totalDailyExp, incomeInfoState, taxInfoSt
         return parseFloat((rate * amount) / (1 - (1 / (1 + rate) ** (term * 12))))
     }
 
+    /*
     // map to calculate total investment amount
     const investArray = investInfoState.map((item) => { return investmentCalculator(item.amount, item.rate, item.compound) })
     const totalInvestments = (arr) => {
@@ -153,7 +198,7 @@ const Calculations = ({ dailySpending, totalDailyExp, incomeInfoState, taxInfoSt
     //         totalAll: yearlyNet
     //     })
     // })
-    //     .then((res) => res.json())
+    //     .then((res) => res.json())*/
 }
 
 export default Calculations

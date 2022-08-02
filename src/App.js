@@ -12,43 +12,49 @@ import Calculations from './Components/Calculations'
 
 const App = () => {
 
-  const [totalDailyExp, setTotalDailyExp] = useState(0)
-  const [dailySpending, setDailySpending] = useState([])
-  const [incomeInfoState, setIncomeInfoState] = useState({})
-  const [taxInfoState, setTaxInfoState] = useState({})
-  const [debtInfoState, setDebtInfoState] = useState([])
-  const [investInfoState, setInvestInfoState] = useState([])
-  const [totals, setTotals] = useState({})
+  const [prevSpending, setPrevSpending] = useState([])
+  const [prevIncome, setPrevIncome] = useState({})
+  const [prevTaxes, setPrevTaxes] = useState({})
+  const [prevDebts, setPrevDebts] = useState([])
+  const [prevInvestments, setPrevInvestments] = useState([])
+  const [prevTotals, setPrevTotals] = useState({})
+
+  const [newSpending, setNewSpending] = useState([])
+  const [newIncome, setNewIncome] = useState({})
+  const [newTaxes, setNewTaxes] = useState({})
+  const [newDebts, setNewDebts] = useState([])
+  const [newInvestments, setNewInvestments] = useState([])
+  const [newTotals, setNewTotals] = useState({})
 
   useEffect(() => {
     fetch('http://localhost:8000/daily')
       .then((res) => res.json())
-      .then((data) => setDailySpending(data))
+      .then((data) => setPrevSpending(data))
   }, [])
   useEffect(() => {
     fetch('http://localhost:8000/income')
       .then((res) => res.json())
-      .then((data) => setIncomeInfoState(data))
+      .then((data) => setPrevIncome(data))
   }, [])
   useEffect(() => {
     fetch('http://localhost:8000/investments')
       .then((res) => res.json())
-      .then((data) => setInvestInfoState(data))
+      .then((data) => setPrevInvestments(data))
   }, [])
   useEffect(() => {
     fetch('http://localhost:8000/debt')
       .then((res) => res.json())
-      .then((data) => setDebtInfoState(data))
+      .then((data) => setPrevDebts(data))
   }, [])
   useEffect(() => {
     fetch('http://localhost:8000/taxes')
       .then((res) => res.json())
-      .then((data) => setTaxInfoState(data))
+      .then((data) => setPrevTaxes(data))
   }, [])
   useEffect(() => {
     fetch('http://localhost:8000/calculated')
       .then((res) => res.json())
-      .then((data) => setTotals(data))
+      .then((data) => setPrevTotals(data))
   }, [])
 
   return (
@@ -68,14 +74,30 @@ const App = () => {
             </Route>
             <Route path="/info">
               <InfoPage
-                setTotalDailyExp={setTotalDailyExp}
-                setIncomeInfoState={setIncomeInfoState}
-                taxInfoState={taxInfoState}
-                setTaxInfoState={setTaxInfoState}
-                debtInfoState={debtInfoState}
-                setDebtInfoState={setDebtInfoState}
-                investInfoState={investInfoState}
-                setInvestInfoState={setInvestInfoState}
+                newSpending={newSpending}
+                setNewSpending={setNewSpending}
+                prevSpending={prevSpending}
+                setPrevSpending={setPrevSpending}
+                newIncome={newIncome}
+                setNewIncome={setNewIncome}
+                prevIncome={prevIncome}
+                setPrevIncome={setPrevIncome}
+                newTaxes={newTaxes}
+                setNewTaxes={setNewTaxes}
+                prevTaxes={prevTaxes}
+                setPrevTaxes={setPrevTaxes}
+                newDebts={newDebts}
+                setNewDebts={setNewDebts}
+                prevDebts={prevDebts}
+                setPrevDebts={setPrevDebts}
+                newInvestments={newInvestments}
+                setNewInvestments={setNewInvestments}
+                prevInvestments={prevInvestments}
+                setPrevInvestments={setPrevInvestments}
+                newTotals={newTotals}
+                setNewTotals={setNewTotals}
+                prevTotals={prevTotals}
+                setPrevTotals={setPrevTotals}
                 />
             </Route>
             <Route path="/">
@@ -86,12 +108,31 @@ const App = () => {
       </Router >
 
         <Calculations 
-        totalDailyExp={totalDailyExp}
-        incomeInfoState={incomeInfoState}
-        taxInfoState={taxInfoState}
-        debtInfoState={debtInfoState}
-        investInfoState={investInfoState}
-        dailySpending={dailySpending} />
+            newSpending={newSpending}
+            setNewSpending={setNewSpending}
+            prevSpending={prevSpending}
+            setPrevSpending={setPrevSpending}
+            newIncome={newIncome}
+            setNewIncome={setNewIncome}
+            prevIncome={prevIncome}
+            setPrevIncome={setPrevIncome}
+            newTaxes={newTaxes}
+            setNewTaxes={setNewTaxes}
+            prevTaxes={prevTaxes}
+            setPrevTaxes={setPrevTaxes}
+            newDebts={newDebts}
+            setNewDebts={setNewDebts}
+            prevDebts={prevDebts}
+            setPrevDebts={setPrevDebts}
+            newInvestments={newInvestments}
+            setNewInvestments={setNewInvestments}
+            prevInvestments={prevInvestments}
+            setPrevInvestments={setPrevInvestments}
+            newTotals={newTotals}
+            setNewTotals={setNewTotals}
+            prevTotals={prevTotals}
+            setPrevTotals={setPrevTotals}
+         />
     </>
   );
 }

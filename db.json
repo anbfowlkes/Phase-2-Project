@@ -32,22 +32,28 @@
   ],
   "debt": [
     {
-      "id": 1,
-      "debtAmount": 0,
-      "debtRate": 0,
-      "debtTerm": 0
-    },
-    {
       "debtAmount": "12345",
       "debtRate": "123",
       "debtTerm": "123",
       "id": 2
+    },
+    {
+      "debtAmount": "500",
+      "debtRate": "20",
+      "debtTerm": "3",
+      "id": 3
+    },
+    {
+      "debtAmount": "100",
+      "debtRate": "40",
+      "debtTerm": "3",
+      "id": 4
     }
   ],
   "taxes": {
     "id": 1,
-    "relStatus": "Single",
-    "dependents": "1"
+    "relStatus": "Married - filing separately",
+    "dependents": "6"
   },
   "calculated": {
     "id": 1,
