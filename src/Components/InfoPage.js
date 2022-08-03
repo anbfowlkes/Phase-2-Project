@@ -50,9 +50,6 @@ const InfoPage = ({
     let cat = ''
     const [allBills, setAllBills] = useState([...prevBills, ...newBills])
 
-    const [rend, setRend] = useState(false)
-
-
     const showItem = (num) => {
         if (num === 0) {
             return
@@ -107,6 +104,8 @@ const InfoPage = ({
         }
     }
 
+    const [rend, setRend] = useState(false)
+    // const [moneyInArray, setMoneyInArray] = useState([...prevSpending, ...newSpending])
 
     const displayValues = (num) => {
         if (num === 0) {
@@ -114,8 +113,9 @@ const InfoPage = ({
         } else if (num === 1) {
             cat = 'Daily'
             let a = 0
-            let spendingArray = [...prevSpending, ...newSpending]
-            console.log('Spending Array: ', spendingArray)
+            let spendingArray = [...prevIncome, ...newIncome]
+            // let spendingArray = [...moneyInArray]
+            // console.log('Spending Array: ', spendingArray)
             return (
                 <div>
                     <h5>(Click to delete)</h5>
@@ -126,6 +126,7 @@ const InfoPage = ({
                                         key={a++} 
                                         item={item}
                                         setRend={setRend}
+                                        // setMoneyInArray={setMoneyInArray}
                                          />)
                         })}
                     </ul>
@@ -223,8 +224,7 @@ const InfoPage = ({
             )
         }
     }
-   
-
+    
     return (
         <div>
             <h1>Welcome to the Information Page</h1>

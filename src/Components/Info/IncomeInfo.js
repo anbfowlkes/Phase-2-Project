@@ -11,7 +11,7 @@ const IncomeInfo = ({
    const handleSubmit = (e) => {
     e.preventDefault()
     let desc = e.target[0].value
-    let val = e.target[1].value
+    let val = parseFloat(e.target[1].value)
     fetch('http://localhost:8000/income', {
     method: 'POST',
     body: JSON.stringify({

@@ -6,9 +6,10 @@ const DebtInfo = ({
  } ) => {
     const handleDebtSubmit = (e) => {
         e.preventDefault()
-        let amount = e.target[0].value
-        let rate = e.target[1].value
-        let loanTerm = e.target[2].value
+        let description = e.target[0].value
+        let amount = parseFloat(e.target[1].value)
+        let rate = parseFloat(e.target[2].value)/100.0
+        let loanTerm = parseFloat(e.target[3].value)
 
         fetch('http://localhost:8000/debt', {
             method: 'POST',
@@ -16,9 +17,10 @@ const DebtInfo = ({
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                description: description,
                 debtAmount: amount,
                 debtRate: rate,
-                debtTerm: loanTerm,
+                debtTerm: loanTerm
             })
         })
             .then((res) => res.json())
@@ -30,6 +32,8 @@ const DebtInfo = ({
         <div>
             <h3>Enter your investments information here</h3>
             <form onSubmit={handleDebtSubmit}>
+                <input type='text' placeholder='Debt Description' />
+                <br />
                 <input type='text' placeholder='Amount'/>
                 <br/>
                 <input type='text' placeholder='Interest Rate (in a percentage)'/>
