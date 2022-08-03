@@ -1,4 +1,5 @@
 const DebtsShow = ( {item, id} ) => {
+    let description = item.description
     let amount = item.debtAmount
     let rate = item.debtRate
     let term = item.debtTerm
@@ -14,6 +15,7 @@ const DebtsShow = ( {item, id} ) => {
     return (
         <div>
             <li>
+                <p>{`${description}`}</p>
                 <p>{`Amount Owed: ${amount}`}</p>
                 <p>{`Rate of Interest: ${rate}%`}</p>
                 <p>{`Loan Term: ${term} years`}</p>

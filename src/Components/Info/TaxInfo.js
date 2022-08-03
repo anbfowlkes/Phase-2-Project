@@ -11,7 +11,7 @@ const TaxInfo = ({
   const handleTaxSubmit = (e) => {
     e.preventDefault()
     let val1 = e.target[0].value
-    let val2 = e.target[1].value
+    let val2 = parseFloat(e.target[1].value)
     fetch('http://localhost:8000/taxes', {
       method: 'PATCH',
       body: JSON.stringify({

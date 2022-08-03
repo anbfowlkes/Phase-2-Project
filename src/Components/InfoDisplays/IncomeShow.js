@@ -1,4 +1,4 @@
-const IncomeShow = ({ item, id }) => {
+const IncomeShow = ({ item, id, setMoneyInArray }) => {
     let description = item.description
     let amount = item.incomeAmount
 
@@ -7,7 +7,7 @@ const IncomeShow = ({ item, id }) => {
             method: 'DELETE'
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => console.log('Income Show Console Log: ', data))
     }
 
     return (

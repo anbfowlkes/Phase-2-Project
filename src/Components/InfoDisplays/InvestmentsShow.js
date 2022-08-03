@@ -1,4 +1,5 @@
 const InvestmentsShow = ({item, id}) => {
+    let description = item.description
     let amount = item.investmentAmount
     let rate = item.investmentRate
     let compoundRate = item.investmentCompound
@@ -14,6 +15,7 @@ const InvestmentsShow = ({item, id}) => {
     return ( 
         <div>
             <li>
+                <p>{`${description}`}</p>
                 <p>{`Amount Invested: ${amount}`}</p>
                 <p>{`Growth Rate: ${rate}%`}</p>
                 <p>{`Compounded: ${compoundRate}`}</p>

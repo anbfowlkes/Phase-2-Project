@@ -6,25 +6,28 @@
       "id": 1
     }
   ],
-  "income": [
-    {
-      "description": "Salary",
-      "incomeAmount": "200000",
-      "id": 1
-    }
-  ],
+  "income": [],
   "investments": [
     {
       "id": 1,
+      "description": "Stocks",
       "investmentAmount": "123123",
       "investmentRate": "23",
       "investmentCompound": "Quarterly"
     },
     {
+      "description": "Real Estate",
       "investmentAmount": "23",
       "investmentRate": "",
       "investmentCompound": "Continuous (recommended)",
       "id": 4
+    },
+    {
+      "description": "stocks again",
+      "investmentAmount": 20,
+      "investmentRate": 2,
+      "investmentCompound": "Semi-Annual",
+      "id": 5
     }
   ],
   "debt": [
@@ -38,17 +41,14 @@
   ],
   "taxes": {
     "id": 1,
-    "relStatus": "Married - filing separately",
-    "dependents": "6"
+    "relStatus": "Head of Household",
+    "dependents": 9
   },
-  "bills": [],
-  "calculated": {
-    "id": 1,
-    "totalDaily": 0,
-    "totalIncome": null,
-    "totalInvestments": null,
-    "totalDebt": null,
-    "totalTaxes": null,
-    "totalAll": null
-  }
+  "bills": [
+    {
+      "billType": "rent",
+      "monthlyAmount": "2000",
+      "id": 1
+    }
+  ]
 }
