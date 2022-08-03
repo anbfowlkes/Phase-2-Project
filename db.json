@@ -6,68 +6,61 @@
       "id": 1
     }
   ],
-  "income": {
-    "id": 1,
-    "incomeAmount": "48"
-  },
   "investments": [
     {
-      "id": 1,
-      "investmentAmount": "123123",
-      "investmentRate": "23",
-      "investmentCompound": "Quarterly"
+      "investmentAmount": 200,
+      "investmentRate": 0.01,
+      "investmentCompound": "Quarterly",
+      "id": 1
     },
     {
-      "investmentAmount": "23423",
-      "investmentRate": "23423",
+      "investmentAmount": 10,
+      "investmentRate": 0.02,
       "investmentCompound": "Continuous (recommended)",
       "id": 2
     },
     {
-      "investmentAmount": "78089",
-      "investmentRate": "upiu",
-      "investmentCompound": "Quarterly",
+      "investmentAmount": 30,
+      "investmentRate": 0.05,
+      "investmentCompound": "Semi-Annual",
       "id": 3
     },
     {
-      "investmentAmount": "23",
-      "investmentRate": "",
-      "investmentCompound": "Continuous (recommended)",
+      "investmentAmount": 5,
+      "investmentRate": 0.1,
+      "investmentCompound": "Annual",
       "id": 4
     }
   ],
   "debt": [
     {
-      "debtAmount": "12345",
-      "debtRate": "123",
-      "debtTerm": "123",
+      "debtAmount": 10000,
+      "debtRate": 0.02,
+      "debtTerm": 10,
+      "id": 1
+    },
+    {
+      "debtAmount": 2000,
+      "debtRate": 0.05,
+      "debtTerm": 1,
       "id": 2
-    },
-    {
-      "debtAmount": "500",
-      "debtRate": "20",
-      "debtTerm": "3",
-      "id": 3
-    },
-    {
-      "debtAmount": "100",
-      "debtRate": "40",
-      "debtTerm": "3",
-      "id": 4
     }
   ],
-  "taxes": {
+  "income": [
+    {
+      "incomeAmount": 150000,
+      "id": 1
+    },
+    {
+      "incomeAmount": 10000,
+      "id": 2
+    }
+  ],
+  "taxes": 
+    {
     "id": 1,
     "relStatus": "Married - filing separately",
-    "dependents": "6"
-  },
-  "calculated": {
-    "id": 1,
-    "totalDaily": 0,
-    "totalIncome": null,
-    "totalInvestments": null,
-    "totalDebt": null,
-    "totalTaxes": null,
-    "totalAll": null
+    "dependents": 6
   }
+  
 }

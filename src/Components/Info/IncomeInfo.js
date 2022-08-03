@@ -12,9 +12,9 @@ const IncomeInfo = ({
     e.preventDefault()
     let val = e.target[0].value
     fetch('http://localhost:8000/income', {
-    method: 'PATCH',
+    method: 'POST',
     body: JSON.stringify({
-        incomeAmount: val
+        incomeAmount: parseFloat(val)
     }),
     headers: {
         'Content-type': 'application/json'

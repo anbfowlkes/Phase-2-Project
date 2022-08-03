@@ -8,7 +8,7 @@ const InvestmentsInfo = ({
     const handleInvestSubmit = (e) => {
         e.preventDefault()
         let amount = e.target[0].value
-        let rate = e.target[1].value
+        let rate = e.target[1].value/100
         let compound = e.target[2].value
 
         fetch('http://localhost:8000/investments', {
@@ -17,8 +17,8 @@ const InvestmentsInfo = ({
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                investmentAmount: amount,
-                investmentRate: rate,
+                investmentAmount: parseFloat(amount),
+                investmentRate: parseFloat(rate),
                 investmentCompound: compound,
             })
         })

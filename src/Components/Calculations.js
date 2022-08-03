@@ -35,7 +35,7 @@ const Calculations = ({
 
     let spendingArray = [...prevSpending, ...newSpending]
 
-    console.log(spendingArray)
+    // console.log(spendingArray)
 
     let totalSpending = 0
     for (let i = 0 ; i < spendingArray.length ; i++) {
@@ -71,7 +71,7 @@ const Calculations = ({
     let moneyOwedArray = [...prevDebts, ...newDebts]
     //this is debts, its an array of objects
 
-    console.log(totalSpending)
+    // console.log(totalSpending)
 
     // // storing variables
     // let income = incomeInfoState

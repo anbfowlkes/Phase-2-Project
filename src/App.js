@@ -72,11 +72,6 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => setPrevTaxes(data))
   }, [])
-  useEffect(() => {
-    fetch('http://localhost:8000/calculated')
-      .then((res) => res.json())
-      .then((data) => setPrevTotals(data))
-  }, [])
 
   return (
     <>

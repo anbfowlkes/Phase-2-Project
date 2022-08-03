@@ -7,7 +7,7 @@ const DebtInfo = ({
     const handleDebtSubmit = (e) => {
         e.preventDefault()
         let amount = e.target[0].value
-        let rate = e.target[1].value
+        let rate = e.target[1].value/100
         let loanTerm = e.target[2].value
 
         fetch('http://localhost:8000/debt', {
@@ -16,9 +16,9 @@ const DebtInfo = ({
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                debtAmount: amount,
-                debtRate: rate,
-                debtTerm: loanTerm,
+                debtAmount: parseFloat(amount),
+                debtRate: parseFloat(rate),
+                debtTerm: parseFloat(loanTerm),
             })
         })
             .then((res) => res.json())

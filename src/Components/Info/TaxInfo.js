@@ -16,7 +16,7 @@ const TaxInfo = ({
       method: 'PATCH',
       body: JSON.stringify({
         relStatus: val1,
-        dependents: val2
+        dependents: parseFloat(val2)
       }),
       headers: {
         'Content-type': 'application/json'
