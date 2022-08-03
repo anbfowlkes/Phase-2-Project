@@ -2,6 +2,7 @@ const DebtsShow = ( {item, id} ) => {
     let amount = item.debtAmount
     let rate = item.debtRate
     let term = item.debtTerm
+    let x
 
     const handleClick = () => {
         fetch(`http://localhost:8000/debt/${id}`, {
