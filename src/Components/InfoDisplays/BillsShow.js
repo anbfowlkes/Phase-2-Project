@@ -13,8 +13,8 @@ const BillsShow = ({ item, id, setRend }) => {
     return (
         <div>
             <li>
-                <p>{`"${type}" bill`}</p>
-                <p>{`Monthly Amount: ${amount}`}</p>
+                <p>{`${type} Bill`}</p>
+                <p>{`Monthly Amount: ${amount} dollars`}</p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>
             <hr></hr>

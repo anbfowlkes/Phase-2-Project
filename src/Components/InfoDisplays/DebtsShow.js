@@ -3,7 +3,6 @@ const DebtsShow = ( {item, id} ) => {
     let amount = item.debtAmount
     let rate = item.debtRate
     let term = item.debtTerm
-    let x
 
     const handleClick = () => {
         fetch(`http://localhost:8000/debt/${id}`, {
@@ -17,8 +16,8 @@ const DebtsShow = ( {item, id} ) => {
         <div>
             <li>
                 <p>{`${description}`}</p>
-                <p>{`Amount Owed: ${amount}`}</p>
-                <p>{`Rate of Interest: ${rate}%`}</p>
+                <p>{`Amount Owed: ${amount} dollars`}</p>
+                <p>{`Rate of Interest: ${rate*100}%`}</p>
                 <p>{`Loan Term: ${term} years`}</p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>

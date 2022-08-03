@@ -25,8 +25,8 @@ const InvestmentsInfo = ({
             })
         })
             .then((res) => res.json())
+            .then((newItem) => setNewInvestments([...newInvestments, newItem]))
 
-        setNewInvestments([...newInvestments, { amount: amount, rate: rate, compound: compound }])
     }
 
     return (

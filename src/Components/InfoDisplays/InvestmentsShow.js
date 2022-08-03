@@ -17,7 +17,7 @@ const InvestmentsShow = ({item, id}) => {
             <li>
                 <p>{`${description}`}</p>
                 <p>{`Amount Invested: ${amount}`}</p>
-                <p>{`Growth Rate: ${rate}%`}</p>
+                <p>{`Growth Rate: ${rate*100}%`}</p>
                 <p>{`Compounded: ${compoundRate}`}</p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>

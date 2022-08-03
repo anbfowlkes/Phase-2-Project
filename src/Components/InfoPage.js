@@ -48,7 +48,6 @@ const InfoPage = ({
         window.location.reload(false)
     }
     let cat = ''
-    const [allBills, setAllBills] = useState([...prevBills, ...newBills])
 
     const showItem = (num) => {
         if (num === 0) {
@@ -104,32 +103,29 @@ const InfoPage = ({
         }
     }
 
-    const [rend, setRend] = useState(false)
-    // const [moneyInArray, setMoneyInArray] = useState([...prevSpending, ...newSpending])
-
     const displayValues = (num) => {
         if (num === 0) {
             return
         } else if (num === 1) {
             cat = 'Daily'
             let a = 0
-            let spendingArray = [...prevIncome, ...newIncome]
-            // let spendingArray = [...moneyInArray]
+
+
+            let spendingArray = [...prevSpending, ...newSpending]
             // console.log('Spending Array: ', spendingArray)
             return (
                 <div>
                     <h5>(Click to delete)</h5>
-                    <ul>
+                    <ol>
                         {spendingArray.map((item) => {
                             return (<DailyShow 
                                         id={item.id} 
                                         key={a++} 
                                         item={item}
-                                        setRend={setRend}
                                         // setMoneyInArray={setMoneyInArray}
                                          />)
                         })}
-                    </ul>
+                    </ol>
                 </div>
             )
         } else if (num === 2) {
@@ -145,7 +141,6 @@ const InfoPage = ({
                                 item={item}
                                 key={e++}
                                 id={item.id}
-                                setRend={setRend}
                             />)
                         })}
                     </ol>
@@ -164,7 +159,6 @@ const InfoPage = ({
                                     item={item}
                                     key={b++}
                                     id={item.id}
-                                    setRend={setRend}
                                          />)
                         })}
                     </ol>
@@ -184,7 +178,6 @@ const InfoPage = ({
                                 item={item}
                                 id={item.id}
                                 key={c++}
-                                setRend={setRend}
                                  />
                             )
                         })}
@@ -215,7 +208,6 @@ const InfoPage = ({
                                 id={item.id}
                                 key={d++}
                                 reloadPage={reloadPage}
-                                setRend={setRend}
                                  />
                             )
                         })}

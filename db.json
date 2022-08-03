@@ -4,39 +4,56 @@
       "dailyItem": "asdpgiha",
       "dailyAmount": 23,
       "id": 1
+    },
+    {
+      "dailyItem": "food",
+      "dailyAmount": 500,
+      "id": 2
+    },
+    {
+      "dailyItem": "suahi",
+      "dailyAmount": 8,
+      "id": 3
     }
   ],
   "income": [],
   "investments": [
     {
-      "id": 1,
-      "description": "Stocks",
-      "investmentAmount": "123123",
-      "investmentRate": "23",
-      "investmentCompound": "Quarterly"
-    },
-    {
-      "description": "Real Estate",
-      "investmentAmount": "23",
-      "investmentRate": "",
+      "description": "real estate",
+      "investmentAmount": 12000,
+      "investmentRate": 0.04,
       "investmentCompound": "Continuous (recommended)",
-      "id": 4
+      "id": 1
     },
     {
-      "description": "stocks again",
-      "investmentAmount": 20,
-      "investmentRate": 2,
-      "investmentCompound": "Semi-Annual",
-      "id": 5
+      "description": "stocks",
+      "investmentAmount": 4000,
+      "investmentRate": 0.1,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 2
+    },
+    {
+      "description": "aslpdfjl",
+      "investmentAmount": 24,
+      "investmentRate": 0.02,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 3
     }
   ],
   "debt": [
     {
-      "description": "Student Loan",
-      "debtAmount": "500",
-      "debtRate": "20",
-      "debtTerm": "3",
-      "id": 3
+      "description": "Medical Bill",
+      "debtAmount": 5000,
+      "debtRate": 0.03,
+      "debtTerm": 4,
+      "id": 4
+    },
+    {
+      "description": "student loans",
+      "debtAmount": 900,
+      "debtRate": 0.09,
+      "debtTerm": 10,
+      "id": 5
     }
   ],
   "taxes": {
@@ -46,9 +63,9 @@
   },
   "bills": [
     {
-      "billType": "rent",
-      "monthlyAmount": "2000",
-      "id": 1
+      "billType": "electricity",
+      "monthlyAmount": "120",
+      "id": 2
     }
   ]
 }
