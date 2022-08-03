@@ -5,6 +5,7 @@ import DailyExpInfo from './Info/DailyExpInfo'
 import DebtInfo from './Info/DebtInfo'
 import InvestmentsInfo from './Info/InvestmentsInfo'
 import CurrentShow from './InfoDisplays/CurrentShow'
+import DailyShow from './InfoDisplays/DailyShow'
 
 
 const InfoPage = ({ 
@@ -84,18 +85,59 @@ const InfoPage = ({
     }
 
 
+    const displayValues = (num) => {
+        if (num === 0) {
+            return
+        } else if (num === 1) {
+            cat = 'Daily'
+            let a = 0
+            let spendingArray = [...prevSpending, ...newSpending]
+            console.log('Spending Array: ', spendingArray)
+            return (
+                <div>
+                    <ul>
+                        {spendingArray.map((item) => {
+                            return (<DailyShow 
+                                        id={item.id} 
+                                        key={a++} 
+                                        item={item}
+                                         />)
+                        })}
+                    </ul>
+                </div>
+            )
+        } else if (num === 2) {
+            cat = 'income'
+            let revenue
+            if (prevIncome.dailyAmount) {
+                revenue = prevIncome.dailyAmount
+            } else revenue = []
+            console.log('Revenue: ', revenue)
+        } else if (num === 3) {
+            cat = 'investments'
+            let passiveIncomeArray = [...prevInvestments, ...newInvestments]
+            console.log('Investments: ', passiveIncomeArray)
+        } else if (num === 4) {
+            cat = 'debt'
+            let moneyOwedArray = [...prevDebts, ...newDebts]
+            console.log('Debts: ', moneyOwedArray)
+        } else if (num === 5) {
+            cat = 'taxes'
+            let taxSpecifics = prevTaxes
+            console.log('Tax Information: ', taxSpecifics)
+        }
+    }
    
 
     return (
         <div>
             <h1>Welcome to the Information Page</h1>
-
             <div className='info-div'>
                 {showItem(displayItem)}
             </div>
             <div className='current-status'>
                 <h3>Current Information</h3>
-                {cat ? <CurrentShow cat={cat}/> : null}
+                {displayValues(displayItem)}
             </div>
 
             <div className='info-buttons'>

@@ -1,21 +1,5 @@
 {
-  "daily": [
-    {
-      "dailyItem": "food",
-      "dailyAmount": 5,
-      "id": 1
-    },
-    {
-      "dailyItem": "gas",
-      "dailyAmount": 15,
-      "id": 2
-    },
-    {
-      "dailyItem": "drinks",
-      "dailyAmount": 20,
-      "id": 3
-    }
-  ],
+  "daily": [],
   "income": {
     "id": 1,
     "incomeAmount": "80000"

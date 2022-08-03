@@ -48,32 +48,32 @@ const App = () => {
   const [newTotals, setNewTotals] = useState({})
 
   useEffect(() => {
-    fetch('http://localhost:8000/daily')
+    fetch('http://localhost:3000/daily')
       .then((res) => res.json())
       .then((data) => setPrevSpending(data))
   }, [])
   useEffect(() => {
-    fetch('http://localhost:8000/income')
+    fetch('http://localhost:3000/income')
       .then((res) => res.json())
       .then((data) => setPrevIncome(data))
   }, [])
   useEffect(() => {
-    fetch('http://localhost:8000/investments')
+    fetch('http://localhost:3000/investments')
       .then((res) => res.json())
       .then((data) => setPrevInvestments(data))
   }, [])
   useEffect(() => {
-    fetch('http://localhost:8000/debt')
+    fetch('http://localhost:3000/debt')
       .then((res) => res.json())
       .then((data) => setPrevDebts(data))
   }, [])
   useEffect(() => {
-    fetch('http://localhost:8000/taxes')
+    fetch('http://localhost:3000/taxes')
       .then((res) => res.json())
       .then((data) => setPrevTaxes(data))
   }, [])
   useEffect(() => {
-    fetch('http://localhost:8000/calculated')
+    fetch('http://localhost:3000/calculated')
       .then((res) => res.json())
       .then((data) => setPrevTotals(data))
   }, [])

@@ -21,7 +21,7 @@ const DEICard = ({
         let item = e.target[0].value
         let val = parseInt(e.target[1].value)
 
-        fetch('http://localhost:8000/daily', {
+        fetch('http://localhost:3000/daily', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
