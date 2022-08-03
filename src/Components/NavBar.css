@@ -1,0 +1,16 @@
+* {
+    font-family: Verdana;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    list-style: none;
+}
+
+a {
+    color: green;
+}

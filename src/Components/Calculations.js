@@ -1,88 +1,37 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from 'react'
+import { PieChart } from 'react-minimal-pie-chart';
+import Table from 'react-bootstrap/Table';
+import './Results.css'
 
 
-const Calculations = ({
-    newSpending,
-    setNewSpending,
-    prevSpending,
-    setPrevSpending,
-    newIncome,
-    prevIncome,
-    setPrevIncome,
-    setNewIncome,
-    newTaxes,
-    setNewTaxes,
-    prevTaxes,
-    setPrevTaxes,
-    newDebts,
-    setNewDebts,
-    prevDebts,
-    setPrevDebts,
-    newInvestments,
-    setNewInvestments,
-    prevInvestments,
-    setPrevInvestments,
-    newTotals,
-    setNewTotals,
-    prevTotals,
-    setPrevTotals,////////
-    dailyTotalObj,
-    setDailyTotalObj,
-    moneyFromIncomeTotal,
-    setMoneyFromIncomeTotal,
-    moneySetter
- }) => {
+const Results = () => {
+    let investSum = 0
+    let debtSum = 0
+    let incomeSum = 0
+    let billSum = 0
+    let taxSum = 0
+    const [debtArr, setDebtArr] = useState([])
+    const [investArr, setInvestArr] = useState([])
+    const [incomeArr, setIncomeArr] = useState([])
+    const [billArr, setBillArr] = useState([])
+    const [taxObj, setTaxObj] = useState({
+        relStatus: '',
+        dependents: 0
+    })
 
-    let spendingArray = [...prevSpending, ...newSpending]
-
-    // console.log(spendingArray)
-
-    let totalSpending = 0
-    for (let i = 0 ; i < spendingArray.length ; i++) {
-        totalSpending += spendingArray[i].dailyAmount
+    // function to calculate investment growth
+    const investmentCalculator = (amount, rate, compound) => {
+        if (compound === 'Continuous (recommended)') return amount * (Math.E) ** (rate)
+        if (compound === 'Quarterly') return (amount) * (1.0 + (rate / 4)) ** (4)
+        if (compound === 'Semi-Annual') return (amount) * (1.0 + (rate / 2)) ** (2)
+        if (compound === 'Annual') return (amount) * (1.0 + rate)
     }
-    
-    //revenue represents the salary of the user
-    let revenue = prevIncome.dailyAmount
-    let dailyRawIncome = revenue/365
 
-    // moneySetter(dailyRawIncome)
-
-    // const foo = () => {
-    //     setDailyTotalObj( { dailyMoneyFromIncome: dailyRawIncome })
-    // }
-    // foo()
-
-    // let obj = {...dailyTotalObj}
-    // obj.dailyMoneyFromIncome = dailyRawIncome
-    // console.log(obj.dailyMoneyFromIncome)
-       
-    //setDailyTotalObj({...dailyTotalObj},{ dailyMoneyFromIncome: dailyRawIncome })
-
-    let passiveIncomeArray = [...prevInvestments, ...newInvestments]
-    //this is the array of investments (its an array of objects)
-    //need to do math with these
-
-
-    let taxSpecifics = prevTaxes
-    //this is a single object consisting of marital status and dependents
-    //need to use this too
-
-    let moneyOwedArray = [...prevDebts, ...newDebts]
-    //this is debts, its an array of objects
-
-    // console.log(totalSpending)
-
-    // // storing variables
-    // let income = incomeInfoState
-    // let relStatus = taxInfoState.relStatus
-    // let dependents = taxInfoState.dependents
-
-    // function to change number to decimal percentage
-    const toDecimal = (num) => {
-        return num / 100
+    // function to calculate debt growth 
+    // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
+    const debtCalculator = (amount, rate, term) => {
+        return (((rate / 12) * amount) / (1 - (1 / (1 + (rate / 12)) ** (term * 12))))
     }
-    // console.log(dailySpending)
 
     // function to calculate taxes
     const taxCalculator = (status, amount) => {
@@ -102,7 +51,7 @@ const Calculations = ({
             } else {
                 return (amount - 523601) * 37 + (116244) + (15575) + (25136) + (11004) + (3669) + (995)
             }
-        } else if (status === 'Married - filing seperately') {
+        } else if (status === 'Married - filing separately') {
             if (amount < 9950) {
                 return amount * .1
             } else if (amount < 40525) {
@@ -154,77 +103,197 @@ const Calculations = ({
     }
 
     // function to calculate actual taxes with dependents
-    const actualTaxAmount = (income, relStatus, dependents) => {
-        let taxAmount = taxCalculator(relStatus, income) - (dependents * 2000)
+    const actualTaxAmount = (status, income, dependents) => {
+        let taxAmount = taxCalculator(status, income) - (dependents * 2000)
         if (taxAmount < 0) {
             return 0
         } else return taxAmount
     }
 
-    // function to calculate investment growth
-    const investmentCalculator = (amount, rate, compound) => {
-        rate = toDecimal(rate)
-        if (compound === 'Continuous (recommended)') return amount * (Math.E) ** (rate)
-        if (compound === 'Quarterly') return (amount) * (1 + (rate / 4) ** (4))
-        if (compound === 'Semi-Annual') return (amount) * (1 + (rate / 2) ** (2))
-        if (compound === 'Annual') return (amount) * (1 + rate)
+    // fetch investments array
+    useEffect(() => {
+        fetch('http://localhost:8000/investments')
+            .then((res) => res.json())
+            .then((req) => setInvestArr(req))
+    }, [])
+
+    // fetch debt array
+    useEffect(() => {
+        fetch('http://localhost:8000/debt')
+            .then((res) => res.json())
+            .then((req) => setDebtArr(req))
+    }, [])
+
+    // fetch income array
+    useEffect(() => {
+        fetch('http://localhost:8000/income')
+            .then((res) => res.json())
+            .then((req) => setIncomeArr(req))
+    }, [])
+
+    // fetch bill array
+    useEffect(() => {
+        fetch('http://localhost:8000/bills')
+            .then((res) => res.json())
+            .then((req) => setBillArr(req))
+    }, [])
+
+    // fetch taxes object
+    useEffect(() => {
+        fetch('http://localhost:8000/taxes')
+            .then((res) => res.json())
+            .then((req) => setTaxObj(req))
+    }, [])
+
+    // iterate investment array to find sum
+    for (const elem of investArr) {
+        let investResult = investmentCalculator(elem.investmentAmount, elem.investmentRate, elem.investmentCompound)
+        investSum += investResult
     }
 
-    // function to calculate debt growth
-    // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
-    const debtCalculator = (amount, rate, term) => {
-        rate = toDecimal(rate) / 12
-        return parseFloat((rate * amount) / (1 - (1 / (1 + rate) ** (term * 12))))
+    // iterate debt array to find sum
+    for (const elem of debtArr) {
+        let debtResult = debtCalculator(elem.debtAmount, elem.debtRate, elem.debtTerm) + elem.debtAmount
+        debtSum += debtResult
     }
 
-
-
-    /*
-    // map to calculate total investment amount
-    const investArray = investInfoState.map((item) => { return investmentCalculator(item.amount, item.rate, item.compound) })
-    const totalInvestments = (arr) => {
-        let total = 0
-        for (let i = 0; i < arr.length; i++) {
-            total += arr[i]
-        }
-        return total
+    // iterate income array to find sum
+    for (const elem of incomeArr) {
+        incomeSum += elem.incomeAmount
     }
 
-    // map to calculate total debt amount
-    const debtArray = debtInfoState.map((item) => { return debtCalculator(item.amount, item.rate, item.loanTerm) })
-    const totalDebt = (arr) => {
-        let total = 0
-        for (let i = 0; i < arr.length; i++) {
-            total += arr[i]
-        }
-        return total * 12
+    // iterate bill array to find sum
+    for (const elem of billArr) {
+        billSum += elem.monthlyAmount * 12
     }
 
-    // calculation of yearly expenses including income, investments, debts, and taxes
-    let wholeTotal = parseInt(income) + totalInvestments(investArray) - totalDebt(debtArray) - actualTaxAmount(income, relStatus, dependents)
+    // go through tax object to find sum
+    taxSum = actualTaxAmount(taxObj.relStatus, incomeSum, taxObj.dependents)
 
-    // //let dailyNet = 
-    let incomeNet = parseInt(income)
-    let investmentNet = totalInvestments(investArray)
-    let debtNet = totalDebt(debtArray)
-    let taxNet = actualTaxAmount(income, relStatus, dependents)
-    let yearlyNet = wholeTotal
+    let dailyMoney = parseFloat((incomeSum + investSum - billSum - debtSum - taxSum) / 365).toFixed(2)
 
-    // fetch('http://localhost:8000/calculated/', {
-    //     method: 'PATCH',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         totalDaily: totalDailyExp,
-    //         totalIncome: incomeNet,
-    //         totalInvestments: investmentNet,
-    //         totalDebt: debtNet,
-    //         totalTaxes: taxNet,
-    //         totalAll: yearlyNet
-    //     })
-    // })
-    //     .then((res) => res.json())*/
+    // <PieChart
+    //     data={[
+    //         { title: 'Daily Money Available', value: dailyMoney, color: '#E38627' }
+    //     ]}
+    // />
+
+    return (
+        <div className='display'>
+            <div className='totals'>
+                <div className='dynamic-daily-net'>
+                    <h3>Money Availble</h3>
+                </div>
+                <div className='static-daily-net'>
+                    <h3>Money Available</h3>
+                </div>
+            </div>
+            <div>
+                <div className='info-display'>
+                    <div className='daily-expenditures'>
+                        <div>
+                            <form>
+                                <input type='text' placeholder='Item' />
+                                <br />
+                                <input type='text' placeholder='Cost' />
+                                <br />
+                                <input type='submit' value='Submit' />
+                            </form>
+                        </div>
+                        <div>
+                            <h2>Daily Money Available</h2>
+                            <PieChart className='chart3'
+                                animation
+                                data={[
+                                    { title: 'Daily Money Available', value: dailyMoney, color: '#118C4F' }
+                                ]}
+                            />
+                        </div>
+                    </div>
+
+                    <div className='table'>
+                        <h3> Data Table</h3>
+                        <Table striped bordered hover >
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Daily Net</th>
+                                    <th></th>
+                                    <th>Yearly Net</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Income</td>
+                                    <td>${parseInt(incomeSum / 365).toFixed(2)}</td>
+                                    <td>${incomeSum.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Investments</td>
+                                    <td>${parseFloat(investSum / 365).toFixed(2)}</td>
+                                    <td>${parseInt(investSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bills</td>
+                                    <td>-${parseInt(billSum / 365).toFixed(2)}</td>
+                                    <td>-${billSum.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Debt</td>
+                                    <td>-${parseFloat(debtSum / 365).toFixed(2)}</td>
+                                    <td>-${parseFloat(debtSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Taxes</td>
+                                    <td>-${parseFloat(taxSum / 365).toFixed(2)}</td>
+                                    <td>-${parseFloat(taxSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Net</td>
+                                    <td>${parseFloat((incomeSum + investSum - billSum - debtSum - taxSum) / 365).toFixed(2)}</td>
+                                    <td>${parseFloat((incomeSum + investSum - billSum - debtSum - taxSum)).toFixed(2)}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+
+                    </div>
+                    <div className='chart-container'>
+                        <div>
+                            <h3>Money Gains Chart</h3>
+                            <PieChart className='chart1'
+                                data={[
+                                    { title: 'Income', value: incomeSum, color: '#E38627' },
+                                    { title: 'Investments', value: investSum, color: '#C13C37' }
+                                ]}
+                            />
+                        </div>
+                        <div>
+                            <h3>Money Losses Chart</h3>
+                            <PieChart className='chart2'
+                                label={() => 'hi'}
+
+                                labelPosition={1}
+                                labelStyle={{
+                                    fontSize: "10px",
+                                    fontColor: "FFFFFA",
+                                    fontWeight: "800",
+                                }}
+                                data={[
+                                    { title: 'Debt', value: debtSum, color: '#E38627' },
+                                    { title: 'Taxes', value: taxSum, color: '#C13C37' },
+                                    { title: 'Bills', value: billSum, color: '#6A2135' }
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        // total daily money available
+        // amount gained and lost
+        // ability to etner more daily expenses
+        // table showing positive and negative contributions from all sources
+    )
 }
 
-export default Calculations
+export default Results

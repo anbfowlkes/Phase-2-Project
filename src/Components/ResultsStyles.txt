@@ -1,0 +1,79 @@
+* {
+    font-family: Verdana;
+}
+
+div {
+    border: solid black;
+}
+
+.chart1 {
+    width: 400px;
+}
+
+.chart2 {
+    width: 400px;
+}
+
+.chart3 {
+    width: 400px;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    gap: 100;
+    flex-wrap: wrap;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+.chart-container {
+    float: right;
+    width: 500px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.daily-table {
+    margin-left: auto;
+    width: 400px;
+    height: 1200px;
+}
+
+.info-display {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.daily-expenditures {
+    margin-left: 100px;
+    width: 400px;
+    height: 800px;
+}
+
+
+.totals {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 600px;
+}
+
+.dynamic-daily-net {
+    width: 270px;
+    height: 270px;
+}
+
+.static-daily-net {
+    width: 270px;
+    height: 270px;
+    text-align: center;
+}

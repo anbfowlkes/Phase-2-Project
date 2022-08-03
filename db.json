@@ -56,11 +56,26 @@
       "id": 2
     }
   ],
-  "taxes": 
+  "bills": [
     {
+      "billType": "rent",
+      "monthlyAmount": 2000,
+      "id": 1
+    },
+    {
+      "billType": "Electricity",
+      "monthlyAmount": 100,
+      "id": 2
+    },
+    {
+      "billType": "Food",
+      "monthlyAmount": 350,
+      "id": 3
+    }
+  ],
+  "taxes": {
     "id": 1,
     "relStatus": "Married - filing separately",
     "dependents": 6
   }
-  
 }

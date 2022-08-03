@@ -1,0 +1,116 @@
+ return (
+        <div className='display'>
+            <div className='totals'>
+                <div className='dynamic-daily-net'>
+                    <h3>Money Availble</h3>
+                </div>
+                <div className='static-daily-net'>
+                    <h3>Money Available</h3>
+                </div>
+            </div>
+            <div>
+                <div className='info-display'>
+                    <div className='daily-expenditures'>
+                        <div>
+                            <form>
+                                <input type='text' placeholder='Item' />
+                                <br />
+                                <input type='text' placeholder='Cost' />
+                                <br />
+                                <input type='submit' value='Submit' />
+                            </form>
+                        </div>
+                        <div>
+                            <h2>Daily Money Available</h2>
+                            <PieChart className='chart3'
+                                animation
+                                data={[
+                                    { title: 'Daily Money Available', value: dailyMoney, color: '#118C4F' }
+                                ]}
+                            />
+                        </div>
+                    </div>
+
+                    <div className='table'>
+                        <h3> Data Table</h3>
+                        <Table striped bordered hover >
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Daily Net</th>
+                                    <th></th>
+                                    <th>Yearly Net</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Income</td>
+                                    <td>${parseInt(incomeSum / 365).toFixed(2)}</td>
+                                    <td>${incomeSum.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Investments</td>
+                                    <td>${parseFloat(investSum / 365).toFixed(2)}</td>
+                                    <td>${parseInt(investSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bills</td>
+                                    <td>-${parseInt(billSum / 365).toFixed(2)}</td>
+                                    <td>-${billSum.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Debt</td>
+                                    <td>-${parseFloat(debtSum / 365).toFixed(2)}</td>
+                                    <td>-${parseFloat(debtSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Taxes</td>
+                                    <td>-${parseFloat(taxSum / 365).toFixed(2)}</td>
+                                    <td>-${parseFloat(taxSum).toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Net</td>
+                                    <td>${parseFloat((incomeSum + investSum - billSum - debtSum - taxSum) / 365).toFixed(2)}</td>
+                                    <td>${parseFloat((incomeSum + investSum - billSum - debtSum - taxSum)).toFixed(2)}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+
+                    </div>
+                    <div className='chart-container'>
+                        <div>
+                            <h3>Money Gains Chart</h3>
+                            <PieChart className='chart1'
+                                data={[
+                                    { title: 'Income', value: incomeSum, color: '#E38627' },
+                                    { title: 'Investments', value: investSum, color: '#C13C37' }
+                                ]}
+                            />
+                        </div>
+                        <div>
+                            <h3>Money Losses Chart</h3>
+                            <PieChart className='chart2'
+                                label={() => 'hi'}
+
+                                labelPosition={1}
+                                labelStyle={{
+                                    fontSize: "10px",
+                                    fontColor: "FFFFFA",
+                                    fontWeight: "800",
+                                }}
+                                data={[
+                                    { title: 'Debt', value: debtSum, color: '#E38627' },
+                                    { title: 'Taxes', value: taxSum, color: '#C13C37' },
+                                    { title: 'Bills', value: billSum, color: '#6A2135' }
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        // total daily money available
+        // amount gained and lost
+        // ability to etner more daily expenses
+        // table showing positive and negative contributions from all sources
+    )

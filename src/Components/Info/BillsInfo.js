@@ -7,7 +7,7 @@ const BillsInfo = ({
     const handleBillSubmit = (e) => {
         e.preventDefault()
         let type = e.target[0].value
-        let amount = e.target[1].value
+        let amount = parseFloat(e.target[1].value)
 
         fetch('http://localhost:8000/bills', {
             method: 'POST',

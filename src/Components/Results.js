@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react'
-import Chart from './Chart'
+//import { PieChart } from 'react-minimal-pie-chart';
+import Table from 'react-bootstrap/Table';
+import './Results.css'
+
 
 const Results = () => {
     let investSum = 0
     let debtSum = 0
     let incomeSum = 0
+    let billSum = 0
     let taxSum = 0
     const [debtArr, setDebtArr] = useState([])
     const [investArr, setInvestArr] = useState([])
     const [incomeArr, setIncomeArr] = useState([])
+    const [billArr, setBillArr] = useState([])
     const [taxObj, setTaxObj] = useState({
         relStatus: '',
         dependents: 0
@@ -25,7 +30,7 @@ const Results = () => {
     // function to calculate debt growth 
     // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
     const debtCalculator = (amount, rate, term) => {
-        return (( (rate/12) * amount) / (1 - (1 / (1 + (rate/12) ) ** (term * 12))))
+        return (((rate / 12) * amount) / (1 - (1 / (1 + (rate / 12)) ** (term * 12))))
     }
 
     // function to calculate taxes
@@ -108,22 +113,29 @@ const Results = () => {
     // fetch investments array
     useEffect(() => {
         fetch('http://localhost:8000/investments')
-        .then((res) => res.json())
-        .then((req) => setInvestArr(req))
+            .then((res) => res.json())
+            .then((req) => setInvestArr(req))
     }, [])
 
     // fetch debt array
     useEffect(() => {
         fetch('http://localhost:8000/debt')
-        .then((res) => res.json())
-        .then((req) => setDebtArr(req))
+            .then((res) => res.json())
+            .then((req) => setDebtArr(req))
     }, [])
 
     // fetch income array
     useEffect(() => {
         fetch('http://localhost:8000/income')
-        .then((res) => res.json())
-        .then((req) => setIncomeArr(req))
+            .then((res) => res.json())
+            .then((req) => setIncomeArr(req))
+    }, [])
+
+    // fetch bill array
+    useEffect(() => {
+        fetch('http://localhost:8000/bills')
+            .then((res) => res.json())
+            .then((req) => setBillArr(req))
     }, [])
 
     // fetch taxes object
@@ -150,14 +162,55 @@ const Results = () => {
         incomeSum += elem.incomeAmount
     }
 
+    // iterate bill array to find sum
+    for (const elem of billArr) {
+        billSum += elem.monthlyAmount * 12
+    }
+
     // go through tax object to find sum
     taxSum = actualTaxAmount(taxObj.relStatus, incomeSum, taxObj.dependents)
 
+    let dailyMoney = parseFloat((incomeSum + investSum - billSum - debtSum - taxSum) / 365).toFixed(2)
+
+    // <PieChart
+    //     data={[
+    //         { title: 'Daily Money Available', value: dailyMoney, color: '#E38627' }
+    //     ]}
+    // />
+
+    {/* <div className='totals'>
+        <div className='dynamic-daily-net'>
+            <h3>Money Availble</h3>
+        </div>
+        <div className='static-daily-net'>
+            <h3>Money Available</h3>
+        </div>
+    </div> */}
+
+    /* const handleDailySubmit = (e) => {
+        let item = 
+        e.preventDefault()
+        console.log(e.target[0].value, e.target[1].value, e.target[2].value)
+
+
+    } 
+    */
+
     return (
-        <>
-        <Chart />
-        <Chart />
-        </>
+        <div className='display'>
+
+            <div className='info-display'>
+               
+            </div>
+
+            <div className='table'>
+               
+            </div>
+
+            <div className='chart-container'>
+               
+            </div>
+        </div>
         // total daily money available
         // amount gained and lost
         // ability to etner more daily expenses
