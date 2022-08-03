@@ -7,7 +7,6 @@ import About from './Components/About'
 import Home from './Components/Home'
 import Login from './Components/Login'
 import InfoPage from './Components/InfoPage'
-import Calculations from './Components/Calculations'
 
 /*
 for the display we want:
@@ -124,36 +123,6 @@ const App = () => {
           </Switch>
         </div >
       </Router >
-
-        <Calculations 
-            newSpending={newSpending}
-            setNewSpending={setNewSpending}
-            prevSpending={prevSpending}
-            setPrevSpending={setPrevSpending}
-            newIncome={newIncome}
-            setNewIncome={setNewIncome}
-            prevIncome={prevIncome}
-            setPrevIncome={setPrevIncome}
-            newTaxes={newTaxes}
-            setNewTaxes={setNewTaxes}
-            prevTaxes={prevTaxes}
-            setPrevTaxes={setPrevTaxes}
-            newDebts={newDebts}
-            setNewDebts={setNewDebts}
-            prevDebts={prevDebts}
-            setPrevDebts={setPrevDebts}
-            newInvestments={newInvestments}
-            setNewInvestments={setNewInvestments}
-            prevInvestments={prevInvestments}
-            setPrevInvestments={setPrevInvestments}
-            newTotals={newTotals}
-            setNewTotals={setNewTotals}
-            prevTotals={prevTotals}
-            setPrevTotals={setPrevTotals}////
-            dailyTotalObj={dailyTotalObj}
-            setDailyTotalObj={setDailyTotalObj}
-            moneySetter={moneySetter}
-         />
     </>
   );
 }

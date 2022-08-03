@@ -8,7 +8,7 @@
   ],
   "investments": [
     {
-      "investmentAmount": 200,
+      "investmentAmount": 20000,
       "investmentRate": 0.01,
       "investmentCompound": "Quarterly",
       "id": 1
@@ -30,6 +30,12 @@
       "investmentRate": 0.1,
       "investmentCompound": "Annual",
       "id": 4
+    },
+    {
+      "investmentAmount": 20000,
+      "investmentRate": 0.2,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 5
     }
   ],
   "debt": [
@@ -56,11 +62,9 @@
       "id": 2
     }
   ],
-  "taxes": 
-    {
+  "taxes": {
     "id": 1,
     "relStatus": "Married - filing separately",
     "dependents": 6
   }
-  
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Chart from './Chart'
+import { PieChart } from 'react-minimal-pie-chart';
 
 const Results = () => {
     let investSum = 0
@@ -153,10 +153,26 @@ const Results = () => {
     // go through tax object to find sum
     taxSum = actualTaxAmount(taxObj.relStatus, incomeSum, taxObj.dependents)
 
+    console.log(incomeSum, investSum)
+
+    // https://www.npmjs.com/package/react-minimal-pie-chart
+    // https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
+
     return (
         <>
-        <Chart />
-        <Chart />
+        <PieChart 
+            data = {[
+                { title: 'Income', value: incomeSum, color: '#E38627' },
+                { title: 'Investments', value: investSum, color: '#C13C37' }
+            ]}
+        />
+        <PieChart 
+            data={[
+                { title: 'Debt', lable: 'Debt', value: debtSum, color: '#E38627' },
+                { title: 'Taxes', value: taxSum, color: '#C13C37' }
+                //{ title: 'Taxes', value: investSum, color: '#6A2135' }
+            ]}
+        />
         </>
         // total daily money available
         // amount gained and lost
