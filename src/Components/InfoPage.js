@@ -3,10 +3,13 @@ import TaxInfo from './Info/TaxInfo'
 import IncomeInfo from './Info/IncomeInfo'
 import DailyExpInfo from './Info/DailyExpInfo'
 import DebtInfo from './Info/DebtInfo'
+import BillsInfo from './Info/BillsInfo'
 import InvestmentsInfo from './Info/InvestmentsInfo'
-import CurrentShow from './InfoDisplays/CurrentShow'
 import DailyShow from './InfoDisplays/DailyShow'
 import InvestmentsShow from './InfoDisplays/InvestmentsShow'
+import DebtsShow from './InfoDisplays/DebtsShow'
+import BillsShow from './InfoDisplays/BillsShow'
+import IncomeShow from './InfoDisplays/IncomeShow'
 
 
 const InfoPage = ({ 
@@ -30,14 +33,25 @@ const InfoPage = ({
     setNewInvestments,
     prevInvestments,
     setPrevInvestments,
+    newBills,
+    setNewBills,
+    prevBills,
+    setPrevBills,
     newTotals,
     setNewTotals,
     prevTotals,
-    setPrevTotals
+    setPrevTotals,
      } ) => {
 
     const [displayItem, setDisplayItem] = useState(0)
+    const reloadPage = () => {
+        window.location.reload(false)
+    }
     let cat = ''
+    const [allBills, setAllBills] = useState([...prevBills, ...newBills])
+
+    const [rend, setRend] = useState(false)
+
 
     const showItem = (num) => {
         if (num === 0) {
@@ -82,6 +96,14 @@ const InfoPage = ({
                 prevTaxes={prevTaxes}
                 setPrevTaxes={setPrevTaxes}
             />
+        } else if (num === 6) {
+            cat = 'bills'
+            return <BillsInfo
+               newBills={newBills}
+               setNewBills={setNewBills}
+               prevBills={prevBills}
+               setPrevBills={setPrevBills}
+                />
         }
     }
 
@@ -103,6 +125,7 @@ const InfoPage = ({
                                         id={item.id} 
                                         key={a++} 
                                         item={item}
+                                        setRend={setRend}
                                          />)
                         })}
                     </ul>
@@ -110,39 +133,94 @@ const InfoPage = ({
             )
         } else if (num === 2) {
             cat = 'income'
-            let revenue = prevIncome
-            
-            console.log('Revenue: ', revenue)
+            let e = 0
+            let incomeArray = [...prevIncome, ...newIncome]
+            console.log('Income Array: ', incomeArray)
             return (
                 <div>
-                    <ul>
-                        {revenue.incomeAmount}
-                    </ul>
+                    <ol>
+                        {incomeArray.map((item) => {
+                            return (<IncomeShow
+                                item={item}
+                                key={e++}
+                                id={item.id}
+                                setRend={setRend}
+                            />)
+                        })}
+                    </ol>
                 </div>
             )
-            console.log('Revenue: ', revenue)
         } else if (num === 3) {
             cat = 'investments'
+            let b = 0
             let passiveIncomeArray = [...prevInvestments, ...newInvestments]
             console.log('Investments: ', passiveIncomeArray)
             return (
                 <div>
-                    <ul>
+                    <ol>
                         {passiveIncomeArray.map((item) => {
                             return (<InvestmentsShow
+                                    item={item}
+                                    key={b++}
+                                    id={item.id}
+                                    setRend={setRend}
                                          />)
                         })}
-                    </ul>
+                    </ol>
                 </div>
             )
         } else if (num === 4) {
             cat = 'debt'
+            let c = 0
             let moneyOwedArray = [...prevDebts, ...newDebts]
             console.log('Debts: ', moneyOwedArray)
+            return (
+                <div>
+                    <ol>
+                        {moneyOwedArray.map((item) => {
+                            return (
+                                <DebtsShow 
+                                item={item}
+                                id={item.id}
+                                key={c++}
+                                setRend={setRend}
+                                 />
+                            )
+                        })}
+                    </ol>
+                </div>
+            )
         } else if (num === 5) {
             cat = 'taxes'
             let taxSpecifics = prevTaxes
             console.log('Tax Information: ', taxSpecifics)
+            return (
+                <div>
+                    <p>{`Relationship Status:   ${taxSpecifics.relStatus}`}</p>
+                    <p>{`Number of Dependents: ${taxSpecifics.dependents}`}</p>
+                </div>
+            )
+        } else if (num === 6) {
+            cat = 'bills'
+            let d = 0
+            let billsArray = [...prevBills, ...newBills]
+            return (
+                <div>
+                    <ol>
+                        {billsArray.map((item) => {
+                            return (
+                                <BillsShow 
+                                item={item}
+                                id={item.id}
+                                key={d++}
+                                reloadPage={reloadPage}
+                                setRend={setRend}
+                                 />
+                            )
+                        })}
+                    </ol>
+                </div>
+            )
         }
     }
    
@@ -164,6 +242,7 @@ const InfoPage = ({
                 <button onClick={() => setDisplayItem(3)}>Enter your investments information</button>
                 <button onClick={() => setDisplayItem(4)}>Enter your debt information</button>
                 <button onClick={() => setDisplayItem(5)}>Enter your tax information</button>
+                <button onClick={() => setDisplayItem(6)}>Enter your bills</button>
             </div>
             
         </div>

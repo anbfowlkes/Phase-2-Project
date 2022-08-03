@@ -2,18 +2,20 @@ import { useEffect } from "react"
 
 const IncomeInfo = ({ 
     newIncome,
+    setNewIncome,
     prevIncome,
-    setPrevIncome,
-    setNewIncome
+    setPrevIncome
  }) => {
 
 
    const handleSubmit = (e) => {
     e.preventDefault()
-    let val = e.target[0].value
+    let desc = e.target[0].value
+    let val = e.target[1].value
     fetch('http://localhost:8000/income', {
-    method: 'PATCH',
+    method: 'POST',
     body: JSON.stringify({
+        description: desc,
         incomeAmount: val
     }),
     headers: {
@@ -21,14 +23,16 @@ const IncomeInfo = ({
     },
     })
     .then((res) => res.json())
-    .then((newItem) => setPrevIncome(newItem))
+    .then((newItem) => setNewIncome([...newIncome, newItem]))
    }
   
     return (
         <div>
             <h3>Enter your income information here {'(including salary, wages and tips'}</h3>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='Income'/>
+                <input type='text' placeholder='Income Source' />
+                <br />
+                <input type='text' placeholder='Amount'/>
                 <br />
                 <input type='submit' value='Submit' />
             </form>

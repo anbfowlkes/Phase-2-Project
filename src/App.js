@@ -34,18 +34,20 @@ const App = () => {
   //const [dailyTotalObj, setDailyTotalObj] = useState({})
 
   const [prevSpending, setPrevSpending] = useState([])
-  const [prevIncome, setPrevIncome] = useState({})
+  const [prevIncome, setPrevIncome] = useState([])
   const [prevTaxes, setPrevTaxes] = useState({})
   const [prevDebts, setPrevDebts] = useState([])
   const [prevInvestments, setPrevInvestments] = useState([])
   const [prevTotals, setPrevTotals] = useState({})
+  const [prevBills, setPrevBills] = useState([])
 
   const [newSpending, setNewSpending] = useState([])
-  const [newIncome, setNewIncome] = useState({})
+  const [newIncome, setNewIncome] = useState([])
   const [newTaxes, setNewTaxes] = useState({})
   const [newDebts, setNewDebts] = useState([])
   const [newInvestments, setNewInvestments] = useState([])
   const [newTotals, setNewTotals] = useState({})
+  const [newBills, setNewBills] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:8000/daily')
@@ -73,11 +75,15 @@ const App = () => {
       .then((data) => setPrevTaxes(data))
   }, [])
   useEffect(() => {
+    fetch('http://localhost:8000/bills')
+      .then((res) => res.json())
+      .then((data) => setPrevBills(data))
+  }, [])
+  useEffect(() => {
     fetch('http://localhost:8000/calculated')
       .then((res) => res.json())
       .then((data) => setPrevTotals(data))
   }, [])
-
   return (
     <>
       <Router>
@@ -117,6 +123,10 @@ const App = () => {
                 setNewInvestments={setNewInvestments}
                 prevInvestments={prevInvestments}
                 setPrevInvestments={setPrevInvestments}
+                newBills={newBills}
+                setNewBills={setNewBills}
+                prevBills={prevBills}
+                setPrevBills={setPrevBills}
                 newTotals={newTotals}
                 setNewTotals={setNewTotals}
                 prevTotals={prevTotals}

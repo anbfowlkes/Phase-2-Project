@@ -6,28 +6,19 @@
       "id": 1
     }
   ],
-  "income": {
-    "id": 1,
-    "incomeAmount": "48"
-  },
+  "income": [
+    {
+      "description": "Salary",
+      "incomeAmount": "200000",
+      "id": 1
+    }
+  ],
   "investments": [
     {
       "id": 1,
       "investmentAmount": "123123",
       "investmentRate": "23",
       "investmentCompound": "Quarterly"
-    },
-    {
-      "investmentAmount": "23423",
-      "investmentRate": "23423",
-      "investmentCompound": "Continuous (recommended)",
-      "id": 2
-    },
-    {
-      "investmentAmount": "78089",
-      "investmentRate": "upiu",
-      "investmentCompound": "Quarterly",
-      "id": 3
     },
     {
       "investmentAmount": "23",
@@ -38,22 +29,11 @@
   ],
   "debt": [
     {
-      "debtAmount": "12345",
-      "debtRate": "123",
-      "debtTerm": "123",
-      "id": 2
-    },
-    {
+      "description": "Student Loan",
       "debtAmount": "500",
       "debtRate": "20",
       "debtTerm": "3",
       "id": 3
-    },
-    {
-      "debtAmount": "100",
-      "debtRate": "40",
-      "debtTerm": "3",
-      "id": 4
     }
   ],
   "taxes": {
@@ -61,6 +41,7 @@
     "relStatus": "Married - filing separately",
     "dependents": "6"
   },
+  "bills": [],
   "calculated": {
     "id": 1,
     "totalDaily": 0,
