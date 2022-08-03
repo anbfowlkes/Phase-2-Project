@@ -16,18 +16,18 @@
       "investmentCompound": "Quarterly"
     },
     {
-      "description": "Real Estate",
-      "investmentAmount": "23",
-      "investmentRate": "",
+      "description": "bitcoin",
+      "investmentAmount": 34,
+      "investmentRate": 0.02,
       "investmentCompound": "Continuous (recommended)",
-      "id": 4
+      "id": 2
     },
     {
-      "description": "stocks again",
-      "investmentAmount": 20,
-      "investmentRate": 2,
-      "investmentCompound": "Semi-Annual",
-      "id": 5
+      "description": "rea; estate",
+      "investmentAmount": 10000,
+      "investmentRate": 0.3,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 3
     }
   ],
   "debt": [

@@ -49,41 +49,55 @@ const App = () => {
   const [newTotals, setNewTotals] = useState({})
   const [newBills, setNewBills] = useState([])
 
-  useEffect(() => {
+  let getDaily = () => {
     fetch('http://localhost:8000/daily')
-      .then((res) => res.json())
-      .then((data) => setPrevSpending(data))
-  }, [])
+    .then((res) => res.json())
+    .then((data) => setPrevSpending(data))
+  }
   useEffect(() => {
+    getDaily()
+  }, [])
+  let getIncome = () => {
     fetch('http://localhost:8000/income')
-      .then((res) => res.json())
-      .then((data) => setPrevIncome(data))
-  }, [])
+    .then((res) => res.json())
+    .then((data) => setPrevIncome(data))
+  }
   useEffect(() => {
+    getIncome()
+  }, [])
+  let getInvestments = () => {
     fetch('http://localhost:8000/investments')
       .then((res) => res.json())
       .then((data) => setPrevInvestments(data))
-  }, [])
+  }
   useEffect(() => {
+    getInvestments();
+  }, [])
+  let getDebt = () => {
     fetch('http://localhost:8000/debt')
-      .then((res) => res.json())
-      .then((data) => setPrevDebts(data))
-  }, [])
+    .then((res) => res.json())
+    .then((data) => setPrevDebts(data))
+  }
   useEffect(() => {
+    getDebt()
+  }, [])
+  let getTaxes = () => {
     fetch('http://localhost:8000/taxes')
-      .then((res) => res.json())
-      .then((data) => setPrevTaxes(data))
-  }, [])
+    .then((res) => res.json())
+    .then((data) => setPrevTaxes(data))
+  }
   useEffect(() => {
+    getTaxes()
+  }, [])
+  getBills = () => {
     fetch('http://localhost:8000/bills')
-      .then((res) => res.json())
-      .then((data) => setPrevBills(data))
-  }, [])
-  useEffect(() => {
-    fetch('http://localhost:8000/calculated')
-      .then((res) => res.json())
-      .then((data) => setPrevTotals(data))
-  }, [])
+    .then((res) => res.json())
+    .then((data) => setPrevBills(data))
+  }
+  luseEffect(() => {
+    getBills()
+    }, [])
+
   return (
     <>
       <Router>
