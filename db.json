@@ -4,68 +4,63 @@
       "dailyItem": "asdpgiha",
       "dailyAmount": 23,
       "id": 1
-    },
-    {
-      "dailyItem": "food",
-      "dailyAmount": 500,
-      "id": 2
-    },
-    {
-      "dailyItem": "suahi",
-      "dailyAmount": 8,
-      "id": 3
     }
   ],
-  "income": [],
   "investments": [
     {
-      "description": "real estate",
-      "investmentAmount": 12000,
-      "investmentRate": 0.04,
-      "investmentCompound": "Continuous (recommended)",
+      "investmentAmount": 200,
+      "investmentRate": 0.01,
+      "investmentCompound": "Quarterly",
       "id": 1
     },
     {
-      "description": "stocks",
-      "investmentAmount": 4000,
-      "investmentRate": 0.1,
+      "investmentAmount": 10,
+      "investmentRate": 0.02,
       "investmentCompound": "Continuous (recommended)",
       "id": 2
     },
     {
-      "description": "aslpdfjl",
-      "investmentAmount": 24,
-      "investmentRate": 0.02,
-      "investmentCompound": "Continuous (recommended)",
+      "investmentAmount": 30,
+      "investmentRate": 0.05,
+      "investmentCompound": "Semi-Annual",
       "id": 3
+    },
+    {
+      "investmentAmount": 5,
+      "investmentRate": 0.1,
+      "investmentCompound": "Annual",
+      "id": 4
     }
   ],
   "debt": [
     {
-      "description": "Medical Bill",
-      "debtAmount": 5000,
-      "debtRate": 0.03,
-      "debtTerm": 4,
-      "id": 4
+      "debtAmount": 10000,
+      "debtRate": 0.02,
+      "debtTerm": 10,
+      "id": 1
     },
     {
-      "description": "student loans",
-      "debtAmount": 900,
-      "debtRate": 0.09,
-      "debtTerm": 10,
-      "id": 5
-    }
-  ],
-  "taxes": {
-    "id": 1,
-    "relStatus": "Head of Household",
-    "dependents": 9
-  },
-  "bills": [
-    {
-      "billType": "electricity",
-      "monthlyAmount": "120",
+      "debtAmount": 2000,
+      "debtRate": 0.05,
+      "debtTerm": 1,
       "id": 2
     }
-  ]
+  ],
+  "income": [
+    {
+      "incomeAmount": 150000,
+      "id": 1
+    },
+    {
+      "incomeAmount": 10000,
+      "id": 2
+    }
+  ],
+  "taxes": 
+    {
+    "id": 1,
+    "relStatus": "Married - filing separately",
+    "dependents": 6
+  }
+  
 }

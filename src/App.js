@@ -79,6 +79,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => setPrevBills(data))
   }, [])
+
   return (
     <>
       <Router>

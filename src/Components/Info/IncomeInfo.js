@@ -15,8 +15,12 @@ const IncomeInfo = ({
     fetch('http://localhost:8000/income', {
     method: 'POST',
     body: JSON.stringify({
+<<<<<<< HEAD
         description: desc,
         incomeAmount: val
+=======
+        incomeAmount: parseFloat(val)
+>>>>>>> origin/Results-Page
     }),
     headers: {
         'Content-type': 'application/json'
