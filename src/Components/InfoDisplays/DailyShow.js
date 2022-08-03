@@ -8,7 +8,7 @@ const DailyShow = ( {item, id} ) => {
         //     x = 1
         // }
 
-        fetch(`http://localhost:3000/daily/${id}`, {
+        fetch(`http://localhost:8000/daily/${id}`, {
             method: 'DELETE'
         })
         .then((res) => res.json())

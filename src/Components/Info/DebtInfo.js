@@ -10,7 +10,7 @@ const DebtInfo = ({
         let rate = e.target[1].value
         let loanTerm = e.target[2].value
 
-        fetch('http://localhost:3000/debt', {
+        fetch('http://localhost:8000/debt', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

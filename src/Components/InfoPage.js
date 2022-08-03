@@ -6,6 +6,7 @@ import DebtInfo from './Info/DebtInfo'
 import InvestmentsInfo from './Info/InvestmentsInfo'
 import CurrentShow from './InfoDisplays/CurrentShow'
 import DailyShow from './InfoDisplays/DailyShow'
+import InvestmentsShow from './InfoDisplays/InvestmentsShow'
 
 
 const InfoPage = ({ 
@@ -95,6 +96,7 @@ const InfoPage = ({
             console.log('Spending Array: ', spendingArray)
             return (
                 <div>
+                    <h5>(Click to delete)</h5>
                     <ul>
                         {spendingArray.map((item) => {
                             return (<DailyShow 
@@ -108,15 +110,31 @@ const InfoPage = ({
             )
         } else if (num === 2) {
             cat = 'income'
-            let revenue
-            if (prevIncome.dailyAmount) {
-                revenue = prevIncome.dailyAmount
-            } else revenue = []
+            let revenue = prevIncome
+            
+            console.log('Revenue: ', revenue)
+            return (
+                <div>
+                    <ul>
+                        {revenue.incomeAmount}
+                    </ul>
+                </div>
+            )
             console.log('Revenue: ', revenue)
         } else if (num === 3) {
             cat = 'investments'
             let passiveIncomeArray = [...prevInvestments, ...newInvestments]
             console.log('Investments: ', passiveIncomeArray)
+            return (
+                <div>
+                    <ul>
+                        {passiveIncomeArray.map((item) => {
+                            return (<InvestmentsShow
+                                         />)
+                        })}
+                    </ul>
+                </div>
+            )
         } else if (num === 4) {
             cat = 'debt'
             let moneyOwedArray = [...prevDebts, ...newDebts]

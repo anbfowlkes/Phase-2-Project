@@ -1,8 +1,14 @@
 {
-  "daily": [],
+  "daily": [
+    {
+      "dailyItem": "asdpgiha",
+      "dailyAmount": 23,
+      "id": 1
+    }
+  ],
   "income": {
     "id": 1,
-    "incomeAmount": "80000"
+    "incomeAmount": "48"
   },
   "investments": [
     {
@@ -22,6 +28,12 @@
       "investmentRate": "upiu",
       "investmentCompound": "Quarterly",
       "id": 3
+    },
+    {
+      "investmentAmount": "23",
+      "investmentRate": "",
+      "investmentCompound": "Continuous (recommended)",
+      "id": 4
     }
   ],
   "debt": [
