@@ -234,16 +234,16 @@ const InfoPage = ({
     }
     
     return (
-        <div>
+        <div id='actually-all-info'>
             <h1>Welcome to the Information Page</h1>
             <div className='all-info'>
 
                 <div className='info-buttons'>
-                    <button onClick={() => setDisplayItem(1)}>Enter your Income Information</button>
-                    <button onClick={() => setDisplayItem(2)}>Enter your Investments Information</button>
-                    <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
-                    <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
-                    <button onClick={() => setDisplayItem(5)}>Enter your bills information</button>
+                    <button className='info-buttons' onClick={() => setDisplayItem(1)}>Enter your Income Information</button>
+                    <button className='info-buttons' onClick={() => setDisplayItem(2)}>Enter your Investments Information</button>
+                    <button className='info-buttons' onClick={() => setDisplayItem(3)}>Enter your Debt Information</button>
+                    <button className='info-buttons' onClick={() => setDisplayItem(4)}>Enter your Tax Information</button>
+                    <button className='info-buttons' onClick={() => setDisplayItem(5)}>Enter your Bills Information</button>
                 </div>
             
                 <div className='main-section'>

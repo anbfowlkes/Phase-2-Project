@@ -17,7 +17,7 @@ daily expenses, investment growth, debt growth, taxes,
 const App = () => {
   
   return (
-    <>
+    <div>
       <Router>
         <div>
           <NavBar></NavBar>
@@ -40,7 +40,7 @@ const App = () => {
           </Switch>
         </div >
       </Router >
-    </>
+    </div>
   );
 }
 

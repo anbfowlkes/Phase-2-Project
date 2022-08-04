@@ -1,0 +1,17 @@
+#show-daily-div {
+    font-size: 20px;
+}
+
+
+#do-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+#the-button {
+    width: 120px;
+    border-radius: 8px;
+}

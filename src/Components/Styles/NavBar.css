@@ -6,15 +6,17 @@
 .nav-links {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: 150px;
     justify-content: center;
     list-style: none;
+    font-size: 20px;
 }
 
 a {
-    color: green;
+    color: forestgreen;
 }
 
 #website-title {
     font-size: 60px;
+    margin-bottom: 40px;
 }

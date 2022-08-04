@@ -4,6 +4,8 @@ import './Styles/Results.css'
 import DailyChart from './PieCharts/DailyChart'
 import GainsChart from './PieCharts/GainsChart'
 import LossesChart from './PieCharts/LossesChart'
+import ShowDaily from './ShowDaily'
+import './Styles/ShowDaily.css'
 
 const Results = () => {
     let investSum = 0
@@ -158,10 +160,13 @@ const Results = () => {
     }, [])
 
     // fetch daily arr
-    useEffect(() => {
+    const getDaily = () => {
         fetch('http://localhost:8000/daily')
             .then((res) => res.json())
             .then((req) => setDailyArr(req))
+    }
+    useEffect(() => {
+        getDaily()
     }, [dailySubmit])
 
     // iterate investment array to find sum
@@ -225,6 +230,9 @@ const Results = () => {
 
     // function to add commas to numbers
     const numDisplayer = (number) => {
+        if (number < 0) {
+            return number
+        }
         if (Math.floor(number) != number) {
             let x = number.toString()
             let numArr = x.split('')
@@ -267,33 +275,27 @@ const Results = () => {
             return { backgroundColor: 'red'}
         }
     }
+    let c = 0
 
     return (
         <div className='results'>
 
-            {/* <div className='totals'>
-                <div className='dynamic-daily-net'>
-                    <h3>Money Available</h3>
-                </div>
-                <div className='static-daily-net'>
-                    <h3>Money Available</h3>
-                </div>
-            </div> */}
-
-            <div>
+            <h1>See Your Results</h1>
+            
+            <div className='div-container'>
 
                 <div className='info-display'>
 
                         <div id='top-three'>
 
                             <div className='daily-form'>
-                                <label>Daily Expense Today</label>
+                                <h4 id='head'>Daily Expense Today</h4>
                                 <form onSubmit={handleDailySubmit}>
                                     <input type='text' placeholder='Item' />
                                     <br />
                                     <input type='text' placeholder='Cost' />
                                     <br />
-                                    <input type='submit' value='Submit' />
+                                    <input id='submitter' type='submit' value='Submit' />
                                 </form>
                             </div>
 
@@ -327,23 +329,23 @@ const Results = () => {
                                     </tr>
                                     <tr>
                                         <td>Bills</td>
-                                        <td>$-{numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
-                                        <td>$-{numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Debt</td>
-                                        <td>$-{numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
-                                        <td>$-{numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Taxes</td>
-                                        <td>$-{numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
-                                        <td>$-{numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
+                                        <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
                                     </tr>
                                     <tr>
                                         <td>Daily Expenses</td>
-                                        <td>$-{numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
-                                        <td>$-{numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Total Net</td>
@@ -361,12 +363,12 @@ const Results = () => {
                             <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365)).toFixed(2)))}</h2>
                         </div>
                         <div style={showColor()} className='boxes'>
-                            <h5>Daily Money Spent</h5>
-                            <h2>${`${ numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}`}</h2>
-                        </div>
-                        <div style={showColor()} className='boxes'>
                             <h5>Daily Money Left</h5>
                             <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</h2>
+                        </div>
+                        <div style={showColor()} className='boxes'>
+                            <h5>Daily Money Spent</h5>
+                            <h2>${`${ numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}`}</h2>
                         </div>
                     </div>
 
@@ -390,6 +392,18 @@ const Results = () => {
 
                     </div>
 
+                </div>
+
+                <div id='list-container'>
+                    <div id='list-div'>
+                        <ol>
+                            {dailyArr.map((item) => {
+                                return (
+                                    <ShowDaily item={item}  id={item.id} getDaily={getDaily} numDisplayer={numDisplayer} key={c++} />
+                                    )
+                                })}
+                        </ol>
+                    </div>
                 </div>
 
             </div>

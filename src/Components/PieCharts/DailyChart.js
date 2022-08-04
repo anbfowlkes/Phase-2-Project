@@ -12,7 +12,7 @@ import '../Styles/Results.css'
 const DailyChart = ({ dailyMoneySpent, dailyMoneyAvailable }) => {
 
     const data = [
-        { name: 'Daily Money Available', value: dailyMoneyAvailable },
+        { name: 'Daily Money Left', value: dailyMoneyAvailable },
         { name: 'Daily Money Spent', value: dailyMoneySpent }
     ];
 
@@ -37,16 +37,16 @@ const DailyChart = ({ dailyMoneySpent, dailyMoneyAvailable }) => {
                 {/* <div class="row d-flex justify-content-center text-center">
                     <hr />
                     <div className="col-md-8"> */}
-                        <ResponsiveContainer width={800} height={800} className="text-center">
-                            <PieChart width={500} height={500}>
-                        <Legend layout="horizontal" verticalAlign="left" align="center" iconSize={30} />
+                        <ResponsiveContainer width={700} height={700} className="text-center">
+                            <PieChart width={500} height={500} >
+                        <Legend layout="horizontal" verticalAlign="left" align="center" iconSize={28} />
                                 <Pie
                                     data={data}
                                     cx="49%"
-                                    cy="45%"
+                                    cy="47%"
                                     labelLine={false}
                                     label={renderCustomizedLabel}
-                                    outerRadius={290}
+                                    outerRadius={275}
                                     fill="#8884d8"
                                     dataKey="value"
                                 >

@@ -1,11 +1,12 @@
-
 .all-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: lightblue;
+    padding-top: 20px;
     padding-bottom: 400px;
+    font-size: 1.4em;
 }
 
 .main-section {
@@ -17,17 +18,23 @@
 .info-buttons {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 80px;
     width: 300px;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+    border-radius: 8px;
 }
 
-button {
+/* button {
     width: 100px;
     height: auto;
     border-radius: 10px;
+} */
+
+.info-buttons {
+    color: black;
+    width: 68%;
 }
 
 .info-div {

@@ -51,7 +51,7 @@ const InvestmentsInfo = ({
                         <option>Annual</option>
                     </select>
                     <br />
-                    <input type='submit' />
+                    <input id='investment-submit' type='submit' />
                 </form>
             </div>
         </div>

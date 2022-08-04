@@ -1,8 +1,15 @@
-
+import './Styles/About.css'
 
 const About = () => {
     return (
-        <h1>Flatiron bootcamp students </h1>
+        <div id='div-container'>
+            <div id='title'>
+                <h1>Who We Are</h1>
+                <div id='card'>
+                    <h1>test</h1>
+                </div>
+            </div>
+        </div>
     )
 }
 

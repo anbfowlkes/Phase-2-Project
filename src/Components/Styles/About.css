@@ -1,0 +1,12 @@
+#div-container {
+    background-color: lightblue;
+}
+
+#title {
+    font-size: 20px;
+}
+
+#card {
+    height: 400px;
+    width: 400px;
+}

@@ -37,13 +37,13 @@ const GainsChart = ({ incomeSum, investSum }) => {
                 {/* <div class="row d-flex justify-content-center text-center">
                     <hr />
                     <div className="col-md-8"> */}
-                <ResponsiveContainer width={800} height={800} className="text-center">
+                <ResponsiveContainer width={700} height={700} className="text-center">
                     <PieChart width={500} height={500}>
                         <Legend layout="horizontal" verticalAlign="left" align="center" iconSize={28} />
                         <Pie
                             data={data}
                             cx="49%"
-                            cy="45%"
+                            cy="48%"
                             labelLine={false}
                             label={renderCustomizedLabel}
                             outerRadius={275}

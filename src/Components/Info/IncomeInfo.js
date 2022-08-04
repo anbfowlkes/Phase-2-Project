@@ -35,7 +35,7 @@ const IncomeInfo = ({
                     <br />
                     <input type='text' placeholder='Amount'/>
                     <br />
-                    <input id='income-submit' type='submit' value='Submit' />
+                    <input id='income-submit'type='submit' value='Submit' />
             </form>
             </div>
         </div>

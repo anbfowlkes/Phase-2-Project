@@ -1,139 +1,64 @@
 {
   "daily": [
     {
-      "dailyItem": "lunch",
-      "dailyCost": 10,
-      "id": 1
-    },
-    {
-      "dailyItem": "khj",
-      "dailyCost": 52,
-      "id": 2
-    },
-    {
-      "dailyItem": "khj",
-      "dailyCost": 52,
-      "id": 3
-    },
-    {
-      "dailyItem": "corned beef",
-      "dailyCost": 10,
-      "id": 4
-    },
-    {
-      "dailyItem": "corned beef",
-      "dailyCost": 10,
-      "id": 5
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
+      "dailyItem": "",
+      "dailyCost": -10,
       "id": 6
     },
     {
-      "dailyItem": "test",
-      "dailyCost": 10,
+      "dailyItem": "food",
+      "dailyCost": 4,
       "id": 7
     },
     {
-      "dailyItem": "",
-      "dailyCost": 10000,
+      "dailyItem": "food",
+      "dailyCost": 4,
       "id": 8
     },
     {
       "dailyItem": "",
-      "dailyCost": 10000,
+      "dailyCost": 4,
       "id": 9
     },
     {
       "dailyItem": "",
-      "dailyCost": -21000,
+      "dailyCost": 4,
       "id": 10
     },
     {
       "dailyItem": "",
-      "dailyCost": 1000,
+      "dailyCost": -40,
       "id": 11
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 20,
-      "id": 12
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -5,
-      "id": 13
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 14
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 15
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 16
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 17
     }
   ],
   "investments": [
     {
-      "investmentAmount": 200,
-      "investmentRate": 0.01,
-      "investmentCompound": "Quarterly",
+      "description": "Thing 1",
+      "investmentAmount": 100,
+      "investmentRate": 0.03,
+      "investmentCompound": "Continuous (recommended)",
       "id": 1
-    },
-    {
-      "investmentAmount": 10,
-      "investmentRate": 0.02,
-      "investmentCompound": "Continuous (recommended)",
-      "id": 2
-    },
-    {
-      "description": "test",
-      "investmentAmount": 10000,
-      "investmentRate": 0.05,
-      "investmentCompound": "Continuous (recommended)",
-      "id": 3
     }
   ],
   "debt": [
     {
-      "debtAmount": 10000,
-      "debtRate": 0.02,
-      "debtTerm": 10,
-      "id": 1
-    },
-    {
-      "debtAmount": 2000,
-      "debtRate": 0.05,
-      "debtTerm": 1,
-      "id": 2
+      "description": "asdf",
+      "debtAmount": 235,
+      "debtRate": 2.35,
+      "debtTerm": 23,
+      "id": 3
     }
   ],
   "income": [
     {
-      "incomeAmount": 150000,
+      "description": "Thing 1",
+      "incomeAmount": 45,
       "id": 1
     },
     {
-      "incomeAmount": 10000,
+      "description": "sfg",
+      "incomeAmount": 80000,
       "id": 2
-    },
-    {
-      "description": "salary",
-      "incomeAmount": 40,
-      "id": 3
     }
   ],
   "bills": [

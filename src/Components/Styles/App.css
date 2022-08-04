@@ -1,9 +1,11 @@
+* {
+  font-family: Verdana, Geneva, Tahoma;
+}
+
+
 .App {
   text-align: center;
 }
 
-.routes {
-  /* border: solid black; */
-}
 
 
