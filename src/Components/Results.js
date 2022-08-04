@@ -37,19 +37,19 @@ const Results = () => {
     const taxCalculator = (status, amount) => {
         if (status === 'Single') {
             if (amount < 9950) {
-                return amount * .1
+                return amount * .25
             } else if (amount < 40525) {
-                return (amount - 9950) * .12 + (995)
+                return (amount - 9950) * .27 + (2487.5)
             } else if (amount < 86375) {
-                return (amount - 40525) * .22 + (3669) + (995)
+                return (amount - 40525) * .32 + (8255.25) + (2487.5)
             } else if (amount < 164925) {
-                return (amount - 86376) * .24 + (11004) + (3669) + (995)
+                return (amount - 86376) * .36 + (14672) + (8255.25) + (2487.5)
             } else if (amount < 209425) {
-                return (amount - 164926) * .32 + (25136) + (11004) + (3669) + (995)
+                return (amount - 164926) * .38 + (25136) + (11004) + (8255.25) + (2487.5)
             } else if (amount < 523600) {
-                return (amount - 209426) * .35 + (15575) + (25136) + (11004) + (3669) + (995)
+                return (amount - 209426) * .40 + (15575) + (25136) + (11004) + (8255.25) + (2487.5)
             } else {
-                return (amount - 523601) * 37 + (116244) + (15575) + (25136) + (11004) + (3669) + (995)
+                return (amount - 523601) * .42 + (116244) + (15575) + (25136) + (11004) + (8255.25) + (2487.5)
             }
         } else if (status === 'Married - filing separately') {
             if (amount < 9950) {
