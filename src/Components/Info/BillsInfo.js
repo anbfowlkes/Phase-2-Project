@@ -1,8 +1,5 @@
 const BillsInfo = ({
-    newBills,
-    setNewBills,
-    prevBills,
-    setPrevBills
+    getBills
 }) => {
     const handleBillSubmit = (e) => {
         e.preventDefault()
@@ -20,7 +17,7 @@ const BillsInfo = ({
             })
         })
             .then((res) => res.json())
-            .then((newItem) => setNewBills([...newBills, newItem]))
+            .then((newItem) => getBills())
 
     }
 

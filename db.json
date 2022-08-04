@@ -1,72 +1,25 @@
 {
-  "daily": [
-    {
-      "dailyItem": "asdpgiha",
-      "dailyAmount": 23,
-      "id": 1
-    }
-  ],
+  "daily": [],
   "investments": [
     {
-      "investmentAmount": 200,
-      "investmentRate": 0.01,
-      "investmentCompound": "Quarterly",
-      "id": 1
-    },
-    {
-      "investmentAmount": 10,
-      "investmentRate": 0.02,
+      "description": "asgd",
+      "investmentAmount": 3,
+      "investmentRate": 0.03,
       "investmentCompound": "Continuous (recommended)",
-      "id": 2
-    },
-    {
-      "investmentAmount": 30,
-      "investmentRate": 0.05,
-      "investmentCompound": "Semi-Annual",
-      "id": 3
-    },
-    {
-      "investmentAmount": 5,
-      "investmentRate": 0.1,
-      "investmentCompound": "Annual",
-      "id": 4
+      "id": 5
     }
   ],
   "debt": [
     {
-      "debtAmount": 10000,
-      "debtRate": 0.02,
-      "debtTerm": 10,
+      "description": "loan",
+      "debtAmount": 3,
+      "debtRate": 0.03,
+      "debtTerm": 55,
       "id": 1
-    },
-    {
-      "debtAmount": 2000,
-      "debtRate": 0.05,
-      "debtTerm": 1,
-      "id": 2
     }
   ],
-  "income": [
-    {
-      "incomeAmount": 150000,
-      "id": 1
-    },
-    {
-      "incomeAmount": 10000,
-      "id": 2
-    }
-  ],
+  "income": [],
   "bills": [
-    {
-      "billType": "rent",
-      "monthlyAmount": 2000,
-      "id": 1
-    },
-    {
-      "billType": "Electricity",
-      "monthlyAmount": 100,
-      "id": 2
-    },
     {
       "billType": "Food",
       "monthlyAmount": 350,

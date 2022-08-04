@@ -1,4 +1,4 @@
-const DebtsShow = ( {item, id} ) => {
+const DebtsShow = ( {item, id, getDebt} ) => {
     let description = item.description
     let amount = item.debtAmount
     let rate = item.debtRate
@@ -9,7 +9,7 @@ const DebtsShow = ( {item, id} ) => {
             method: 'DELETE'
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => getDebt())
     }
 
     return (

@@ -1,8 +1,5 @@
 const DebtInfo = ({ 
-    newDebts,
-    setNewDebts,
-    prevDebts,
-    setPrevDebts
+    getDebt
  } ) => {
     const handleDebtSubmit = (e) => {
         e.preventDefault()
@@ -24,7 +21,7 @@ const DebtInfo = ({
             })
         })
             .then((res) => res.json())
-            .then((newItem) => setNewDebts([...newDebts, newItem]))
+            .then((newItem) => getDebt())
 
     }
 
