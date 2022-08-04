@@ -37,72 +37,83 @@ const debtCalculator = (amount, rate, term) => {
 
 // function to calculate taxes
 const taxCalculator = (status, amount) => {
+    let mr1 = .25  //.1
+    let mr2 = .34  //.12
+    let mr3 = .36  //.22
+    let mr4 = .40  //.24
+    let mr5 = .42  //.32
+    let mr6 = .44  //.35
+    let mr7 = .46  //.37
+
     if (status === 'Single') {
         if (amount < 9950) {
-            return amount * .1
+            return amount * mr1
         } else if (amount < 40525) {
-            return (amount - 9950) * .12 + (995)
+            return (amount - 9951) * mr2 + (9950 * mr1)
         } else if (amount < 86375) {
-            return (amount - 40525) * .22 + (3669) + (995)
+            return (amount - 40526) * mr3 + ((40525-9951) * mr2) + (9950 * mr1)
         } else if (amount < 164925) {
-            return (amount - 86376) * .24 + (11004) + (3669) + (995)
+            return (amount - 86376) * mr4 + ((86375-40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else if (amount < 209425) {
-            return (amount - 164926) * .32 + (25136) + (11004) + (3669) + (995)
+            return (amount - 164926) * mr5 + ((164925-86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else if (amount < 523600) {
-            return (amount - 209426) * .35 + (15575) + (25136) + (11004) + (3669) + (995)
+            return (amount - 209426) * mr6 + ((209425-164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else {
-            return (amount - 523601) * 37 + (116244) + (15575) + (25136) + (11004) + (3669) + (995)
+            return (amount - 523601) * mr7 + ((523601 - 209425) * mr6) + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         }
     } else if (status === 'Married - filing separately') {
         if (amount < 9950) {
-            return amount * .1
+            return amount * mr1
         } else if (amount < 40525) {
-            return (amount - 9950) * .12 + (995)
+            return (amount - 9951) * mr2 + (9950 * mr1)
         } else if (amount < 86375) {
-            return (amount - 40525) * .22 + (3669) + (995)
+            return (amount - 40526) * mr3 + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else if (amount < 164925) {
-            return (amount - 86376) * .24 + (11004) + (3669) + (995)
+            return (amount - 86376) * mr4 + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else if (amount < 209425) {
-            return (amount - 164926) * .32 + (25136) + (11004) + (3669) + (995)
+            return (amount - 164926) * mr5 + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else if (amount < 314150) {
-            return (amount - 209426) * .35 + (15575) + (25136) + (11004) + (3669) + (995)
+            return (amount - 209426) * mr6 + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         } else {
-            return (amount - 523601) * 37 + (36653) + (15575) + (25136) + (11004) + (3669) + (995)
+            return (amount - 523601) * mr7 + ((314150 - 209426) * mr6) + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
         }
     } else if (status === 'Married - filing jointly') {
         if (amount < 19900) {
-            return amount * .1
+            return amount * mr1
         } else if (amount < 81050) {
-            return (amount - 19900) * .12 + (1990)
+            return (amount - 19901) * mr2 + (19900 * mr1)
         } else if (amount < 172750) {
-            return (amount - 81051) * .22 + (7338) + (1990)
+            return (amount - 81051) * mr3 + ((81050 - 19901) * mr2) + (19900 * mr1)
         } else if (amount < 329850) {
-            return (amount - 172751) * .24 + (20173) + (7338) + (1990)
+            return (amount - 172751) * mr4 + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
         } else if (amount < 418850) {
-            return (amount - 329851) * .32 + (37704) + (20173) + (7338) + (1990)
+            return (amount - 329851) * mr5 + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
         } else if (amount < 628300) {
-            return (amount - 418851) * .35 + (28480) + (37704) + (20173) + (7338) + (1990)
+            return (amount - 418851) * mr6 + ((418850 - 329851) * mr5) + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
         } else {
-            return (amount - 628301) * 37 + (36653) + (28480) + (37704) + (20173) + (7338) + (1990)
+            return (amount - 628301) * mr7 + ((628300 - 418851) * mr6) + ((418850 - 329851) * mr5) + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
         }
     } else if (status === 'Head of Household') {
         if (amount < 14200) {
-            return amount * .1
+            return amount * mr1
         } else if (amount < 54200) {
-            return (amount - 14201) * .12 + (1420)
+            return (amount - 14201) * mr2 + (14200 * mr1)
         } else if (amount < 86350) {
-            return (amount - 54201) * .22 + (4800) + (1420)
+            return (amount - 54201) * mr3 + ((54200 - 14201) * mr2) + (14200 * mr1)
         } else if (amount < 164900) {
-            return (amount - 86351) * .24 + (7073) + (4800) + (1420)
+            return (amount - 86351) * mr4 + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
         } else if (amount < 209400) {
-            return (amount - 164901) * .32 + (18852) + (7073) + (4800) + (1420)
+            return (amount - 164901) * mr5 + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
         } else if (amount < 523600) {
-            return (amount - 209401) * .35 + (14240) + (18852) + (7073) + (4800) + (1420)
+            return (amount - 209401) * mr6 + ((209400 - 164901) * mr5) + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
         } else {
-            return (amount - 628301) * 37 + (109970) + (14240) + (18852) + (7073) + (4800) + (1420)
+            return (amount - 628301) * mr7 + ((523600 - 209401) * mr6) + ((209400 - 164900) * mr5) + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
         }
+        numWithCommas = numWithCommas + '.00'
+        return numWithCommas
     }
 }
+
 
 // function to calculate actual taxes with dependents
 const actualTaxAmount = (status, income, dependents) => {
@@ -213,7 +224,6 @@ console.log('calculated money', dailyMoneyCalculated)
 console.log('available money', dailyMoneyAvailable)
 console.log('spent money', dailyMoneySpent)
 
-<<<<<<< HEAD
 // function to add commas to numbers
 const numDisplayer = (number) => {
         if (Math.floor(number) != number) {        
@@ -245,108 +255,12 @@ const numDisplayer = (number) => {
             let numWithCommas = ""
             for (let i = 0; i < numArr.length; i++) {
                 numWithCommas += numArr[i]
-=======
-    // function to calculate taxes
-    const taxCalculator = (status, amount) => {
-        let mr1 = .25  //.1
-        let mr2 = .34  //.12
-        let mr3 = .36  //.22
-        let mr4 = .40  //.24
-        let mr5 = .42  //.32
-        let mr6 = .44  //.35
-        let mr7 = .46  //.37
-
-        if (status === 'Single') {
-            if (amount < 9950) {
-                return amount * mr1
-            } else if (amount < 40525) {
-                return (amount - 9951) * mr2 + (9950 * mr1)
-            } else if (amount < 86375) {
-                return (amount - 40526) * mr3 + ((40525-9951) * mr2) + (9950 * mr1)
-            } else if (amount < 164925) {
-                return (amount - 86376) * mr4 + ((86375-40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else if (amount < 209425) {
-                return (amount - 164926) * mr5 + ((164925-86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else if (amount < 523600) {
-                return (amount - 209426) * mr6 + ((209425-164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else {
-                return (amount - 523601) * mr7 + ((523601 - 209425) * mr6) + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40376) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            }
-        } else if (status === 'Married - filing separately') {
-            if (amount < 9950) {
-                return amount * mr1
-            } else if (amount < 40525) {
-                return (amount - 9951) * mr2 + (9950 * mr1)
-            } else if (amount < 86375) {
-                return (amount - 40526) * mr3 + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else if (amount < 164925) {
-                return (amount - 86376) * mr4 + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else if (amount < 209425) {
-                return (amount - 164926) * mr5 + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else if (amount < 314150) {
-                return (amount - 209426) * mr6 + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            } else {
-                return (amount - 523601) * mr7 + ((314150 - 209426) * mr6) + ((209425 - 164926) * mr5) + ((164925 - 86376) * mr4) + ((86375 - 40526) * mr3) + ((40525 - 9951) * mr2) + (9950 * mr1)
-            }
-        } else if (status === 'Married - filing jointly') {
-            if (amount < 19900) {
-                return amount * mr1
-            } else if (amount < 81050) {
-                return (amount - 19901) * mr2 + (19900 * mr1)
-            } else if (amount < 172750) {
-                return (amount - 81051) * mr3 + ((81050 - 19901) * mr2) + (19900 * mr1)
-            } else if (amount < 329850) {
-                return (amount - 172751) * mr4 + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
-            } else if (amount < 418850) {
-                return (amount - 329851) * mr5 + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
-            } else if (amount < 628300) {
-                return (amount - 418851) * mr6 + ((418850 - 329851) * mr5) + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
-            } else {
-                return (amount - 628301) * mr7 + ((628300 - 418851) * mr6) + ((418850 - 329851) * mr5) + ((329850 - 172751) * mr4) + ((172750 - 81051) * mr3) + ((81050 - 19901) * mr2) + (19900 * mr1)
-            }
-        } else if (status === 'Head of Household') {
-            if (amount < 14200) {
-                return amount * mr1
-            } else if (amount < 54200) {
-                return (amount - 14201) * mr2 + (14200 * mr1)
-            } else if (amount < 86350) {
-                return (amount - 54201) * mr3 + ((54200 - 14201) * mr2) + (14200 * mr1)
-            } else if (amount < 164900) {
-                return (amount - 86351) * mr4 + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
-            } else if (amount < 209400) {
-                return (amount - 164901) * mr5 + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
-            } else if (amount < 523600) {
-                return (amount - 209401) * mr6 + ((209400 - 164901) * mr5) + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
-            } else {
-                return (amount - 628301) * mr7 + ((523600 - 209401) * mr6) + ((209400 - 164900) * mr5) + ((164900 - 86351) * mr4) + ((86350 - 54201) * mr3) + ((54200 - 14201) * mr2) + (14200 * mr1)
->>>>>>> 0e73836a48962568464ffc26ebcfb236479b9cef
-            }
-            numWithCommas = numWithCommas + '.00'
-            return numWithCommas
-        }
-    }
 
     // total daily money available  CHECK
     // amount gained and lost  CHECK
     // ability to etner more daily expenses CHECK
     // table showing positive and negative contributions from all sources CHECK
 
-<<<<<<< HEAD
-return (
-    <div className='display'>
-        
-        <div className='totals'>
-            <div className='dynamic-daily-net'>
-                <h3>Money Available</h3>
-            </div>
-            <div className='static-daily-net'>
-                <h3>Money Available</h3>
-            </div>
-        </div>
-        
-        <div>
-
-=======
     console.log(actualTaxAmount('Single', 100000, 2))
 
     // fetch investments array
@@ -439,7 +353,6 @@ return (
         <div className='display'>
             {console.log(actualTaxAmount('Single', 100000, 2))
 }
->>>>>>> 0e73836a48962568464ffc26ebcfb236479b9cef
             <div className='info-display'>
 
                 <div className='daily-expenditures'> 
