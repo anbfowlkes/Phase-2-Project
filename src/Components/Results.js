@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import './Styles/Results.css'
 import DailyChart from './PieCharts/DailyChart'
+import GainsChart from './PieCharts/GainsChart'
+import LossesChart from './PieCharts/LossesChart'
 
 const Results = () => {
     let investSum = 0
@@ -217,9 +219,9 @@ const Results = () => {
         dailyMoneyAvailable = dailyMoneyCalculated - dailyMoneySpent
     }, [dailySubmit])
 
-    console.log('calculated money', dailyMoneyCalculated)
-    console.log('available money', dailyMoneyAvailable)
-    console.log('spent money', dailyMoneySpent)
+    // console.log('calculated money', dailyMoneyCalculated)
+    // console.log('available money', dailyMoneyAvailable)
+    // console.log('spent money', dailyMoneySpent)
 
     // function to add commas to numbers
     const numDisplayer = (number) => {
@@ -286,14 +288,17 @@ const Results = () => {
                                 <input type='submit' value='Submit' />
                             </form>
                         </div>
+                        
 
                         <div className='daily-chart'>
                             <h2>Today's Spending Chart</h2>
                             <DailyChart dailyMoneySpent={dailyMoneySpent} dailyMoneyAvailable={dailyMoneyAvailable} />
                         </div>
 
-                    </div>
 
+            
+
+                    </div>
 
                     <div className='table-container'>
                         <h3> Data Table</h3>
@@ -347,35 +352,14 @@ const Results = () => {
 
                     <div className='chart-container'>
 
-                        <div>
+                        <div className='gains-chart'>
                             <h3>Yearly Money Gains Chart</h3>
-                            {/* <PieChart className='chart1'
-                                label={({ dataEntry }) => 2}
-
-                                data={[
-                                    { title: 'Income', value: incomeSum, color: '#E38627' },
-                                    { title: 'Investments', value: investSum, color: '#C13C37' }
-                                ]}
-                            /> */}
+                            <GainsChart incomeSum={incomeSum} investSum={investSum} />
                         </div>
 
-                        <div>
+                        <div className='losses-chart'>
                             <h3>Yearly Money Losses Chart</h3>
-                            {/* <PieChart className='chart2'
-                                // label={() => 'hi'}
-
-                                // labelPosition={1}
-                                // labelStyle={{
-                                //     fontSize: "10px",
-                                //     fontColor: "FFFFFA",
-                                //     fontWeight: "800",
-                                // }}
-                                data={[
-                                    { title: 'Debt', value: debtSum, color: '#E38627' },
-                                    { title: 'Taxes', value: taxSum, color: '#C13C37' },
-                                    { title: 'Bills', value: billSum, color: '#6A2135' }
-                                ]}
-                            /> */}
+                            <LossesChart debtSum={debtSum} taxSum={taxSum} billSum={billSum} />
                         </div>
 
                     </div>

@@ -1,32 +1,42 @@
-.debt-form {
-    border: solid-black;
+.income-form {
+    /* border: solid-black; */
+    width: 400px;
     background-color: lightgreen;
     padding-bottom: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    text-align: center;
 }
 
-.header {
-    margin-bottom: 0px
+#h3 {
+    margin-bottom: -5px
 }
 
-.form-container {
+#income-header {
+    margin-bottom: -10px;
+}
+
+.form-containing {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid black;
+    /* border: solid black; */
 }
 
 input[type=text] {
-    width: 150%;
+    width: 100px;
     margin: 15px 0 15px -40px;
     border-radius: 8px;
 }
 
 input[type=submit] {
-    width: 100%;
+    width: 100px;
     border-radius: 8px;
+}
+
+#income-submit {
+    width: 100px;
 }

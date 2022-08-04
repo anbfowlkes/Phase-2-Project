@@ -6,469 +6,72 @@
       "id": 1
     },
     {
-      "dailyItem": "test",
-      "dailyCost": 2,
+      "dailyItem": "khj",
+      "dailyCost": 52,
       "id": 2
     },
     {
-      "dailyItem": "test",
-      "dailyCost": 4,
+      "dailyItem": "khj",
+      "dailyCost": 52,
       "id": 3
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 3,
-      "id": 4
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 5,
-      "id": 5
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 6,
-      "id": 6
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 7,
-      "id": 7
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 7,
-      "id": 8
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 7,
-      "id": 9
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 1,
-      "id": 10
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 11
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 12
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 13
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 0.43,
-      "id": 14
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 15
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 16
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 17
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 18
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": null,
-      "id": 19
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 12,
-      "id": 20
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -12,
-      "id": 21
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": null,
-      "id": 22
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -12,
-      "id": 23
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -12,
-      "id": 24
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 25
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -50,
-      "id": 26
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -50,
-      "id": 27
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 28
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 29
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 30
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 31
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 32
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 33
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 34
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 35
-    },
-    {
-      "dailyItem": "fsd",
-      "dailyCost": 10,
-      "id": 36
-    },
-    {
-      "dailyItem": "fsd",
-      "dailyCost": 10,
-      "id": 37
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 38
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 39
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 40
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 9,
-      "id": 41
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -50,
-      "id": 42
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 5,
-      "id": 43
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 5,
-      "id": 44
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 5,
-      "id": 45
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 5,
-      "id": 46
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -20,
-      "id": 47
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 48
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 49
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 50
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 51
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 52
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 53
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 54
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 55
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 56
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 57
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 58
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 59
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 60
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 61
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 62
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 63
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 64
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 65
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 66
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 67
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 68
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 69
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 70
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 71
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 72
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 73
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 74
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 75
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 76
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 10,
-      "id": 77
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 2,
-      "id": 78
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 79
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 80
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -50,
-      "id": 81
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -60,
-      "id": 82
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": -60,
-      "id": 83
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 60,
-      "id": 84
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 10,
-      "id": 85
-    },
-    {
-      "dailyItem": "test",
-      "dailyCost": 20,
-      "id": 86
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 20,
-      "id": 87
     }
   ],
   "investments": [
     {
-      "description": "Stocks",
       "investmentAmount": 200,
       "investmentRate": 0.01,
       "investmentCompound": "Quarterly",
       "id": 1
+    },
+    {
+      "investmentAmount": 10,
+      "investmentRate": 0.02,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 2
+    },
+    {
+      "description": "test",
+      "investmentAmount": 10000,
+      "investmentRate": 0.05,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 3
     }
   ],
   "debt": [
     {
-      "description": "Loan",
       "debtAmount": 10000,
       "debtRate": 0.02,
       "debtTerm": 10,
       "id": 1
     },
     {
-      "description": "Another Loan",
-      "debtAmount": 400,
-      "debtRate": 0,
-      "debtTerm": 2,
+      "debtAmount": 2000,
+      "debtRate": 0.05,
+      "debtTerm": 1,
       "id": 2
     }
   ],
   "income": [
     {
-      "description": "Primary Job",
       "incomeAmount": 150000,
       "id": 1
+    },
+    {
+      "incomeAmount": 10000,
+      "id": 2
+    },
+    {
+      "description": "salary",
+      "incomeAmount": 40,
+      "id": 3
     }
   ],
   "bills": [
+    {
+      "billType": "rent",
+      "monthlyAmount": 2000,
+      "id": 1
+    },
     {
       "billType": "Electricity",
       "monthlyAmount": 100,
@@ -478,6 +81,11 @@
       "billType": "Food",
       "monthlyAmount": 350,
       "id": 3
+    },
+    {
+      "billType": "test",
+      "monthlyAmount": 1000,
+      "id": 4
     }
   ],
   "taxes": {

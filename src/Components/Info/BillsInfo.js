@@ -29,12 +29,11 @@ const BillsInfo = ({
                 <h3>Enter your monthly bills here</h3>
             </div>
             <form onSubmit={handleBillSubmit}>
-                <input type='text' placeholder='Bill description' />
+                <input type='text' placeholder='Bill Description' />
                 <br />
-                <input type='text' placeholder='Monthly Amount' />
-                <label> dollars </label>
+                <input type='text' placeholder='Monthly Amount (in dollars)' />
                 <br />
-                <input type='submit' />
+                <input id='bills-submit' type='submit' />
             </form>
         </div>
     )

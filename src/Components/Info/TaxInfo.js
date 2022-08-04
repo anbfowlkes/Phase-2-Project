@@ -26,10 +26,10 @@ const TaxInfo = ({
 
   return (
     <div className='tax-form'>
-      <div className='header'>
+      <div className='tax-header'>
         <h3>Enter your tax information here</h3>
       </div>
-      <div className='form-container'>
+      <div className='tax-form-container'>
 
         <form onSubmit={handleTaxSubmit}>
           <label htmlFor="status">What is your relationship status? </label>
@@ -56,7 +56,7 @@ const TaxInfo = ({
             <option>9</option>
             <option>10</option>
           </select>
-          <input type='submit' />
+          <input id='tax-submit-button' type='submit' />
         </form>
       </div>
     </div>

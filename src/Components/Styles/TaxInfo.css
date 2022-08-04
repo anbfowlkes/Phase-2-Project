@@ -8,23 +8,23 @@
     gap: 5px;
 }
 
-.header {
-    margin-bottom: 30px
+.tax-header {
+    margin-bottom: -10px
 }
 
-.form-container {
+.tax-form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-input {
-    width: 21%;
-}
-
 select {
     width: 80%;
     margin: 15px 0;
     border-radius: 8px;
+}
+
+#tax-submit-button {
+    width: 100px;
 }

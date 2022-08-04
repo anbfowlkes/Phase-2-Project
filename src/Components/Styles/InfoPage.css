@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> c96a04c9407ea046ad3ce2dd6100323672d53d83
 
 .all-info {
     display: flex;
@@ -34,17 +30,18 @@ button {
 }
 
 .info-div {
-    border: solid black;
+    /* border: solid black; */
     width: 50%;
     height: 400px;
 }
 
 .info-show {
-    border: solid black;
+    /* border: solid black; */
     width: 50%;
 }
+
 .current-status {
-    border: solid black;
+    /* border: solid black; */
     width: 100%;
     height: 400px;
     text-align: center;

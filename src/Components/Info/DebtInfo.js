@@ -30,10 +30,10 @@ const DebtInfo = ({
 
     return (
         <div className='debt-form'>
-            <div className='header'>
-                <h3>Enter your debt information here</h3>
+            <div className='debt-header'>
+                <h3>Enter your debt information here:</h3>
             </div>
-            <div className='form-container'>
+            <div className='debt-form-container'>
                 <form onSubmit={handleDebtSubmit}>
                     <input type='text' placeholder='Debt Description' />
                     <br />
@@ -44,7 +44,7 @@ const DebtInfo = ({
                     <br/>
                     <input type='text' placeholder='Loan Term (in years)'/>
                     <br />
-                    <input type='submit' />
+                    <input id='debt-submit' type='submit' />
                 </form>
             </div>
         </div>

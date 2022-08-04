@@ -239,8 +239,8 @@ const InfoPage = ({
             <div className='all-info'>
 
                 <div className='info-buttons'>
-                    <button onClick={() => setDisplayItem(1)}>Enter your income information</button>
-                    <button onClick={() => setDisplayItem(2)}>Enter your investments information</button>
+                    <button onClick={() => setDisplayItem(1)}>Enter your Income Information</button>
+                    <button onClick={() => setDisplayItem(2)}>Enter your Investments Information</button>
                     <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
                     <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
                     <button onClick={() => setDisplayItem(5)}>Enter your bills information</button>

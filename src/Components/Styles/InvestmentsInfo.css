@@ -1,0 +1,36 @@
+.investments-form {
+    background-color: lightgreen;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 450px;
+}
+
+#investment-header {
+    margin-bottom: -10px
+}
+
+/* .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text] {
+    width: 80%;
+    margin-left: 8px;
+}
+
+select {
+    width: 80%;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+
+#bills-submit {
+    width: 100px;
+} */

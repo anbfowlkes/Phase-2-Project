@@ -29,26 +29,31 @@ const InvestmentsInfo = ({
     }
 
     return (
-        <div>
-            <h3>Enter your investments information here</h3>
-            <form onSubmit={handleInvestSubmit}>
-                <input type='text' placeholder='Investment Description' />
-                <br />
-                <input type='text' placeholder='Amount' />
-                <br />
-                <input type='text' placeholder='Annual Interest Rate' />
-                <br />
-                <label htmlFor='compound'>Choose your compound interest: </label>
+        <div className='investments-form'>
+            <div id='investment-header'>
+                <h3>Enter your investments information here:</h3>
+            </div>
+            <div id='investment-form-container'>
 
-                <select name='compound'>
-                    <option>Continuous (recommended)</option>
-                    <option>Quarterly</option>
-                    <option>Semi-Annual</option>
-                    <option>Annual</option>
-                </select>
-                <br />
-                <input type='submit' />
-            </form>
+                <form onSubmit={handleInvestSubmit}>
+                    <input type='text' placeholder='Investment Description' />
+                    <br />
+                    <input type='text' placeholder='Amount' />
+                    <br />
+                    <input type='text' placeholder='Annual Interest Rate' />
+                    <br />
+                    <label htmlFor='compound'>Choose your compound interest: </label>
+
+                    <select name='compound'>
+                        <option>Continuous (recommended)</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annual</option>
+                        <option>Annual</option>
+                    </select>
+                    <br />
+                    <input type='submit' />
+                </form>
+            </div>
         </div>
     )
 }
