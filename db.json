@@ -14,6 +14,26 @@
       "dailyItem": "khj",
       "dailyCost": 52,
       "id": 3
+    },
+    {
+      "dailyItem": "corned beef",
+      "dailyCost": 10,
+      "id": 4
+    },
+    {
+      "dailyItem": "corned beef",
+      "dailyCost": 10,
+      "id": 5
+    },
+    {
+      "dailyItem": "test",
+      "dailyCost": 10,
+      "id": 6
+    },
+    {
+      "dailyItem": "test",
+      "dailyCost": 10,
+      "id": 7
     }
   ],
   "investments": [

@@ -7,6 +7,13 @@
     float: left;
     display: block;
     justify-items: center;
+    margin-top: -400px;
+    margin-right: -50px;
+}
+
+.table-container {
+    margin-top: -400px;
+    margin-left: -50px;
 }
 
 .daily-chart {
@@ -16,12 +23,26 @@
 
 .gains-chart {
     display: block;
-    float: right;
+    float: left;
 }
 
 .losses-chart {
     display: block;
     float: right;
+}
+
+#top-three {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#second-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 td {

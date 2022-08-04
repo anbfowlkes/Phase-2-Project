@@ -46,7 +46,7 @@ const DailyChart = ({ dailyMoneySpent, dailyMoneyAvailable }) => {
                                     cy="45%"
                                     labelLine={false}
                                     label={renderCustomizedLabel}
-                                    outerRadius={300}
+                                    outerRadius={290}
                                     fill="#8884d8"
                                     dataKey="value"
                                 >

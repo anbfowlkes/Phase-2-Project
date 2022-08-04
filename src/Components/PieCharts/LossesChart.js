@@ -41,14 +41,14 @@ const LossesChart = ({ debtSum, taxSum, billSum }) => {
                     <div className="col-md-8"> */}
                 <ResponsiveContainer width={800} height={800} className="text-center">
                     <PieChart width={500} height={500}>
-                        <Legend layout="horizontal" verticalAlign="left" align="center" iconSize={30} />
+                        <Legend layout="horizontal" verticalAlign="left" align="center" iconSize={28} />
                         <Pie
                             data={data}
                             cx="49%"
                             cy="45%"
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={300}
+                            outerRadius={275}
                             fill="#8884d8"
                             dataKey="value"
                         >

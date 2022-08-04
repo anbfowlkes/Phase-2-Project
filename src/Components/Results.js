@@ -276,78 +276,75 @@ const Results = () => {
 
                 <div className='info-display'>
 
-                    <div className='daily-expenditures'>
+                        <div id='top-three'>
 
-                        <div className='daily-form'>
-                            <label>Daily Expense Today</label>
-                            <form onSubmit={handleDailySubmit}>
-                                <input type='text' placeholder='Item' />
-                                <br />
-                                <input type='text' placeholder='Cost' />
-                                <br />
-                                <input type='submit' value='Submit' />
-                            </form>
+                            <div className='daily-form'>
+                                <label>Daily Expense Today</label>
+                                <form onSubmit={handleDailySubmit}>
+                                    <input type='text' placeholder='Item' />
+                                    <br />
+                                    <input type='text' placeholder='Cost' />
+                                    <br />
+                                    <input type='submit' value='Submit' />
+                                </form>
+                            </div>
+
+
+                            <div className='daily-chart'>
+                                <h2>Today's Spending Chart</h2>
+                                <DailyChart dailyMoneySpent={dailyMoneySpent} dailyMoneyAvailable={dailyMoneyAvailable} />
+                            </div>
+
+
+                        <div className='table-container'>
+                            <h3>Data Table</h3>
+                            <Table striped bordered hover >
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Daily Net</th>
+                                        <th>Yearly Net</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Income</td>
+                                        <td>${numDisplayer(parseFloat((incomeSum / 365).toFixed(2)))}</td>
+                                        <td>${numDisplayer(parseFloat(incomeSum.toFixed(2)))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Investments</td>
+                                        <td>${numDisplayer(parseFloat((investSum / 365).toFixed(2)))}</td>
+                                        <td>${numDisplayer(parseInt((investSum).toFixed(2)))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bills</td>
+                                        <td>-${numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Debt</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taxes</td>
+                                        <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Daily Expense</td>
+                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Net</td>
+                                        <td>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>${numDisplayer(parseFloat(incomeSum + investSum - billSum - debtSum - taxSum - dailyMoneySpent).toFixed(2))}</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
                         </div>
-                        
-
-                        <div className='daily-chart'>
-                            <h2>Today's Spending Chart</h2>
-                            <DailyChart dailyMoneySpent={dailyMoneySpent} dailyMoneyAvailable={dailyMoneyAvailable} />
-                        </div>
-
-
-            
-
-                    </div>
-
-                    <div className='table-container'>
-                        <h3> Data Table</h3>
-                        <Table striped bordered hover >
-                            <thead>
-                                <tr>
-                                    <th>Category</th>
-                                    <th>Daily Net</th>
-                                    <th>Yearly Net</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Income</td>
-                                    <td>${numDisplayer(parseFloat((incomeSum / 365).toFixed(2)))}</td>
-                                    <td>${numDisplayer(parseFloat(incomeSum.toFixed(2)))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Investments</td>
-                                    <td>${numDisplayer(parseFloat((investSum / 365).toFixed(2)))}</td>
-                                    <td>${numDisplayer(parseInt((investSum).toFixed(2)))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bills</td>
-                                    <td>-${numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
-                                    <td>-${numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Debt</td>
-                                    <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
-                                    <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Taxes</td>
-                                    <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
-                                    <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Daily Expense</td>
-                                    <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
-                                    <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
-                                </tr>
-                                <tr>
-                                    <td>Total Net</td>
-                                    <td>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</td>
-                                    <td>${numDisplayer(parseFloat(incomeSum + investSum - billSum - debtSum - taxSum - dailyMoneySpent).toFixed(2))}</td>
-                                </tr>
-                            </tbody>
-                        </Table>
                     </div>
 
                     <div className='chart-container'>
