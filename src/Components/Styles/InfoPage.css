@@ -1,0 +1,43 @@
+* {
+    color: blue;
+}
+
+.all-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+.info-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+.info-div {
+    border: solid black;
+    width: 50%;
+    height: 400px;
+}
+.info-show {
+    border: solid black;
+    width: 50%;
+}
+.current-status {
+    border: solid black;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}

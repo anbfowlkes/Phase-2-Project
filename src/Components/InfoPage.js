@@ -8,6 +8,7 @@ import InvestmentsShow from './InfoDisplays/InvestmentsShow'
 import DebtsShow from './InfoDisplays/DebtsShow'
 import BillsShow from './InfoDisplays/BillsShow'
 import IncomeShow from './InfoDisplays/IncomeShow'
+import './Styles/InfoPage.css'
 
 
 const InfoPage = ({ 
@@ -193,20 +194,30 @@ const InfoPage = ({
     return (
         <div>
             <h1>Welcome to the Information Page</h1>
-            <div className='info-div'>
-                {showItem(displayItem)}
-            </div>
-            <div className='current-status'>
-                <h3>Current Information</h3>
-                {displayValues(displayItem)}
-            </div>
+            <div className='all-info'>
 
-            <div className='info-buttons'>
-                <button onClick={() => setDisplayItem(1)}>Enter your income information</button>
-                <button onClick={() => setDisplayItem(2)}>Enter your investments information</button>
-                <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
-                <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
-                <button onClick={() => setDisplayItem(5)}>Enter your bills</button>
+                <div className='info-buttons'>
+                    <button onClick={() => setDisplayItem(1)}>Enter your income information</button>
+                    <button onClick={() => setDisplayItem(2)}>Enter your investments information</button>
+                    <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
+                    <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
+                    <button onClick={() => setDisplayItem(5)}>Enter your bills</button>
+                </div>
+            
+                <div className='main-section'>
+
+                    <div className='info-div'>
+                        {showItem(displayItem)}
+                    </div>
+
+                    <div className='info-show'>
+                        <div className='current-status'>
+                            <h3>Current Information</h3>
+                            {displayValues(displayItem)}
+                        </div>
+                    </div>
+
+                </div>
             </div>
             
         </div>

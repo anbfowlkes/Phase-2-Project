@@ -2,17 +2,13 @@
     font-family: Verdana;
 }
 
-div {
-    border: solid black;
-}
+
 
 * {
     font-family: Verdana;
 }
 
-div {
-    border: solid black;
-}
+
 
 .chart1 {
     width: 400px;
@@ -92,3 +88,7 @@ div {
     height: 270px;
     text-align: center;
 } */
+
+td {
+    padding: 5px 20px;
+}
