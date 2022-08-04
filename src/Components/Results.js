@@ -271,12 +271,6 @@ const Results = () => {
 
     return (
         <div className='display'>
-<<<<<<< HEAD
-=======
-            {console.log(actualTaxAmount('Single', 100000, 2))
-}
-            <div className='info-display'>
->>>>>>> refs/remotes/origin/main
 
             <div className='totals'>
                 <div className='dynamic-daily-net'>
