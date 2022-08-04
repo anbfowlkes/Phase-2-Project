@@ -16,7 +16,7 @@ const DailyChart = ({ dailyMoneySpent, dailyMoneyAvailable }) => {
         { name: 'Daily Money Spent', value: dailyMoneySpent }
     ];
 
-    const COLORS = ['#118C4F', '#ff0000'];
+    const COLORS = ['#118C4F', 'red'];
 
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {

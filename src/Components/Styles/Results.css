@@ -43,6 +43,23 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 100px;
+    width: 100%;
+    height: 200px;
+}
+
+.boxes {
+    border: none;
+    width: 200px;
+    height: 120px;
+    margin-top: -310px;
+}
+
+#third-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 td {

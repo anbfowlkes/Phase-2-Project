@@ -260,6 +260,14 @@ const Results = () => {
         }
     }
 
+    const showColor = () => {
+        if (parseFloat((dailyMoneySpent).toFixed(2)) < parseFloat((incomeSum + investSum - billSum - debtSum - taxSum) / 365)) {
+            return { backgroundColor: '#118C4F'}
+        } else {
+            return { backgroundColor: 'red'}
+        }
+    }
+
     return (
         <div className='results'>
 
@@ -297,7 +305,7 @@ const Results = () => {
 
 
                         <div className='table-container'>
-                            <h3>Data Table</h3>
+                            <h3>Budget Data Table</h3>
                             <Table striped bordered hover >
                                 <thead>
                                     <tr>
@@ -319,35 +327,56 @@ const Results = () => {
                                     </tr>
                                     <tr>
                                         <td>Bills</td>
-                                        <td>-${numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Debt</td>
-                                        <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Taxes</td>
-                                        <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
+                                        <td>$-{numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Daily Expense</td>
-                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>Daily Expenses</td>
+                                        <td>$-{numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>$-{numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Total Net</td>
                                         <td>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</td>
-                                        <td>${numDisplayer(parseFloat(incomeSum + investSum - billSum - debtSum - taxSum - dailyMoneySpent).toFixed(2))}</td>
+                                        <td>${numDisplayer(parseFloat((incomeSum + investSum - billSum - debtSum - taxSum)/365).toFixed(2))}</td>
                                     </tr>
                                 </tbody>
                             </Table>
                         </div>
                     </div>
 
-                    <div className='chart-container'>
+                    <div id='second-row'>
+                        <div style={showColor()} className='boxes'>
+                            <h5>Daily Money Available</h5>
+                            <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365)).toFixed(2)))}</h2>
+                        </div>
+                        <div style={showColor()} className='boxes'>
+                            <h5>Daily Money Spent</h5>
+                            <h2>${`${ numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}`}</h2>
+                        </div>
+                        <div style={showColor()} className='boxes'>
+                            <h5>Daily Money Left</h5>
+                            <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</h2>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div id='third-row'>
 
                         <div className='gains-chart'>
                             <h3>Yearly Money Gains Chart</h3>

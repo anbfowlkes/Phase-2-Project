@@ -5,7 +5,7 @@ import './Styles/NavBar.css'
 const NavBar = () => {
     return (
         <div className='navbar'>
-            <h1>{'E & A Budgeting'}</h1>
+            <h1 id='website-title'><i>{'E & A Budgeting'}</i></h1>
             <p>{'"A state of the art budgeting system. Made by poor people, for poor people."'}</p>
 
             <ul className='nav-links'>
