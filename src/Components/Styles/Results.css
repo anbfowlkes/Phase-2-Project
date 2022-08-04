@@ -2,15 +2,11 @@
     font-family: Verdana;
 }
 
-
-
-* {
-    font-family: Verdana;
+.daily-chart {
+    float: left;
 }
 
-
-
-.chart1 {
+/* .chart1 {
     width: 400px;
 }
 
@@ -20,7 +16,7 @@
 
 .chart3 {
     width: 400px;
-}
+} */
 
 /* .display {
     display: flex;
