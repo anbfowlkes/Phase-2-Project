@@ -1,8 +1,5 @@
 const InvestmentsInfo = ({ 
-    newInvestments,
-    setNewInvestments,
-    prevInvestments,
-    setPrevInvestments,
+    getInvestments
  }) => {
 
     const handleInvestSubmit = (e) => {
@@ -25,7 +22,7 @@ const InvestmentsInfo = ({
             })
         })
             .then((res) => res.json())
-            .then((newItem) => setNewInvestments([...newInvestments, newItem]))
+            .then((newItem) => getInvestments())
 
     }
 

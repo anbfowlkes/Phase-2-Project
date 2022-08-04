@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import TaxInfo from './Info/TaxInfo'
 import IncomeInfo from './Info/IncomeInfo'
-import DailyExpInfo from './Info/DailyExpInfo'
 import DebtInfo from './Info/DebtInfo'
 import BillsInfo from './Info/BillsInfo'
 import InvestmentsInfo from './Info/InvestmentsInfo'
-import DailyShow from './InfoDisplays/DailyShow'
 import InvestmentsShow from './InfoDisplays/InvestmentsShow'
 import DebtsShow from './InfoDisplays/DebtsShow'
 import BillsShow from './InfoDisplays/BillsShow'
@@ -13,92 +11,93 @@ import IncomeShow from './InfoDisplays/IncomeShow'
 
 
 const InfoPage = ({ 
-    newSpending,
-    setNewSpending,
-    prevSpending,
-    setPrevSpending,
-    newIncome,
-    prevIncome,
-    setPrevIncome,
-    setNewIncome,
-    newTaxes,
-    setNewTaxes,
-    prevTaxes,
-    setPrevTaxes,
-    newDebts,
-    setNewDebts,
-    prevDebts,
-    setPrevDebts,
-    newInvestments,
-    setNewInvestments,
-    prevInvestments,
-    setPrevInvestments,
-    newBills,
-    setNewBills,
-    prevBills,
-    setPrevBills,
-    newTotals,
-    setNewTotals,
-    prevTotals,
-    setPrevTotals,
+    
      } ) => {
 
-    const [displayItem, setDisplayItem] = useState(0)
-    const reloadPage = () => {
-        window.location.reload(false)
-    }
-    let cat = ''
 
+    const [prevIncome, setPrevIncome] = useState([])
+    const [prevTaxes, setPrevTaxes] = useState({})
+    const [prevDebts, setPrevDebts] = useState([])
+    const [prevInvestments, setPrevInvestments] = useState([])
+    const [prevBills, setPrevBills] = useState([])
+
+    
+    
+
+    const getIncome = () => {
+        fetch('http://localhost:8000/income')
+            .then((res) => res.json())
+            .then((data) => setPrevIncome(data))
+    }
+    useEffect(() => {
+        getIncome()
+    }, [])
+
+    const getInvestments = () => {
+        fetch('http://localhost:8000/investments')
+            .then((res) => res.json())
+            .then((data) => setPrevInvestments(data))
+    }
+    useEffect(() => {
+        getInvestments()
+    }, [])
+
+    const getDebt = () => {
+        fetch('http://localhost:8000/debt')
+            .then((res) => res.json())
+            .then((data) => setPrevDebts(data))
+    }
+    useEffect(() => {
+        getDebt()
+    }, [])
+
+    const getTaxes = () => {
+        fetch('http://localhost:8000/taxes')
+            .then((res) => res.json())
+            .then((data) => setPrevTaxes(data))
+    }
+    useEffect(() => {
+        getTaxes()
+    }, [])
+
+    const getBills = () => {
+        fetch('http://localhost:8000/bills')
+            .then((res) => res.json())
+            .then((data) => setPrevBills(data))
+    }
+    useEffect(() => {
+        getBills()
+    }, [])
+
+    const [displayItem, setDisplayItem] = useState(0)
+    
     const showItem = (num) => {
         if (num === 0) {
             return
         } else if (num === 1) {
-            cat = 'Daily'
-            return <DailyExpInfo 
-                newSpending={newSpending}
-                setNewSpending={setNewSpending}
-                prevSpending={prevSpending}
-                setPrevSpending={setPrevSpending}
+            //----'Income'----
+            return <IncomeInfo 
+                getIncome={getIncome}
             />
         } else if (num === 2) {
-            cat = 'income'
-            return <IncomeInfo 
-                newIncome={newIncome}
-                setNewIncome={setNewIncome}
-                prevIncome={prevIncome}
-                setPrevIncome={setPrevIncome}
+            //----'Investments'----
+            return <InvestmentsInfo 
+                getInvestments={getInvestments}
             />
         } else if (num === 3) {
-            cat = 'investments'
-            return <InvestmentsInfo 
-                newInvestments={newInvestments}
-                setNewInvestments={setNewInvestments}
-                prevInvestments={prevInvestments}
-                setPrevInvestments={setPrevInvestments}
+            //----'Debt'----
+            return <DebtInfo 
+                getDebt={getDebt}
             />
         } else if (num === 4) {
-            cat = 'debt'
-            return <DebtInfo 
-                newDebts={newDebts}
-                setNewDebts={setNewDebts}
-                prevDebts={prevDebts}
-                setPrevDebts={setPrevDebts}
-            />
-        } else if (num === 5) {
-            cat = 'taxes'
+            //----'Taxes'----
             return <TaxInfo 
-                newTaxes={newTaxes}
-                setNewTaxes={setNewTaxes}
-                prevTaxes={prevTaxes}
                 setPrevTaxes={setPrevTaxes}
             />
-        } else if (num === 6) {
-            cat = 'bills'
+        } else if (num === 5) {
+            //----'Bills'----
             return <BillsInfo
-               newBills={newBills}
-               setNewBills={setNewBills}
-               prevBills={prevBills}
-               setPrevBills={setPrevBills}
+               getBills={getBills}
                 />
         }
     }
@@ -107,85 +106,60 @@ const InfoPage = ({
         if (num === 0) {
             return
         } else if (num === 1) {
-            cat = 'Daily'
-            let a = 0
-
-
-            let spendingArray = [...prevSpending, ...newSpending]
-            // console.log('Spending Array: ', spendingArray)
-            return (
-                <div>
-                    <h5>(Click to delete)</h5>
-                    <ol>
-                        {spendingArray.map((item) => {
-                            return (<DailyShow 
-                                        id={item.id} 
-                                        key={a++} 
-                                        item={item}
-                                        // setMoneyInArray={setMoneyInArray}
-                                         />)
-                        })}
-                    </ol>
-                </div>
-            )
-        } else if (num === 2) {
-            cat = 'income'
+            //----'Income'----
             let e = 0
-            let incomeArray = [...prevIncome, ...newIncome]
-            console.log('Income Array: ', incomeArray)
             return (
                 <div>
                     <ol>
-                        {incomeArray.map((item) => {
+                        {prevIncome.map((item) => {
                             return (<IncomeShow
                                 item={item}
                                 key={e++}
                                 id={item.id}
+                                getIncome={getIncome}
                             />)
                         })}
                     </ol>
                 </div>
             )
-        } else if (num === 3) {
-            cat = 'investments'
+        } else if (num === 2) {
+            //----'Investments'----
             let b = 0
-            let passiveIncomeArray = [...prevInvestments, ...newInvestments]
-            console.log('Investments: ', passiveIncomeArray)
             return (
                 <div>
                     <ol>
-                        {passiveIncomeArray.map((item) => {
+                        {prevInvestments.map((item) => {
                             return (<InvestmentsShow
                                     item={item}
                                     key={b++}
                                     id={item.id}
+                                    getInvestments={getInvestments}
                                          />)
                         })}
                     </ol>
                 </div>
             )
-        } else if (num === 4) {
-            cat = 'debt'
+        } else if (num === 3) {
+            //----'Debt'----
             let c = 0
-            let moneyOwedArray = [...prevDebts, ...newDebts]
-            console.log('Debts: ', moneyOwedArray)
             return (
                 <div>
                     <ol>
-                        {moneyOwedArray.map((item) => {
+                        {prevDebts.map((item) => {
                             return (
                                 <DebtsShow 
                                 item={item}
                                 id={item.id}
                                 key={c++}
+                                getDebt={getDebt}
                                  />
                             )
                         })}
                     </ol>
                 </div>
             )
-        } else if (num === 5) {
-            cat = 'taxes'
+        } else if (num === 4) {
+            //----'Taxes'----
             let taxSpecifics = prevTaxes
             console.log('Tax Information: ', taxSpecifics)
             return (
@@ -194,20 +168,19 @@ const InfoPage = ({
                     <p>{`Number of Dependents: ${taxSpecifics.dependents}`}</p>
                 </div>
             )
-        } else if (num === 6) {
-            cat = 'bills'
+        } else if (num === 5) {
+            //----'Bills'----
             let d = 0
-            let billsArray = [...prevBills, ...newBills]
             return (
                 <div>
                     <ol>
-                        {billsArray.map((item) => {
+                        {prevBills.map((item) => {
                             return (
                                 <BillsShow 
                                 item={item}
                                 id={item.id}
                                 key={d++}
-                                reloadPage={reloadPage}
+                                getBills={getBills}
                                  />
                             )
                         })}
@@ -229,12 +202,11 @@ const InfoPage = ({
             </div>
 
             <div className='info-buttons'>
-                <button onClick={() => setDisplayItem(1)}>Enter your daily expenditures</button>
-                <button onClick={() => setDisplayItem(2)}>Enter your income information</button>
-                <button onClick={() => setDisplayItem(3)}>Enter your investments information</button>
-                <button onClick={() => setDisplayItem(4)}>Enter your debt information</button>
-                <button onClick={() => setDisplayItem(5)}>Enter your tax information</button>
-                <button onClick={() => setDisplayItem(6)}>Enter your bills</button>
+                <button onClick={() => setDisplayItem(1)}>Enter your income information</button>
+                <button onClick={() => setDisplayItem(2)}>Enter your investments information</button>
+                <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
+                <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
+                <button onClick={() => setDisplayItem(5)}>Enter your bills</button>
             </div>
             
         </div>

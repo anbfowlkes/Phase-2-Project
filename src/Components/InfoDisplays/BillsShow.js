@@ -1,4 +1,4 @@
-const BillsShow = ({ item, id, setRend }) => {
+const BillsShow = ({ item, id, getBills }) => {
     let type = item.billType
     let amount = item.monthlyAmount
 
@@ -7,7 +7,7 @@ const BillsShow = ({ item, id, setRend }) => {
             method: 'DELETE'
         })
             .then((res) => res.json())
-            .then(setRend((prev) => !prev))
+            .then((data) => getBills())
     }
 
     return (

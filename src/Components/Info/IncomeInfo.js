@@ -1,10 +1,7 @@
 import { useEffect } from "react"
 
 const IncomeInfo = ({ 
-    newIncome,
-    setNewIncome,
-    prevIncome,
-    setPrevIncome
+    getIncome
  }) => {
 
 
@@ -23,7 +20,7 @@ const IncomeInfo = ({
     },
     })
     .then((res) => res.json())
-    .then((newItem) => setNewIncome([...newIncome, newItem]))
+    .then((newItem) => getIncome())
    }
   
     return (

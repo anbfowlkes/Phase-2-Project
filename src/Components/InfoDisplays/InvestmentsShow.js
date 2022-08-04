@@ -1,4 +1,4 @@
-const InvestmentsShow = ({item, id}) => {
+const InvestmentsShow = ({item, id, getInvestments}) => {
     let description = item.description
     let amount = item.investmentAmount
     let rate = item.investmentRate
@@ -9,7 +9,7 @@ const InvestmentsShow = ({item, id}) => {
             method: 'DELETE'
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => getInvestments())
     }
     
     return ( 
