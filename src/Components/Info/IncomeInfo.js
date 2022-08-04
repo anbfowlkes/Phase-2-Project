@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import '../Styles/IncomeInfo.css'
 
 const IncomeInfo = ({ 
     getIncome
@@ -25,7 +25,7 @@ const IncomeInfo = ({
   
     return (
         <div>
-            <h3>Enter your income information here {'(including salary, wages and tips'}</h3>
+            <h3>Enter your income information here {'(including salary, wages and tips)'}</h3>
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='Income Source' />
                 <br />

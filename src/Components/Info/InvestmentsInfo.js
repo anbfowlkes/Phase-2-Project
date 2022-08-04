@@ -1,3 +1,5 @@
+import '../Styles/InvestmentsInfo.css'
+
 const InvestmentsInfo = ({ 
     getInvestments
  }) => {

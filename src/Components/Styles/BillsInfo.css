@@ -1,0 +1,30 @@
+.bills-div {
+    border: solid-black;
+    background-color: lightgreen;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top {
+    margin-bottom: 30px
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 21%;
+}
+
+select {
+    width: 80%;
+    margin: 15px 0;
+    border-radius: 8px;
+}

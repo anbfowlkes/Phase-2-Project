@@ -1,9 +1,14 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> c96a04c9407ea046ad3ce2dd6100323672d53d83
 
 .all-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: lightblue;
 }
 
 .main-section {
@@ -22,13 +27,17 @@
     margin-bottom: 50px;
 }
 
+button {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
 
 .info-div {
     border: solid black;
     width: 50%;
     height: 400px;
 }
-
 
 .info-show {
     border: solid black;

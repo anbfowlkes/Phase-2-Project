@@ -1,4 +1,4 @@
-const DebtsShow = ( {item, id, getDebt} ) => {
+const DebtsShow = ({ item, id, getDebt, numDisplayer } ) => {
     let description = item.description
     let amount = item.debtAmount
     let rate = item.debtRate
@@ -15,10 +15,10 @@ const DebtsShow = ( {item, id, getDebt} ) => {
     return (
         <div>
             <li>
-                <p>{`${description}`}</p>
-                <p>{`Amount Owed: ${amount} dollars`}</p>
-                <p>{`Rate of Interest: ${rate*100}%`}</p>
-                <p>{`Loan Term: ${term} years`}</p>
+                <p><u>{`${description}`}</u></p>
+                <p>{'Amount Owed: '}<u>{`$${numDisplayer(amount)}`}</u></p>
+                <p>{'Rate of Interest: '}<u>{`${rate*100}%`}</u></p>
+                <p>{'Loan Term: '}<u>{`${term} Years`}</u></p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>
             <hr></hr>

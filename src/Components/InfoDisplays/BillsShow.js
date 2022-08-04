@@ -1,4 +1,4 @@
-const BillsShow = ({ item, id, getBills }) => {
+const BillsShow = ({ item, id, getBills, numDisplayer }) => {
     let type = item.billType
     let amount = item.monthlyAmount
 
@@ -13,8 +13,8 @@ const BillsShow = ({ item, id, getBills }) => {
     return (
         <div>
             <li>
-                <p>{`${type} Bill`}</p>
-                <p>{`Monthly Amount: ${amount} dollars`}</p>
+                <p><u>{`${type} Bill`}</u></p>
+                <p>{'Monthly Amount: '}<u>{`$${numDisplayer(amount)}`}</u></p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>
             <hr></hr>

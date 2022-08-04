@@ -1,3 +1,5 @@
+import '../Styles/BillsInfo.css'
+
 const BillsInfo = ({
     getBills
 }) => {
@@ -22,8 +24,10 @@ const BillsInfo = ({
     }
 
     return (
-        <div>
-            <h3>Enter your monthly bills here</h3>
+        <div className='bills-div'>
+            <div className='top'>
+                <h3>Enter your monthly bills here</h3>
+            </div>
             <form onSubmit={handleBillSubmit}>
                 <input type='text' placeholder='Bill description' />
                 <br />

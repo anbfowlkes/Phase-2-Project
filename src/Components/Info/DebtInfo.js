@@ -1,3 +1,6 @@
+import '../Styles/DebtInfo.css'
+
+
 const DebtInfo = ({ 
     getDebt
  } ) => {
@@ -26,21 +29,24 @@ const DebtInfo = ({
     }
 
     return (
-        <div>
-            <h3>Enter your investments information here</h3>
-            <form onSubmit={handleDebtSubmit}>
-                <input type='text' placeholder='Debt Description' />
-                <br />
-                <input type='text' placeholder='Amount'/>
-                <br/>
-                <input type='text' placeholder='Interest Rate (in a percentage)'/>
-                <label> % </label>
-                <br/>
-                <input type='text' placeholder='Loan Term (Time to pay off)'/>
-                <label> years </label>
-                <br />
-                <input type='submit' />
-            </form>
+        <div className='debt-form'>
+            <div className='header'>
+                <h3>Enter your debt information here</h3>
+            </div>
+            <div className='form-container'>
+                <form onSubmit={handleDebtSubmit}>
+                    <input type='text' placeholder='Debt Description' />
+                    <br />
+                    <input type='text' placeholder='Amount'/>
+                    <br/>
+                    <input type='text' placeholder='Interest Rate (in a percentage)'/>
+                    {/* <label> % </label> */}
+                    <br/>
+                    <input type='text' placeholder='Loan Term (in years)'/>
+                    <br />
+                    <input type='submit' />
+                </form>
+            </div>
         </div>
     )
 }
