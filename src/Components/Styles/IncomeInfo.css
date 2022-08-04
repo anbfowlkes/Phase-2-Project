@@ -1,0 +1,32 @@
+.debt-form {
+    border: solid-black;
+    background-color: lightgreen;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.header {
+    margin-bottom: 0px
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black;
+}
+
+input[type=text] {
+    width: 150%;
+    margin: 15px 0 15px -40px;
+    border-radius: 8px;
+}
+
+input[type=submit] {
+    width: 100%;
+    border-radius: 8px;
+}

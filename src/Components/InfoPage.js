@@ -103,6 +103,39 @@ const InfoPage = ({
         }
     }
 
+    const numDisplayer = (number) => {
+        if (Math.floor(number) != number) {
+            let x = number.toString()
+            let numArr = x.split('')
+            let len = numArr.length
+            for (let pos = numArr.length - 4; pos > 0; pos--) {
+                if ((len - pos) % 3 == 0 && len - pos != 0) {
+                    numArr.splice(pos, 0, ',')
+                }
+            }
+            let numWithCommas = ""
+            for (let i = 0; i < numArr.length; i++) {
+                numWithCommas += numArr[i]
+            }
+            return numWithCommas
+        } else if (Math.floor(number) == number) {
+            let x = number.toString()
+            let numArr = x.split('')
+            let len = numArr.length
+            for (let pos = numArr.length; pos > 0; pos--) {
+                if ((len - pos) % 3 == 0 && len - pos != 0) {
+                    numArr.splice(pos, 0, ',')
+                }
+            }
+            let numWithCommas = ""
+            for (let i = 0; i < numArr.length; i++) {
+                numWithCommas += numArr[i]
+            }
+            numWithCommas = numWithCommas + '.00'
+            return numWithCommas
+        }
+    }
+
     const displayValues = (num) => {
         if (num === 0) {
             return
@@ -111,6 +144,7 @@ const InfoPage = ({
             let e = 0
             return (
                 <div>
+                    <h3>Current Information</h3>
                     <ol>
                         {prevIncome.map((item) => {
                             return (<IncomeShow
@@ -118,6 +152,7 @@ const InfoPage = ({
                                 key={e++}
                                 id={item.id}
                                 getIncome={getIncome}
+                                numDisplayer={numDisplayer}
                             />)
                         })}
                     </ol>
@@ -128,6 +163,7 @@ const InfoPage = ({
             let b = 0
             return (
                 <div>
+                    <h3>Current Information</h3>
                     <ol>
                         {prevInvestments.map((item) => {
                             return (<InvestmentsShow
@@ -135,6 +171,7 @@ const InfoPage = ({
                                     key={b++}
                                     id={item.id}
                                     getInvestments={getInvestments}
+                                    numDisplayer={numDisplayer}
                                          />)
                         })}
                     </ol>
@@ -145,6 +182,7 @@ const InfoPage = ({
             let c = 0
             return (
                 <div>
+                    <h3>Current Information</h3>
                     <ol>
                         {prevDebts.map((item) => {
                             return (
@@ -153,6 +191,7 @@ const InfoPage = ({
                                 id={item.id}
                                 key={c++}
                                 getDebt={getDebt}
+                                numDisplayer={numDisplayer}
                                  />
                             )
                         })}
@@ -165,8 +204,9 @@ const InfoPage = ({
             console.log('Tax Information: ', taxSpecifics)
             return (
                 <div>
-                    <p>{`Relationship Status:   ${taxSpecifics.relStatus}`}</p>
-                    <p>{`Number of Dependents: ${taxSpecifics.dependents}`}</p>
+                    <h3>Current Information</h3>
+                    <p>{'Relationship Status: '}<u>{`${taxSpecifics.relStatus}`}</u></p>
+                    <p>{'Number of Dependents: '}<u>{`${taxSpecifics.dependents}`}</u></p>
                 </div>
             )
         } else if (num === 5) {
@@ -174,6 +214,7 @@ const InfoPage = ({
             let d = 0
             return (
                 <div>
+                    <h3>Current Information</h3>
                     <ol>
                         {prevBills.map((item) => {
                             return (
@@ -182,6 +223,7 @@ const InfoPage = ({
                                 id={item.id}
                                 key={d++}
                                 getBills={getBills}
+                                numDisplayer={numDisplayer}
                                  />
                             )
                         })}
@@ -201,7 +243,7 @@ const InfoPage = ({
                     <button onClick={() => setDisplayItem(2)}>Enter your investments information</button>
                     <button onClick={() => setDisplayItem(3)}>Enter your debt information</button>
                     <button onClick={() => setDisplayItem(4)}>Enter your tax information</button>
-                    <button onClick={() => setDisplayItem(5)}>Enter your bills</button>
+                    <button onClick={() => setDisplayItem(5)}>Enter your bills information</button>
                 </div>
             
                 <div className='main-section'>
@@ -212,7 +254,6 @@ const InfoPage = ({
 
                     <div className='info-show'>
                         <div className='current-status'>
-                            <h3>Current Information</h3>
                             {displayValues(displayItem)}
                         </div>
                     </div>
