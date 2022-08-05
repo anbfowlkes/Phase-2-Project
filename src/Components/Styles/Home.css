@@ -1,7 +1,59 @@
 #welcome {
-    margin-top: 40px;
+    margin-top: 20px;
+    animation: fadeIn 4s;
+    font-size: 70px;
+}
+
+
+#best {
+    padding-top: -20px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 #the-image {
-    width: 1000px;
+    margin-top: 20px;
+    padding-top: 50px;
+    width: 800px;
+    padding-bottom: 100px;
+}
+
+.bg {
+    background-color: lightblue;
+}
+
+#testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 100px;
+}
+
+.t-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.t-description {
+    font-size: 25px;
+    width: 400px;
+}
+
+
+
+.pictures {
+    width: 400px;
 }

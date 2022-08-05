@@ -17,7 +17,7 @@ const BillsShow = ({ item, id, getBills, numDisplayer }) => {
                 <p>{'Monthly Amount: '}<u>{`$${numDisplayer(amount)}`}</u></p>
                 <button onClick={handleClick}>Click to delete</button>
             </li>
-            <hr></hr>
+            <hr style={{border: '2px solid black'}}></hr>
         </div>
     )
 }

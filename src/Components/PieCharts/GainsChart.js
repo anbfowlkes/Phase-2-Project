@@ -16,7 +16,7 @@ const GainsChart = ({ incomeSum, investSum }) => {
         { name: 'Yearly Investments', value: investSum }
     ];
 
-    const COLORS = ['#E38627', '#C13C37'];
+    const COLORS = ['#C13C37', '#E38627'];
 
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {

@@ -28,6 +28,8 @@ const DebtInfo = ({
 
     }
 
+    let w = '350px'
+
     return (
         <div className='debt-form'>
             <div className='debt-header'>
@@ -35,14 +37,14 @@ const DebtInfo = ({
             </div>
             <div className='debt-form-container'>
                 <form onSubmit={handleDebtSubmit}>
-                    <input type='text' placeholder='Debt Description' />
+                    <input style={{ width: w }} type='text' placeholder='Debt Description' />
                     <br />
-                    <input type='text' placeholder='Amount'/>
+                    <input style={{ width: w }} type='text' placeholder='Amount'/>
                     <br/>
-                    <input type='text' placeholder='Interest Rate (in a percentage)'/>
+                    <input style={{ width: w }} type='text' placeholder='Interest Rate (in a percentage)'/>
                     {/* <label> % </label> */}
                     <br/>
-                    <input type='text' placeholder='Loan Term (in years)'/>
+                    <input style={{ width: w }} type='text' placeholder='Loan Term (in years)'/>
                     <br />
                     <input id='debt-submit' type='submit' />
                 </form>

@@ -23,6 +23,8 @@ const IncomeInfo = ({
     .then((newItem) => getIncome())
    }
   
+   let w = '350px'
+
     return (
         <div className='income-form'>
             <div id='income-header'>
@@ -31,9 +33,9 @@ const IncomeInfo = ({
             </div>
             <div className='form-containing'>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' placeholder='Income Source' />
+                    <input style={{ width: w }} type='text' placeholder='Income Source' />
                     <br />
-                    <input type='text' placeholder='Amount'/>
+                    <input style={{ width: w }} type='text' placeholder='Amount'/>
                     <br />
                     <input id='income-submit'type='submit' value='Submit' />
             </form>

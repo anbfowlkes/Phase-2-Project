@@ -40,7 +40,7 @@ const InvestmentsInfo = ({
                     <br />
                     <input type='text' placeholder='Amount' />
                     <br />
-                    <input type='text' placeholder='Annual Interest Rate' />
+                    <input type='text' placeholder='Annual Interest Rate (in a percentage)' />
                     <br />
                     <label htmlFor='compound'>Choose your compound interest: </label>
 

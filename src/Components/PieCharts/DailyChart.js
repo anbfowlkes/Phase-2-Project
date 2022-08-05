@@ -43,7 +43,7 @@ const DailyChart = ({ dailyMoneySpent, dailyMoneyAvailable }) => {
                                 <Pie
                                     data={data}
                                     cx="49%"
-                                    cy="47%"
+                                    cy="41%"
                                     labelLine={false}
                                     label={renderCustomizedLabel}
                                     outerRadius={200}

@@ -18,7 +18,7 @@ const LossesChart = ({ debtSum, taxSum, billSum }) => {
     ];
 
 
-    const COLORS = ['#E38627', '#C13C37', '#6A2135'];
+    const COLORS = ['#C13C37', '#E38627', '#6A2135'];
 
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {

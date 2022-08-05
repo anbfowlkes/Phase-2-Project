@@ -25,7 +25,7 @@ const TaxInfo = ({
   }
 
   return (
-    <div className='tax-form'>
+    <div style={{width: '500px'}} className='tax-form'>
       <div className='tax-header'>
         <h3>Enter your tax information here</h3>
       </div>

@@ -1,15 +1,28 @@
 .tax-form {
-    border: solid-black;
-    background-color: lightgreen;
-    padding-bottom: 20px;
+    background-color: #848884;
+    /* padding-bottom: 20px; */
+    padding: 0 40px 20px 40px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    color: black;
+    box-shadow: 10px 10px 5px;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .tax-header {
-    margin-bottom: -10px
+    margin-bottom: -10px;
 }
 
 .tax-form-container {
@@ -27,4 +40,10 @@ select {
 
 #tax-submit-button {
     width: 100px;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+#tax-submit-button:hover {
+    cursor: pointer;
 }

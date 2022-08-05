@@ -280,7 +280,7 @@ const Results = () => {
     return (
         <div className='results'>
 
-            <h1>See Your Results</h1>
+            <h1 id='title'>See Your Results</h1>
             
             <div className='div-container'>
 
@@ -322,17 +322,17 @@ const Results = () => {
                                     <tr>
                                         <td>Taxes:</td>
                                         <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
+                                        <td>-${numDisplayer(parseFloat(taxSum.toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Daily Expenses:</td>
                                         <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2))*365)}</td>
                                     </tr>
                                     <tr>
                                         <td>Total Net:</td>
                                         <td>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</td>
-                                        <td>${numDisplayer(parseFloat((incomeSum + investSum - billSum - debtSum - taxSum)/365).toFixed(2))}</td>
+                                        <td>${numDisplayer(parseFloat((incomeSum + investSum - billSum - debtSum - taxSum/365).toFixed(2)))}</td>
                                     </tr>
                                 </tbody>
                             </Table>
@@ -352,6 +352,7 @@ const Results = () => {
                                     <br />
                                     <input id='submitter' type='submit' value='Submit' />
                                 </form>
+                                <p>*Check your daily expenditures below</p>
                             </div>
 
                     </div>

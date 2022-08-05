@@ -1,53 +1,9 @@
 {
-  "daily": [
-    {
-      "dailyItem": "Lunch",
-      "dailyCost": 15,
-      "id": 2
-    }
-  ],
-  "investments": [
-    {
-      "description": "No Investments",
-      "investmentAmount": 0,
-      "investmentRate": 0,
-      "investmentCompound": "Continuous (recommended)",
-      "id": 1
-    }
-  ],
-  "debt": [
-    {
-      "description": "Student Loans",
-      "debtAmount": 15000,
-      "debtRate": 0.045,
-      "debtTerm": 4,
-      "id": 1
-    }
-  ],
-  "income": [
-    {
-      "description": "Salary",
-      "incomeAmount": 80000,
-      "id": 2
-    }
-  ],
-  "bills": [
-    {
-      "billType": "Rent",
-      "monthlyAmount": 1800,
-      "id": 1
-    },
-    {
-      "billType": "MTA Card",
-      "monthlyAmount": 128,
-      "id": 2
-    },
-    {
-      "billType": "Non Food Products",
-      "monthlyAmount": 300,
-      "id": 3
-    }
-  ],
+  "daily": [],
+  "investments": [],
+  "debt": [],
+  "income": [],
+  "bills": [],
   "taxes": {
     "id": 1,
     "relStatus": "Single",

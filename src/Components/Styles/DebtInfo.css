@@ -1,16 +1,29 @@
 .debt-form {
-    border: solid-black;
-    background-color: lightgreen;
+    background-color: #848884;
     padding-bottom: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 400px;
+    color: color;
+    width: 500px;
+    box-shadow: 10px 10px 5px;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .debt-header {
     margin-bottom: -10px;
+    padding: 0 40px;
 }
 
 .debt-form-container {
@@ -20,13 +33,10 @@
     align-items: center;
 }
 
-input[type=text] {
-    width: 500px;
-    margin: 15px 0 15px -40px;
-    border-radius: 8px;
-}
-
-
 #debt-submit {
     width: 100px;
+}
+
+#debt-submit:hover {
+    cursor: pointer;
 }

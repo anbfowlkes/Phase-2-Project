@@ -235,15 +235,15 @@ const InfoPage = ({
     
     return (
         <div id='actually-all-info'>
-            <h1>Welcome to the Information Page</h1>
+            <h1 id='title'>Information Page</h1>
             <div className='all-info'>
 
                 <div className='info-buttons'>
-                    <button className='info-buttons' onClick={() => setDisplayItem(1)}>Enter your Income Information</button>
-                    <button className='info-buttons' onClick={() => setDisplayItem(2)}>Enter your Investments Information</button>
-                    <button className='info-buttons' onClick={() => setDisplayItem(3)}>Enter your Debt Information</button>
-                    <button className='info-buttons' onClick={() => setDisplayItem(4)}>Enter your Tax Information</button>
-                    <button className='info-buttons' onClick={() => setDisplayItem(5)}>Enter your Bills Information</button>
+                    <button id='button1' className='info-buttons' onClick={() => setDisplayItem(1)}>Enter your Income Information</button>
+                    <button id='button2' className='info-buttons' onClick={() => setDisplayItem(2)}>Enter your Investments Information</button>
+                    <button id='button3' className='info-buttons' onClick={() => setDisplayItem(3)}>Enter your Debt Information</button>
+                    <button id='button4' className='info-buttons' onClick={() => setDisplayItem(4)}>Enter your Tax Information</button>
+                    <button id='button5' className='info-buttons' onClick={() => setDisplayItem(5)}>Enter your Bills Information</button>
                 </div>
             
                 <div className='main-section'>
@@ -252,7 +252,7 @@ const InfoPage = ({
                         {showItem(displayItem)}
                     </div>
 
-                    <div className='info-show'>
+                    <div style={{width: '700px'}} className='info-show'>
                         <div className='current-status'>
                             {displayValues(displayItem)}
                         </div>

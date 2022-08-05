@@ -2,6 +2,23 @@
     font-family: Verdana;
 }
 
+#title {
+    font-size: 50px;
+    animation: fadeIn 4s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 .daily-form {
     width: 400px;
     float: left;
@@ -18,6 +35,10 @@
 #submitter {
     margin-top: 5px;
     width: 100px; 
+}
+
+#submitter:hover {
+    cursor: pointer;
 }
 
 .table-container {
