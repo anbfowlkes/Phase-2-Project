@@ -21,15 +21,11 @@
 }
 
 input[type=text] {
-    width: 150%;
+    width: 500px;
     margin: 15px 0 15px -40px;
     border-radius: 8px;
 }
 
-input[type=submit] {
-    width: 100%;
-    border-radius: 8px;
-}
 
 #debt-submit {
     width: 100px;

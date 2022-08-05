@@ -12,9 +12,9 @@ import '../Styles/Results.css'
 const LossesChart = ({ debtSum, taxSum, billSum }) => {
 
     const data = [
-        { name: 'Yearly Debt Percentage', value: debtSum },
-        { name: 'Yearly Tax Percentage', value: taxSum },
-        { name: 'Yearly Bill Percentage', value: billSum }
+        { name: 'Yearly Debt', value: debtSum },
+        { name: 'Yearly Taxes', value: taxSum },
+        { name: 'Yearly Bills', value: billSum }
     ];
 
 

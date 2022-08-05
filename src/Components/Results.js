@@ -288,26 +288,8 @@ const Results = () => {
 
                         <div id='top-three'>
 
-                            <div className='daily-form'>
-                                <h4 id='head'>Daily Expense Today</h4>
-                                <form onSubmit={handleDailySubmit}>
-                                    <input type='text' placeholder='Item' />
-                                    <br />
-                                    <input type='text' placeholder='Cost' />
-                                    <br />
-                                    <input id='submitter' type='submit' value='Submit' />
-                                </form>
-                            </div>
-
-
-                            <div className='daily-chart'>
-                                <h2>Today's Spending Chart</h2>
-                                <DailyChart dailyMoneySpent={dailyMoneySpent} dailyMoneyAvailable={dailyMoneyAvailable} />
-                            </div>
-
-
                         <div className='table-container'>
-                            <h3>Budget Data Table</h3>
+                            <h3><u>Budget Data:</u></h3>
                             <Table striped bordered hover >
                                 <thead>
                                     <tr>
@@ -318,43 +300,60 @@ const Results = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Income</td>
+                                        <td>Income:</td>
                                         <td>${numDisplayer(parseFloat((incomeSum / 365).toFixed(2)))}</td>
                                         <td>${numDisplayer(parseFloat(incomeSum.toFixed(2)))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Investments</td>
+                                        <td>Investments:</td>
                                         <td>${numDisplayer(parseFloat((investSum / 365).toFixed(2)))}</td>
                                         <td>${numDisplayer(parseInt((investSum).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Bills</td>
+                                        <td>Bills:</td>
                                         <td>-${numDisplayer(parseFloat((billSum / 365).toFixed(2)))}</td>
                                         <td>-${numDisplayer(parseFloat(billSum.toFixed(2)))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Debt</td>
+                                        <td>Debt:</td>
                                         <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
                                         <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Taxes</td>
+                                        <td>Taxes:</td>
                                         <td>-${numDisplayer(parseFloat((taxSum / 365).toFixed(2)))}</td>
                                         <td>-${numDisplayer(parseFloat(taxSum).toFixed(2))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Daily Expenses</td>
+                                        <td>Daily Expenses:</td>
                                         <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
                                         <td>-${numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
-                                        <td>Total Net</td>
+                                        <td>Total Net:</td>
                                         <td>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</td>
                                         <td>${numDisplayer(parseFloat((incomeSum + investSum - billSum - debtSum - taxSum)/365).toFixed(2))}</td>
                                     </tr>
                                 </tbody>
                             </Table>
                         </div>
+
+                        <div className='daily-chart'>
+                                <h2>Today's Spending:</h2>
+                                <DailyChart dailyMoneySpent={dailyMoneySpent} dailyMoneyAvailable={dailyMoneyAvailable} />
+                            </div>
+
+                        <div className='daily-form'>
+                                <h4 id='head'><u>{"Today's Daily Expense:"}</u></h4>
+                                <form onSubmit={handleDailySubmit}>
+                                    <input type='text' placeholder='Item' />
+                                    <br />
+                                    <input type='text' placeholder='Cost' />
+                                    <br />
+                                    <input id='submitter' type='submit' value='Submit' />
+                                </form>
+                            </div>
+
                     </div>
 
                     <div id='second-row'>
@@ -363,15 +362,14 @@ const Results = () => {
                             <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365)).toFixed(2)))}</h2>
                         </div>
                         <div style={showColor()} className='boxes'>
-                            <h5>Daily Money Left</h5>
-                            <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</h2>
-                        </div>
-                        <div style={showColor()} className='boxes'>
                             <h5>Daily Money Spent</h5>
                             <h2>${`${ numDisplayer(parseFloat((dailyMoneySpent).toFixed(2)))}`}</h2>
                         </div>
+                        <div style={showColor()} className='boxes'>
+                            <h5>Daily Money Left</h5>
+                            <h2>${numDisplayer(parseFloat((((incomeSum + investSum - billSum - debtSum - taxSum) / 365) - dailyMoneySpent).toFixed(2)))}</h2>
+                        </div>
                     </div>
-
 
 
 
@@ -396,6 +394,7 @@ const Results = () => {
 
                 <div id='list-container'>
                     <div id='list-div'>
+                        <h4><u>{'Your Daily Expenditures:'}</u></h4>
                         <ol>
                             {dailyArr.map((item) => {
                                 return (

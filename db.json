@@ -1,91 +1,56 @@
 {
   "daily": [
     {
-      "dailyItem": "",
-      "dailyCost": -10,
-      "id": 6
-    },
-    {
-      "dailyItem": "food",
-      "dailyCost": 4,
-      "id": 7
-    },
-    {
-      "dailyItem": "food",
-      "dailyCost": 4,
-      "id": 8
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 4,
-      "id": 9
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": 4,
-      "id": 10
-    },
-    {
-      "dailyItem": "",
-      "dailyCost": -40,
-      "id": 11
+      "dailyItem": "Lunch",
+      "dailyCost": 15,
+      "id": 2
     }
   ],
   "investments": [
     {
-      "description": "Thing 1",
-      "investmentAmount": 100,
-      "investmentRate": 0.03,
+      "description": "No Investments",
+      "investmentAmount": 0,
+      "investmentRate": 0,
       "investmentCompound": "Continuous (recommended)",
       "id": 1
     }
   ],
   "debt": [
     {
-      "description": "asdf",
-      "debtAmount": 235,
-      "debtRate": 2.35,
-      "debtTerm": 23,
-      "id": 3
+      "description": "Student Loans",
+      "debtAmount": 15000,
+      "debtRate": 0.045,
+      "debtTerm": 4,
+      "id": 1
     }
   ],
   "income": [
     {
-      "description": "Thing 1",
-      "incomeAmount": 45,
-      "id": 1
-    },
-    {
-      "description": "sfg",
+      "description": "Salary",
       "incomeAmount": 80000,
       "id": 2
     }
   ],
   "bills": [
     {
-      "billType": "rent",
-      "monthlyAmount": 2000,
+      "billType": "Rent",
+      "monthlyAmount": 1800,
       "id": 1
     },
     {
-      "billType": "Electricity",
-      "monthlyAmount": 100,
+      "billType": "MTA Card",
+      "monthlyAmount": 128,
       "id": 2
     },
     {
-      "billType": "Food",
-      "monthlyAmount": 350,
+      "billType": "Non Food Products",
+      "monthlyAmount": 300,
       "id": 3
-    },
-    {
-      "billType": "test",
-      "monthlyAmount": 1000,
-      "id": 4
     }
   ],
   "taxes": {
     "id": 1,
     "relStatus": "Single",
-    "dependents": 2
+    "dependents": 0
   }
 }

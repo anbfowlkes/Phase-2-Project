@@ -3,6 +3,18 @@
     text-align: center;
 }
 
+.navbar {
+    margin-top: 0;
+}
+
+#website-title {
+    padding-bottom: -20px;
+}
+
+#quote {
+    margin-top: 5px;
+}
+
 .nav-links {
     display: flex;
     flex-direction: row;
@@ -10,10 +22,20 @@
     justify-content: center;
     list-style: none;
     font-size: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    background-color: aqua;
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+nav-links:hover {
+    background-color: crimson;
 }
 
 a {
-    color: forestgreen;
+    color: red;
 }
 
 #website-title {

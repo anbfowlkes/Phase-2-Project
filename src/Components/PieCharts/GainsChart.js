@@ -12,8 +12,8 @@ import '../Styles/Results.css'
 const GainsChart = ({ incomeSum, investSum }) => {
 
     const data = [
-        { name: 'Yearly Income Percentage', value: incomeSum },
-        { name: 'Yearly Investments Percentage', value: investSum }
+        { name: 'Yearly Income', value: incomeSum },
+        { name: 'Yearly Investments', value: investSum }
     ];
 
     const COLORS = ['#E38627', '#C13C37'];

@@ -6,7 +6,10 @@ const NavBar = () => {
     return (
         <div className='navbar'>
             <h1 id='website-title'><i>{'E & A Budgeting'}</i></h1>
-            <p>{'"A state of the art budgeting system. Made by poor people, for poor people."'}</p>
+
+            <img src='src/Images/LogoThree.PNG' />
+
+            <p id='quote'>{'"A state of the art budgeting system. Made by poor people, for poor people."'}</p>
 
             <ul className='nav-links'>
                 <div className='nav-links'>
@@ -27,6 +30,7 @@ const NavBar = () => {
                     </li>
                 </div>
             </ul>
+            <hr></hr>
         </div>
     )
 }
