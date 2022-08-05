@@ -7,7 +7,7 @@ const NavBar = () => {
         <div className='navbar'>
             <h1 id='website-title'><i>{'E & A Budgeting'}</i></h1>
 
-            <img src='src/Images/LogoThree.PNG' />
+            <img src='../Images/LogoThree.PNG' alt='' title='' />
 
             <p id='quote'>{'"A state of the art budgeting system. Made by poor people, for poor people."'}</p>
 
