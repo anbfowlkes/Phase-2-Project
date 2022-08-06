@@ -12,7 +12,7 @@ const NavBar = () => {
 
             <img src='../Images/LogoThree.PNG' alt='' title='' />
 
-            <p id='quote'>{'"A state of the art budgeting system. Made by poor people, for poor people."'}</p>
+            <p id='quote'>{''}</p>
 
             <ul className='nav-links'>
                 <div className='nav-links'>

@@ -36,6 +36,10 @@ const Results = () => {
     // function to calculate debt growth 
     // https://www.calculatorsoup.com/calculators/financial/loan-calculator.php
     const debtCalculator = (amount, rate, term) => {
+        let i = rate/12
+        let x = (amount * (i))/(1-(1/(1+i)**(term*12)))
+        return x
+
         return (((rate / 12) * amount) / (1 - (1 / (1 + (rate / 12)) ** (term * 12))))
     }
 
@@ -177,7 +181,7 @@ const Results = () => {
 
     // iterate debt array to find sum
     for (const elem of debtArr) {
-        let debtResult = debtCalculator(elem.debtAmount, elem.debtRate, elem.debtTerm) + elem.debtAmount
+        let debtResult = debtCalculator(elem.debtAmount, elem.debtRate, elem.debtTerm) //+ elem.debtAmount
         debtSum += debtResult
     }
 
@@ -230,16 +234,14 @@ const Results = () => {
 
     // function to add commas to numbers
     const numDisplayer = (number) => {
-        if (number < 0) {
-            return number
-        }
-        if (Math.floor(number) != number) {
+        if (Math.floor(number) != number) {        
             let x = number.toString()
             let numArr = x.split('')
             console.log(numArr)
             let len = numArr.length
-            for (let pos = numArr.length - 4; pos > 0; pos--) {
-                if ((len - pos) % 3 == 0 && len - pos != 0) {
+            let a = numArr.indexOf('.')
+            for (let pos = a - 1; pos > 0; pos--) {
+                if ((a - pos) % 3 == 0 && len - pos != 0) {
                     numArr.splice(pos, 0, ',')
                 }
             }
@@ -316,8 +318,8 @@ const Results = () => {
                                     </tr>
                                     <tr>
                                         <td>Debt:</td>
-                                        <td>-${numDisplayer(parseFloat((debtSum / 365).toFixed(2)))}</td>
-                                        <td>-${numDisplayer(parseFloat((debtSum).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum*(12/365)).toFixed(2)))}</td>
+                                        <td>-${numDisplayer(parseFloat((debtSum*12).toFixed(2)))}</td>
                                     </tr>
                                     <tr>
                                         <td>Taxes:</td>

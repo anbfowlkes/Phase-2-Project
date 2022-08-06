@@ -1,9 +1,52 @@
 {
   "daily": [],
-  "investments": [],
-  "debt": [],
-  "income": [],
-  "bills": [],
+  "investments": [
+    {
+      "description": "Stocks",
+      "investmentAmount": 1000,
+      "investmentRate": 0.04,
+      "investmentCompound": "Continuous (recommended)",
+      "id": 1
+    }
+  ],
+  "debt": [
+    {
+      "description": "Loan",
+      "debtAmount": 10000,
+      "debtRate": 0.04,
+      "debtTerm": 10,
+      "id": 1
+    }
+  ],
+  "income": [
+    {
+      "description": "Salary",
+      "incomeAmount": 64521,
+      "id": 1
+    }
+  ],
+  "bills": [
+    {
+      "billType": "Rent",
+      "monthlyAmount": 1800,
+      "id": 1
+    },
+    {
+      "billType": "None Food Items",
+      "monthlyAmount": 200,
+      "id": 2
+    },
+    {
+      "billType": "Wifi",
+      "monthlyAmount": 50,
+      "id": 3
+    },
+    {
+      "billType": "Spotify",
+      "monthlyAmount": 15,
+      "id": 4
+    }
+  ],
   "taxes": {
     "id": 1,
     "relStatus": "Single",
